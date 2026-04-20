@@ -1,0 +1,20 @@
+{
+  "name": "la-internacional-crm",
+  "version": "0.1.0",
+  "private": true,
+  "description": "CRM paralelo de La Internacional. Frontend Vite+React+Ionic, backend NestJS (gateway + 7 servicios).",
+  "workspaces": [
+    "apps/frontend"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace apps/frontend",
+    "dev:fe": "npm run dev --workspace apps/frontend",
+    "build:fe": "npm run build --workspace apps/frontend",
+    "lint:fe": "npm run lint --workspace apps/frontend",
+    "install:be": "npm --prefix apps/backend install",
+    "dev:be:gateway": "npm --prefix apps/backend run start:gateway"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

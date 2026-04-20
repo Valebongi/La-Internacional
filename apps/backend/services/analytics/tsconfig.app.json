@@ -1,0 +1,8 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../dist/services/analytics"
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
+}
