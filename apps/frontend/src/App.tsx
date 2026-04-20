@@ -38,7 +38,9 @@ function ProtectedRoutes() {
         <Route exact path="/templates" component={TemplatesPage} />
         <Route exact path="/templates/new" component={TemplateNewPage} />
         <Route exact path="/templates/:id" component={TemplateDetailPage} />
-        <Route exact path="/postsale" component={PostsalePage} />
+        <Route exact path="/postsale">
+          {admin ? <PostsalePage /> : <Redirect to="/inbox" />}
+        </Route>
         <Route exact path="/analytics">
           {admin ? <AnalyticsPage /> : <Redirect to="/inbox" />}
         </Route>

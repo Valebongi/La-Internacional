@@ -22,6 +22,7 @@ import { usePricingStore, formatARS } from '@/stores/pricing.store';
 import { cashOutline } from 'ionicons/icons';
 import { useAuth } from '@/lib/auth-context';
 import { useAuditStore } from '@/stores/audit.store';
+import { useTemplateMetaStore, type TemplateUse } from '@/stores/template-meta.store';
 
 const LANGUAGES = [
   { code: 'es_AR', label: 'Español (Argentina)' },
@@ -54,6 +55,7 @@ export default function TemplateNewPage() {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const { user } = useAuth();
   const recordTemplateCreation = useAuditStore((s) => s.recordTemplateCreation);
+  const setMetaUse = useTemplateMetaStore((s) => s.setUse);
 
   // Form state
   const [name, setName] = useState('');
@@ -67,6 +69,7 @@ export default function TemplateNewPage() {
   const [body, setBody] = useState('Hola {{1}}! 💜 Tenemos la lista nueva de {{2}} disponible.');
   const [footer, setFooter] = useState('');
   const [examples, setExamples] = useState<string[]>(['Lucía', 'fulvic']);
+  const [templateUse, setTemplateUse] = useState<TemplateUse>('ambas');
   const [submitting, setSubmitting] = useState(false);
   const [uploadingImage, setUploadingImage] = useState(false);
   const [result, setResult] = useState<{ ok: boolean; message: string; id?: string } | null>(null);
@@ -186,6 +189,7 @@ export default function TemplateNewPage() {
       // 3) Crear plantilla
       const res = await templatesService.create(payload);
       if (user) recordTemplateCreation(name, user.id);
+      setMetaUse(name, templateUse);
       setResult({
         ok: true,
         message: `Plantilla enviada. Estado inicial: ${res.status}. Meta la revisa en minutos.`,
@@ -249,6 +253,31 @@ export default function TemplateNewPage() {
               ))}
             </div>
             <CostPerMessageCard category={category} />
+          </div>
+
+          <div>
+            <label className="lid-label">¿Para qué se usa?</label>
+            <div className="lid-grid lid-grid-3">
+              {([
+                { v: 'broadcast', label: 'Difusión',   desc: 'Envíos masivos a listas' },
+                { v: 'postsale',  label: 'Post-Venta', desc: 'Secuencias de seguimiento' },
+                { v: 'ambas',     label: 'Ambas',      desc: 'Sin restricción de uso' },
+              ] as const).map((opt) => (
+                <button
+                  key={opt.v}
+                  type="button"
+                  onClick={() => setTemplateUse(opt.v)}
+                  className={`lid-card ${templateUse === opt.v ? 'lid-card-feature' : ''}`}
+                  style={{
+                    padding: 14, textAlign: 'left', cursor: 'pointer',
+                    borderColor: templateUse === opt.v ? 'var(--lid-violet-400)' : undefined,
+                  }}
+                >
+                  <strong style={{ fontSize: 13 }}>{opt.label}</strong>
+                  <div className="lid-muted" style={{ fontSize: 11, marginTop: 4 }}>{opt.desc}</div>
+                </button>
+              ))}
+            </div>
           </div>
 
           <div>

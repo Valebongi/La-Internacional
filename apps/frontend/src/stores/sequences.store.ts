@@ -50,6 +50,7 @@ interface SequencesState {
   create(input: Omit<Sequence, 'id' | 'createdAt' | 'sentThisMonth'>): Sequence;
   toggleActive(id: string): void;
   remove(id: string): void;
+  incrementSent(id: string, count: number): void;
 }
 
 const rid = () => 'seq_' + Math.random().toString(36).slice(2, 10) + Date.now().toString(36);
@@ -75,6 +76,11 @@ export const useSequencesStore = create<SequencesState>()(
       },
       remove(id) {
         set((state) => ({ sequences: state.sequences.filter((s) => s.id !== id) }));
+      },
+      incrementSent(id, count) {
+        set((state) => ({
+          sequences: state.sequences.map((s) => s.id === id ? { ...s, sentThisMonth: s.sentThisMonth + count } : s),
+        }));
       },
     }),
     { name: 'lid-sequences-store', version: 1 },

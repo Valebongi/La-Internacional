@@ -26,9 +26,18 @@ import { usePricingStore, formatARS } from '@/stores/pricing.store';
 import { cashOutline } from 'ionicons/icons';
 import { useAuditStore } from '@/stores/audit.store';
 import { useUsersStore } from '@/stores/users.store';
+import { useTemplateMetaStore, type TemplateUse } from '@/stores/template-meta.store';
 
 type FilterId = 'all' | TemplateCategory;
 type StatusFilterId = 'all' | 'APPROVED' | 'PENDING' | 'REJECTED' | 'PAUSED';
+type UseFilterId = 'all' | TemplateUse;
+
+const USE_FILTERS: { id: UseFilterId; label: string }[] = [
+  { id: 'all',       label: 'Todos los usos' },
+  { id: 'broadcast', label: 'Difusión' },
+  { id: 'postsale',  label: 'Post-Venta' },
+  { id: 'ambas',     label: 'Ambas' },
+];
 
 const FILTERS: { id: FilterId; label: string }[] = [
   { id: 'all', label: 'Todas' },
@@ -52,6 +61,8 @@ export default function TemplatesPage() {
   const [error, setError] = useState<string | null>(null);
   const [filter, setFilter] = useState<FilterId>('all');
   const [statusFilter, setStatusFilter] = useState<StatusFilterId>('all');
+  const [useFilter, setUseFilter] = useState<UseFilterId>('all');
+  const getUse = useTemplateMetaStore((s) => s.getUse);
 
   const load = useCallback(async () => {
     setLoading(true);
@@ -94,8 +105,16 @@ export default function TemplatesPage() {
         return i.status === statusFilter;
       });
     }
+    if (useFilter !== 'all') {
+      arr = arr.filter((i) => {
+        const u = getUse(i.name);
+        if (useFilter === 'broadcast') return u === 'broadcast' || u === 'ambas';
+        if (useFilter === 'postsale') return u === 'postsale' || u === 'ambas';
+        return u === useFilter;
+      });
+    }
     return arr;
-  }, [items, filter, statusFilter]);
+  }, [items, filter, statusFilter, useFilter, getUse]);
 
   return (
     <div className="lid-page lid-fade-up">
@@ -146,6 +165,17 @@ export default function TemplatesPage() {
             </button>
           ))}
         </div>
+        <div className="lid-tabs">
+          {USE_FILTERS.map((u) => (
+            <button
+              key={u.id}
+              className={`lid-tab ${useFilter === u.id ? 'active' : ''}`}
+              onClick={() => setUseFilter(u.id)}
+            >
+              {u.label}
+            </button>
+          ))}
+        </div>
       </div>
 
       {error && (
@@ -192,7 +222,7 @@ export default function TemplatesPage() {
       {filtered.length > 0 && (
         <div className="lid-grid lid-grid-2">
           {filtered.map((t) => (
-            <TemplateCard key={t.id} t={t} onClick={() => history.push(`/templates/${t.id}`)} />
+            <TemplateCard key={t.id} t={t} use={getUse(t.name)} onClick={() => history.push(`/templates/${t.id}`)} />
           ))}
         </div>
       )}
@@ -202,7 +232,13 @@ export default function TemplatesPage() {
   );
 }
 
-function TemplateCard({ t, onClick }: { t: MetaTemplate; onClick: () => void }) {
+const USE_BADGE: Record<TemplateUse, { label: string; cls: string }> = {
+  broadcast: { label: 'Difusión',   cls: 'lid-badge lid-badge-violet' },
+  postsale:  { label: 'Post-Venta', cls: 'lid-badge lid-badge-success' },
+  ambas:     { label: 'Ambas',      cls: 'lid-badge lid-badge-gray' },
+};
+
+function TemplateCard({ t, use, onClick }: { t: MetaTemplate; use: TemplateUse; onClick: () => void }) {
   const sm = statusMeta(t.status);
   const header = t.components?.find((c) => c.type === 'HEADER');
   const body = t.components?.find((c) => c.type === 'BODY');
@@ -233,7 +269,10 @@ function TemplateCard({ t, onClick }: { t: MetaTemplate; onClick: () => void }) 
         gap: 12,
       }}>
         <StatusChip status={t.status} />
-        <span className={categoryBadgeClass(t.category)}>{t.category}</span>
+        <div className="lid-row" style={{ gap: 6 }}>
+          <span className={categoryBadgeClass(t.category)}>{t.category}</span>
+          <span className={USE_BADGE[use].cls}>{USE_BADGE[use].label}</span>
+        </div>
       </div>
 
       <div style={{ padding: 16 }}>

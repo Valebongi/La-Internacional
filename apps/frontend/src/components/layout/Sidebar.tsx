@@ -26,7 +26,7 @@ const PRIMARY_NAV: NavItem[] = [
   { to: '/clients', label: 'Clientes', icon: peopleOutline },
   { to: '/broadcasts', label: 'Difusiones', icon: megaphoneOutline, badge: 2 },
   { to: '/templates', label: 'Plantillas', icon: documentTextOutline },
-  { to: '/postsale', label: 'Postventa', icon: refreshCircleOutline },
+  { to: '/postsale', label: 'Postventa', icon: refreshCircleOutline, adminOnly: true },
   { to: '/analytics', label: 'Analítica', icon: statsChartOutline, adminOnly: true },
 ];
 

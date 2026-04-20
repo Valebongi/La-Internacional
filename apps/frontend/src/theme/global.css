@@ -577,11 +577,13 @@ ion-content {
 }
 
 .lid-login-form {
-  display: flex; flex-direction: column; justify-content: center;
+  display: flex; flex-direction: column; justify-content: flex-start;
   padding: 48px 64px;
   max-width: 520px;
   width: 100%;
   margin: 0 auto;
+  overflow-y: auto;
+  max-height: 100vh;
 }
 
 .lid-login-hero {
