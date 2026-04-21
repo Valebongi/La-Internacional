@@ -19,6 +19,7 @@ import TemplateDetailPage from '@/pages/TemplateDetailPage';
 import PostsalePage from '@/pages/PostsalePage';
 import AnalyticsPage from '@/pages/AnalyticsPage';
 import SettingsPage from '@/pages/SettingsPage';
+import OpportunitiesPage from '@/pages/OpportunitiesPage';
 
 function ProtectedRoutes() {
   const { isAuthenticated, user } = useAuth();
@@ -27,7 +28,10 @@ function ProtectedRoutes() {
   return (
     <AppShell>
       <Switch>
-        <Route exact path="/inbox" component={InboxPage} />
+        <Route exact path="/inbox">
+          {admin ? <InboxPage /> : <Redirect to="/opportunities" />}
+        </Route>
+        <Route exact path="/opportunities" component={OpportunitiesPage} />
         <Route exact path="/conversations/:id" component={ConversationPage} />
         <Route exact path="/clients" component={ClientsPage} />
         <Route exact path="/clients/new" component={ClientNewPage} />
@@ -47,8 +51,8 @@ function ProtectedRoutes() {
         <Route exact path="/settings">
           {admin ? <SettingsPage /> : <Redirect to="/inbox" />}
         </Route>
-        <Redirect exact from="/" to="/inbox" />
-        <Redirect to="/inbox" />
+        <Redirect exact from="/" to="/opportunities" />
+        <Redirect to="/opportunities" />
       </Switch>
     </AppShell>
   );

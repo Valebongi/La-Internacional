@@ -1,0 +1,3408 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manual de Usuario — CRM La Internacional</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  
+      line-height: 1.6; 
+      color: #333;
+      background: #f5f5f5;
+      padding: 20px;
+    }
+    .controls {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    button {
+      background: #0066cc;
+      color: white;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 0 10px;
+    }
+    button:hover { background: #0052a3; }
+    #content {
+      max-width: 960px;
+      margin: 20px auto;
+      background: white;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    h1 { color: #1a5490; font-size: 28px; margin-top: 40px; margin-bottom: 20px; page-break-after: avoid; }
+    h2 { color: #0066cc; font-size: 20px; margin-top: 30px; margin-bottom: 15px; page-break-after: avoid; }
+    h3 { color: #0099ff; font-size: 16px; margin-top: 20px; margin-bottom: 10px; page-break-after: avoid; }
+    h4, h5, h6 { margin-top: 15px; margin-bottom: 10px; }
+    p { margin-bottom: 10px; text-align: justify; }
+    table { 
+      width: 100%; 
+      border-collapse: collapse; 
+      margin: 15px 0; 
+      page-break-inside: avoid;
+      font-size: 14px;
+    }
+    th, td { 
+      border: 1px solid #ddd;  
+      padding: 12px;
+      text-align: left;
+    }
+    th { background: #f5f5f5; font-weight: bold; }
+    tr:nth-child(even) { background: #f9f9f9; }
+    code { 
+      background: #f4f4f4; 
+      padding: 2px 6px; 
+      border-radius: 3px; 
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+    }
+    pre { 
+      background: #f4f4f4; 
+      padding: 15px;
+      border-radius: 5px;
+      overflow-x: auto;
+      margin: 15px 0;
+      font-size: 12px;
+      page-break-inside: avoid;
+    }
+    ul, ol { 
+      margin: 10px 0 10px 30px;
+    }
+    li { 
+      margin-bottom: 5px;
+    }
+    hr { 
+      border: none; 
+      border-top: 3px solid #1a5490;
+      margin: 40px 0;
+      page-break-after: always;
+    }
+    .hr { page-break-after: always; }
+    em { font-style: italic; }
+    strong { font-weight: bold; }
+    blockquote { 
+      border-left: 4px solid #0066cc;
+      padding-left: 15px;
+      margin: 15px 0;
+      color: #666;
+      font-style: italic;
+    }
+    a { color: #0066cc; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .success { color: #28a745; font-weight: bold; }
+    .error { color: #dc3545; font-weight: bold; }
+    .warning { color: #ffc107; font-weight: bold; }
+    @media print {
+      body { background: white; padding: 0; }
+      #content { box-shadow: none; margin: 0; padding: 0; }
+      .controls { display: none; }
+      a { color: inherit; }
+    }
+  </style>
+</head>
+<body>
+  <div class="controls">
+    <button onclick="generatePDF()">📥 Descargar PDF</button>
+  </div>
+  <div id="content">
+<h1>Manual de Usuario — CRM La Internacional</h1><p><hr></p><h1>01 — Introducción al CRM La Internacional</h1>
+
+<h2>¿Qué es este sistema?</h2>
+
+El <strong>CRM La Internacional</strong> es una plataforma centralizada diseñada para ayudarte a gestionar clientes, comunicaciones por WhatsApp e Instagram, difusiones masivas y seguimiento de ventas, todo en un solo lugar.
+
+Reemplaza procesos manuales de seguimiento y organiza la información de tus clientes de forma eficiente, sin abandonar el sistema actual que la empresa ya utiliza.
+
+<hr>
+
+<h2>¿Para quién es?</h2>
+
+<h3>👩‍💼 Si eres una <strong>asesora</strong></h3>
+
+Usarás el CRM para:
+<ul><li><strong>Ver tus clientes:</strong> accede a tu bandeja de clientes asignados, filtra por tipo, busca por nombre o teléfono</li></ul>
+<li><strong>Revisar mensajes:</strong> bandeja unificada de WhatsApp e Instagram en un solo lugar</li>
+<li><strong>Responder clientes:</strong> chat integrado para mantener conversaciones fluidas</li>
+<li><strong>Marcar seguimientos:</strong> indica el estado de cada cliente (validación, presupuestando, etc.)</li>
+<li><strong>Ver secuencias automáticas:</strong> si tu empresa usa postventa automática, verás confirmación de envíos</li>
+
+<h3>👨‍💼 Si eres <strong>administrador</strong></h3>
+
+Tienes acceso a todas las funcionalidades más:
+<li><strong>Importar clientes:</strong> carga masiva desde CSV con detección automática de duplicados</li>
+<li><strong>Crear campañas:</strong> envía difusiones masivas por WhatsApp a segmentos de clientes</li>
+<li><strong>Gestionar plantillas:</strong> crea y revisa templates de Meta para mensajes</li>
+<li><strong>Ver analytics:</strong> dashboards con tasas de conversión, costos por estado, desempeño de asesoras</li>
+<li><strong>Configurar credenciales:</strong> conecta la cuenta de Meta, gestiona usuarios y configuraciones</li>
+
+<hr>
+
+<h2>Roles y permisos</h2>
+
+| Acción | Asesora | Admin |
+|--------|---------|-------|
+| Ver propios clientes | ✅ | ✅ (todos) |
+| Ver propias conversaciones | ✅ | ✅ (todas) |
+| Crear cliente | ✅ (limitado) | ✅ |
+| Importar clientes (CSV) | ❌ | ✅ |
+| Enviar difusión masiva | ❌ | ✅ |
+| Crear plantilla | ❌ | ✅ |
+| Ver analytics | ❌ | ✅ |
+| Gestionar usuarios | ❌ | ✅ |
+| Acceder a configuración | ❌ | ✅ |
+
+<hr>
+
+<h2>Estructura principal</h2>
+
+El CRM está organizado en estas secciones:
+
+<h3>📥 <strong>Inbox</strong></h3>
+Tu bandeja unificada de mensajes. Aquí ves todas las conversaciones de tus clientes por WhatsApp e Instagram en tiempo real. Es donde pasas más tiempo respondiendo.
+
+<h3>👥 <strong>Clientes</strong></h3>
+Directorio de clientes asignados a ti (si eres asesora) o de toda la empresa (si eres admin). Busca, filtra, ve detalles de cada cliente y su historial.
+
+<h3>📢 <strong>Difusiones</strong> (solo admin)</h3>
+Envía mensajes masivos a segmentos de clientes (ej: "todos los cosmetólogos de Córdoba"). Puedes segmentar, vista previa y controlar cada envío.
+
+<h3>📋 <strong>Plantillas</strong> (solo admin)</h3>
+Gestiona las plantillas de Meta para usar en mensajes y difusiones. Aquí se crean nuevas plantillas, se suben imágenes de header, etc.
+
+<h3>🎯 <strong>Postventa</strong> (solo admin)</h3>
+Configura secuencias automáticas de mensajes 1:1 que se envían después de una compra (ej: agradecimiento, seguimiento de satisfacción).
+
+<h3>📊 <strong>Analytics</strong> (solo admin)</h3>
+Ve métricas: cuántos clientes en cada estado, tasas de conversión, costo promedio por estado, desempeño de asesoras.
+
+<h3>⚙️ <strong>Configuración</strong> (solo admin)</h3>
+Gestiona usuarios, credenciales de Meta, tipos de clientes, tags, y más.
+
+<hr>
+
+<h2>Conceptos clave</h2>
+
+<h3>Cliente</h3>
+Es tu prospect o cliente. Tiene:
+<li><strong>Nombre y teléfono</strong> (para contactar por WhatsApp)</li>
+<li><strong>Tipo:</strong> Cosmetóloga, Esteticista, Dermatóloga, Revendedora, etc. Determina a qué asesora se asigna.</li>
+<li><strong>Estado:</strong> Recibido → Validación → Presupuestando → Sin comprobante → Agendado → Comprado</li>
+<li><strong>Tags:</strong> marcas personalizadas (VIP, en seguimiento, etc.)</li>
+<li><strong>Asesora responsable:</strong> la persona asignada</li>
+
+<h3>Asesora</h3>
+Es un usuario con rol de asesora. Cada asesora está responsable de ciertos <strong>tipos de clientes</strong>. Cuando ingresa un cliente nuevo del tipo X, se asigna automáticamente a la asesora de ese tipo.
+
+<h3>Conversación</h3>
+Es el chat 1:1 con un cliente por un canal específico (WhatsApp o Instagram). Agrupa todos los mensajes en ese canal.
+
+<h3>Plantilla (Meta)</h3>
+Es un mensaje predefinido en Meta Cloud API. Contiene:
+<li><strong>Texto</strong> con variables (ej: "Hola {{1}}, tu producto es {{2}}")</li>
+<li><strong>Imagen o video</strong> (header, opcional)</li>
+<li><strong>Botones</strong> (call-to-action, opcional)</li>
+
+Las plantillas deben ser aprobadas por Meta antes de usar en difusiones.
+
+<h3>Difusión</h3>
+Es una campaña masiva. Seleccionas un segmento de clientes (ej: todas las cosmetólogas), una plantilla y las variables, y envías a todos de una vez.
+
+<h3>Postventa</h3>
+Son secuencias de mensajes automáticos que se envían 1:1 a clientes después de un evento (compra, inactividad, cumpleaños, etc.). No son mensajes masivos, son personalizados.
+
+<hr>
+
+<h2>Flujo típico</h2>
+
+<h3>Para una asesora</h3>
+1. Abro el CRM en mi móvil/tablet
+2. Voy a <strong>Inbox</strong> → veo mensajes de mis clientes
+3. Respondo las conversaciones activas
+4. Si un cliente me pide presupuesto → voy a <strong>Clientes</strong>, busco al cliente, cambio su estado a "Presupuestando"
+5. Si realiza una compra → cambio estado a "Comprado"
+
+<h3>Para el admin</h3>
+1. Importo nuevos clientes vía <strong>Clientes → Importar</strong>
+2. Reviso <strong>Analytics</strong> para ver cómo va el embudo
+3. Creo una campaña: <strong>Difusiones → Nueva</strong> → selecciono segmento → elijo plantilla → envío
+4. Reviso resultados en <strong>Analytics</strong>
+5. Configuro nuevas secuencias de postventa en <strong>Postventa</strong>
+6. Gestiono usuarios en <strong>Configuración</strong>
+
+<hr>
+
+<h2>Dispositivos recomendados</h2>
+
+<li><strong>Admin:</strong> Desktop o laptop (mucha información en pantalla)</li>
+<li><strong>Asesora:</strong> Móvil o tablet (interfaz optimizada para touch, bandeja más importante)</li>
+
+<hr>
+
+<h2>Seguridad</h2>
+
+<li>Usa una <strong>contraseña fuerte</strong> (no compartas tu login)</li>
+<li>El CRM solo accede a clientes y conversaciones asignadas a ti según tu rol</li>
+<li>Todos los cambios son auditados (quién, cuándo, qué cambió)</li>
+<li>La sesión expira automáticamente si estás inactivo</li>
+
+<hr>
+
+<h2>Próximos pasos</h2>
+
+<li>Lee <strong><a href="02-Login-Autenticacion.md">02-Login-Autenticacion</a></strong> para iniciar sesión</li>
+<li>Según tu rol, accede a la sección que más necesites (Asesora → <a href="04-Inbox-Conversaciones.md">04-Inbox</a>, Admin → <a href="03-Clientes.md">03-Clientes</a>)</li></p><p>
+<hr></p><h1>02 — Login y Autenticación</h1>
+
+<h2>Acceso inicial</h2>
+
+<h3>Dirección</h3>
+Abre tu navegador y ve a:
+``<code>
+https://crm.lainternacional.com.ar
+</code>`<code>
+
+Automáticamente serás redirigido a la pantalla de login.
+
+<hr>
+
+<h2>Iniciar sesión</h2>
+
+<h3>Paso 1: Ingresa tu email</h3>
+En el campo <strong>Email</strong>, escribe el email que el admin te proporcionó. Ejemplo:
+</code>`<code>
+asesora1@lainternacional.com.ar
+</code>`<code>
+
+<h3>Paso 2: Ingresa tu contraseña</h3>
+En el campo <strong>Contraseña</strong>, escribe la contraseña que creaste o que el admin te compartió.
+
+> ⚠️ <strong>Importante:</strong> La contraseña es sensible a mayúsculas y minúsculas. Asegúrate de que Caps Lock esté apagado si lo necesitas.
+
+<h3>Paso 3: Haz clic en "Iniciar sesión"</h3>
+Se validarán tus credenciales contra el sistema. Si son correctas, entrarás al CRM.
+
+<hr>
+
+<h2>Problemas de login</h2>
+
+<h3>"Usuario o contraseña incorrectos"</h3>
+<li>Verifica que escribiste el email exactamente como te lo proporcionó el admin</li>
+<li>Verifica que la contraseña es correcta (sin espacios al inicio/final)</li>
+<li>Si olvidaste tu contraseña, contacta al administrador</li>
+
+<h3>"Cuenta desactivada"</h3>
+<li>Tu cuenta ha sido desactivada por el admin</li>
+<li>Contacta con tu administrador</li>
+
+<h3>"El servidor no responde"</h3>
+<li>Verifica tu conexión a internet</li>
+<li>Espera unos segundos e intenta de nuevo</li>
+<li>Si el problema persiste, el servidor puede estar en mantenimiento</li>
+
+<hr>
+
+<h2>Después de iniciar sesión</h2>
+
+Una vez logueado, verás:
+<li>Tu nombre en la esquina superior derecha</li>
+<li>El menú del lado izquierdo con las opciones disponibles según tu rol</li>
+<li>Tu bandeja de inbox lista para revisar mensajes</li>
+
+<h3>Navegación por rol</h3>
+
+<strong>Si eres asesora:</strong>
+<li>Inbox (bandeja de mensajes)</li>
+<li>Clientes (tus clientes asignados)</li>
+
+<strong>Si eres administrador:</strong>
+<li>Inbox</li>
+<li>Clientes</li>
+<li>Difusiones</li>
+<li>Plantillas</li>
+<li>Postventa</li>
+<li>Analytics</li>
+<li>Configuración</li>
+
+<hr>
+
+<h2>Cerrar sesión</h2>
+
+<h3>Método 1: Menú de usuario</h3>
+1. Haz clic en tu nombre o avatar en la esquina superior derecha
+2. Selecciona "Cerrar sesión"
+
+<h3>Método 2: Automático</h3>
+Tu sesión expirará automáticamente si:
+<li>Estás inactivo por más de <strong>1 hora</strong></li>
+<li>Cierres tu navegador (depende de la configuración)</li>
+<li>Otro dispositivo inicia sesión con tu cuenta simultáneamente</li>
+
+<hr>
+
+<h2>Cambiar contraseña</h2>
+
+<h3>En Configuración (solo admin)</h3>
+1. Ve a <strong>Configuración</strong> → <strong>Mi cuenta</strong>
+2. Haz clic en <strong>Cambiar contraseña</strong>
+3. Ingresa tu contraseña actual
+4. Ingresa la nueva contraseña (mínimo 8 caracteres)
+5. Confirma la nueva contraseña
+6. Haz clic en <strong>Guardar</strong>
+
+<h3>Para asesoras</h3>
+Si necesitas cambiar tu contraseña, contacta con el administrador.
+
+<hr>
+
+<h2>Perfil y preferencias</h2>
+
+<h3>Ver tu perfil</h3>
+1. Haz clic en tu nombre (esquina superior derecha)
+2. Selecciona "Mi perfil"
+
+Aquí puedes ver:
+<li>Tu nombre completo</li>
+<li>Tu email</li>
+<li>Tu rol (Admin / Asesora)</li>
+<li>Tu teléfono asignado (si aplica)</li>
+<li>Fecha de creación de cuenta</li>
+
+<hr>
+
+<h2>Tokens de acceso y seguridad</h2>
+
+<h3>¿Qué es un token?</h3>
+Después de iniciar sesión, el CRM guarda un "token" (código de seguridad temporal) en tu navegador. Este token te permite usar el CRM sin ingresar contraseña en cada página.
+
+<h3>Validez del token</h3>
+<li>Un token normal dura <strong>24 horas</strong></li>
+<li>Se renueva automáticamente mientras uses el CRM</li>
+<li>Si estás inactivo por <strong>1 hora</strong>, se invalida</li>
+
+<h3>Logout seguro</h3>
+Si cierras sesión:
+<li>El token se elimina de tu navegador</li>
+<li>Debes volver a iniciar sesión para usar el CRM</li>
+<li>Otros dispositivos con tu cuenta no se ven afectados</li>
+
+<hr>
+
+<h2>Acceso desde múltiples dispositivos</h2>
+
+Puedes iniciar sesión en varios dispositivos simultáneamente (móvil, tablet, desktop). Cada dispositivo tiene su propia sesión. Si cierras sesión en uno, no afecta a los otros.
+
+<hr>
+
+<h2>Tips de seguridad</h2>
+
+✅ <strong>Haz:</strong>
+<li>Usa una contraseña fuerte (mezcla de letras, números, símbolos)</li>
+<li>Cierra sesión antes de abandonar una computadora compartida</li>
+<li>Revisa periódicamente tus permisos de account en Configuración</li>
+
+❌ <strong>No hagas:</strong>
+<li>Compartas tu contraseña con otros</li>
+<li>Dejes sesión abierta en dispositivos públicos</li>
+<li>Guardes tu contraseña en un bloc de notas sin encriptar</li>
+
+<hr>
+
+<h2>Problemas frecuentes</h2>
+
+<strong>P: Me olvié mi contraseña, ¿qué hago?</strong>
+R: Contacta al administrador del CRM. Él puede resetear tu contraseña temporalmente.
+
+<strong>P: ¿Puedo cambiar mi email?</strong>
+R: No desde el CRM. El admin debe cambiar tu email en la base de datos.
+
+<strong>P: ¿Qué pasa si me hackean la cuenta?</strong>
+R: Contacta inmediatamente al admin para cambiar contraseña. Todos los cambios en tu cuenta quedan registrados.
+
+<strong>P: ¿Cuál es mi teléfono de usuario?</strong>
+R: Si tienes rol de asesora, el admin te asignó un teléfono. Este aparece en tu perfil y se usa para postventa automática.
+
+<hr>
+
+Vuelve a <strong><a href="../MANUAL-USUARIO.md">MANUAL-USUARIO</a></strong> o accede a la siguiente sección: <strong><a href="03-Clientes.md">03-Clientes</a></strong>.</p><p>
+<hr></p><h1>03 — Gestión de Clientes</h1>
+
+<h2>Descripción general</h2>
+
+La sección <strong>Clientes</strong> es tu directorio centralizado. Aquí ves todos los clientes asignados a ti (si eres asesora) o de toda la empresa (si eres admin). Puedes buscar, filtrar, crear nuevos clientes e importar desde CSV.
+
+<hr>
+
+<h2>Acceder a Clientes</h2>
+
+1. Ve a <strong>Clientes</strong> en el menú izquierdo
+2. Verás una lista con todos los clientes disponibles según tu rol
+
+<hr>
+
+<h2>Vista de lista</h2>
+
+<h3>Columnas principales</h3>
+| Columna | Descripción |
+|---------|-------------|
+| <strong>Nombre</strong> | Nombre completo del cliente |
+| <strong>Teléfono</strong> | Número WhatsApp (formato E.164) |
+| <strong>Tipo</strong> | Categoría (Cosmetóloga, Esteticista, etc.) |
+| <strong>Asesora</strong> | Persona responsable |
+| <strong>Estado</strong> | Recibido, Validación, Presupuestando, etc. |
+| <strong>Última actividad</strong> | Cuándo fue el último contacto |
+| <strong>Acción</strong> | Botón para ver detalles |
+
+<h3>Búsqueda y filtros</h3>
+
+#### Buscar por nombre o teléfono
+1. En la barra de búsqueda, escribe:
+   - Nombre (ej: "Juan García")
+   - Teléfono (ej: "351" para córdoba)
+   - Parte del nombre/teléfono
+
+2. Los resultados se filtran en tiempo real
+
+#### Filtrar por tipo de cliente
+1. Haz clic en <strong>Filtrar por tipo</strong>
+2. Selecciona uno o más tipos:
+   - Cosmetóloga
+   - Esteticista
+   - Dermatóloga
+   - Revendedora
+   - Otros
+
+3. Solo se mostrarán clientes de esos tipos
+
+#### Filtrar por estado
+1. Haz clic en <strong>Filtrar por estado</strong>
+2. Selecciona:
+   - Recibido
+   - Validación
+   - Presupuestando
+   - Sin comprobante
+   - Agendado
+   - Comprado
+
+3. Los resultados se actualizan
+
+<hr>
+
+<h2>Ver detalles de un cliente</h2>
+
+<h3>Acceder al perfil</h3>
+1. Busca el cliente en la lista
+2. Haz clic en el botón <strong>Ver detalles</strong> o en el nombre del cliente
+
+<h3>Pantalla de detalles</h3>
+
+Aquí verás toda la información del cliente:
+
+#### 👤 Información básica
+<li><strong>Nombre completo</strong></li>
+<li><strong>Teléfono</strong> (normalizado a formato E.164: +549XXXXXXXXX)</li>
+<li><strong>Email</strong></li>
+<li><strong>Ciudad y provincia</strong></li>
+<li><strong>Tipo de cliente</strong> (Cosmetóloga, etc.)</li>
+<li><strong>Es profesional</strong> (sí/no, con matrícula si aplica)</li>
+
+#### 📊 Estado del cliente
+<li><strong>Estado actual</strong> (Recibido, Presupuestando, etc.)</li>
+<li><strong>Historial de cambios</strong> (quién cambió, cuándo)</li>
+<li><strong>Botón para cambiar estado</strong> (si tienes permisos)</li>
+
+#### 🏷️ Tags
+Etiquetas personalizadas asignadas al cliente:
+<li>VIP</li>
+<li>En seguimiento</li>
+<li>Contacto directo</li>
+<li>Otras personalizadas</li>
+
+Para <strong>agregar un tag:</strong>
+1. Haz clic en <strong>+ Agregar tag</strong>
+2. Selecciona un tag existente o crea uno nuevo
+3. Se guarda automáticamente
+
+Para <strong>quitar un tag:</strong>
+1. Haz clic en la <strong>X</strong> junto al tag
+2. Se elimina
+
+#### 📝 Notas
+Espacio para añadir notas internas sobre el cliente:
+<li>Preferencias</li>
+<li>Restricciones</li>
+<li>Historiales de contacto</li>
+<li>Cualquier cosa importante</li>
+
+Para editar:
+1. Haz clic en <strong>Editar notas</strong>
+2. Escribe tu nota
+3. Haz clic en <strong>Guardar</strong>
+
+#### 💬 Conversaciones recientes
+Muestra los últimos mensajes con el cliente (última actividad por WhatsApp/Instagram).
+
+<hr>
+
+<h2>Cambiar estado del cliente</h2>
+
+El estado representa dónde está el cliente en tu embudo de ventas:
+
+</code>`<code>
+Recibido → Validación → Presupuestando → Sin comprobante → Agendado → Comprado
+</code>`<code>
+
+<h3>Cambiar estado manualmente</h3>
+1. En el perfil del cliente, busca <strong>Estado actual</strong>
+2. Haz clic en <strong>Cambiar estado</strong>
+3. Selecciona el nuevo estado
+4. Haz clic en <strong>Guardar</strong>
+
+<h3>Estados explicados</h3>
+| Estado | Significa | Siguiente acción |
+|--------|-----------|------------------|
+| <strong>Recibido</strong> | Nuevo cliente, sin validar | Contactar para confirmar datos |
+| <strong>Validación</strong> | Verificando si es cliente real | Esperar confirmación |
+| <strong>Presupuestando</strong> | Mostró interés, pidió presupuesto | Enviar presupuesto |
+| <strong>Sin comprobante</strong> | Compró pero no tiene comprobante | Esperar comprobante |
+| <strong>Agendado</strong> | Tiene cita programada | Recordatorio antes de cita |
+| <strong>Comprado</strong> | Venta concretada | Postventa automática (si aplica) |
+
+<hr>
+
+<h2>Crear un cliente nuevo</h2>
+
+<h3>Paso 1: Ir a crear cliente</h3>
+1. En la página <strong>Clientes</strong>, haz clic en <strong>+ Nuevo cliente</strong>
+2. O desde el menú: <strong>Clientes → Crear nuevo</strong>
+
+<h3>Paso 2: Completa el formulario</h3>
+
+#### Datos obligatorios
+<li><strong>Nombre completo</strong> — ej: "María García"</li>
+<li><strong>Teléfono</strong> — ej: "+549351672095" o "09351672095"</li>
+  - El sistema normaliza automáticamente a E.164
+  - Debe ser un número argentino válido
+
+#### Datos opcionales
+<li><strong>Email</strong> — ej: maria@ejemplo.com</li>
+<li><strong>Tipo de cliente</strong> — selecciona: Cosmetóloga, Esteticista, etc.</li>
+  - La asesora se asigna automáticamente según el tipo
+<li><strong>Ciudad</strong></li>
+<li><strong>Provincia</strong></li>
+<li><strong>Es profesional</strong> — marca si tiene matrícula</li>
+  - Si sí, agrega número de matrícula
+<li><strong>Notas</strong> — agregá cualquier dato relevante</li>
+<li><strong>Tags</strong> — asigna tags iniciales (VIP, en seguimiento, etc.)</li>
+
+<h3>Paso 3: Guardar</h3>
+1. Haz clic en <strong>Guardar cliente</strong>
+2. Si todo es correcto, el cliente aparecerá en la lista
+3. Si hay error (teléfono duplicado, datos inválidos), verás un mensaje de error
+
+<h3>Anti-duplicación automática</h3>
+Si el teléfono ya existe en el sistema, el CRM te alertará:
+<li>"Este teléfono ya pertenece a otro cliente"</li>
+<li>Te mostrará el cliente existente</li>
+<li>Puedes decidir si actualizar ese cliente o cancelar</li>
+
+<hr>
+
+<h2>Importar clientes desde CSV</h2>
+
+<h3>Cuándo usar</h3>
+<li>Tienes una lista grande de clientes (100+)</li>
+<li>Necesitas cargar datos de una hoja de cálculo</li>
+<li>Quieres evitar crear uno por uno</li>
+
+<h3>Requisitos</h3>
+<li>Archivo CSV (.csv)</li>
+<li>Columnas mínimas: </code>nombre<code>, </code>teléfono<code></li>
+<li>Columnas opcionales: </code>email<code>, </code>tipo<code>, </code>ciudad<code>, </code>provincia<code>, </code>es_profesional<code></li>
+
+<h3>Paso 1: Preparar el CSV</h3>
+
+Tu archivo debe verse así (ejemplo):
+
+</code>`<code>
+nombre,teléfono,tipo,ciudad,provincia
+Juan García,+549351234567,Cosmetóloga,Córdoba,Córdoba
+María López,+549351234568,Esteticista,Rosario,Santa Fe
+Carlos Martínez,+549351234569,Revendedora,La Plata,Buenos Aires
+</code>`<code>
+
+<strong>Puntos importantes:</strong>
+<li>Encabezados en la primera fila</li>
+<li>Teléfonos con </code>+54<code> (formato E.164)</li>
+<li>Tipos deben coincidir con los tipos definidos</li>
+<li>Sin líneas vacías en el medio</li>
+
+<h3>Paso 2: Acceder a importar</h3>
+1. Ve a <strong>Clientes</strong>
+2. Haz clic en <strong>Importar clientes</strong>
+3. Selecciona tu archivo CSV
+
+<h3>Paso 3: Revisar duplicados (detección automática)</h3>
+El sistema analiza el CSV y te muestra:
+<li>✅ Clientes a importar (nuevos)</li>
+<li>⚠️ <strong>Duplicados potenciales</strong> (ya existen)</li>
+  - Muestra el cliente existente vs. el que quieres importar
+  - Puedes elegir: <strong>Actualizar</strong>, <strong>Saltear</strong> o <strong>Crear duplicado</strong>
+
+Ejemplo de pantalla de duplicados:
+</code>`<code>
+⚠️ Duplicado encontrado:
+   Teléfono: +549351234567
+   Existente:  Juan García (tipo: Cosmetóloga)
+   Nuevo:      J. García (tipo: Cosmetóloga)
+   
+   ○ Actualizar con datos nuevos
+   ○ Saltear este cliente
+   ○ Crear como cliente separado
+</code>`<code>
+
+<h3>Paso 4: Confirmar importación</h3>
+1. Revisa el resumen:
+   - Nuevos a crear: N
+   - Duplicados: M (elige acción para cada uno)
+2. Haz clic en <strong>Confirmar importación</strong>
+3. El sistema importa los clientes y muestra el resultado:
+   - "Importación exitosa: N nuevos, M actualizados"
+
+<hr>
+
+<h2>Editar un cliente existente</h2>
+
+<h3>Desde la lista</h3>
+1. Busca el cliente
+2. Haz clic en <strong>Ver detalles</strong>
+
+<h3>Desde el perfil</h3>
+1. Haz clic en <strong>Editar</strong>
+2. Modifica los campos que quieras
+3. Haz clic en <strong>Guardar cambios</strong>
+
+<h3>Campos editables</h3>
+<li>Nombre</li>
+<li>Teléfono (cuidado, puede afectar conversaciones)</li>
+<li>Email</li>
+<li>Tipo</li>
+<li>Ciudad, provincia</li>
+<li>Es profesional / Matrícula</li>
+<li>Notas</li>
+<li>Tags</li>
+
+<hr>
+
+<h2>Eliminar un cliente</h2>
+
+⚠️ <strong>Advertencia:</strong> No se recomienda borrar clientes (se pierden conversaciones). Mejor desactivarlos con soft-delete.
+
+Si realmente necesitas borrar:
+1. En el perfil del cliente, haz clic en <strong>⋮ Más opciones</strong>
+2. Selecciona <strong>Eliminar cliente</strong>
+3. Confirma la acción
+4. Se marca como eliminado (soft-delete): no aparece en listas normales, pero el historial se mantiene
+
+<hr>
+
+<h2>Asignación de clientes a asesoras</h2>
+
+<h3>Automática (por tipo)</h3>
+<li>Cuando creas un cliente o importas uno</li>
+<li>El sistema busca el </code>ClientType<code> del cliente</li>
+<li>Asigna automáticamente a la asesora definida para ese tipo</li>
+
+<h3>Manual (admin)</h3>
+1. En el perfil del cliente, haz clic en <strong>Cambiar asesora</strong>
+2. Selecciona una asesora de la lista
+3. Haz clic en <strong>Guardar</strong>
+
+<hr>
+
+<h2>Visualización por rol</h2>
+
+<h3>Si eres asesora</h3>
+<li>Solo ves clientes asignados a ti</li>
+<li>No puedes importar</li>
+<li>No puedes crear clientes (contacta al admin)</li>
+<li>Puedes cambiar datos de tus clientes (notas, tags, estado)</li>
+
+<h3>Si eres admin</h3>
+<li>Ves todos los clientes</li>
+<li>Puedes buscar por asesora</li>
+<li>Puedes importar, crear, editar, eliminar cualquier cliente</li>
+<li>Puedes reasignar clientes entre asesoras</li>
+
+<hr>
+
+<h2>Tips y buenas prácticas</h2>
+
+✅ <strong>Haz:</strong>
+<li>Usa nombres claros y completos</li>
+<li>Mantén teléfonos en formato E.164 (+54...)</li>
+<li>Asigna tags consistentemente (VIP, etc.)</li>
+<li>Actualiza notas después de contactos importantes</li>
+<li>Revisa duplicados antes de importar</li>
+
+❌ <strong>Evita:</strong>
+<li>Duplicar clientes intencionalmente</li>
+<li>Borrar clientes (mejor desactiva)</li>
+<li>Teléfonos incompletos o mal formateados</li>
+<li>Dejar clientes sin asignar a una asesora</li>
+
+<hr>
+
+<h2>Troubleshooting</h2>
+
+<strong>P: Dice "Teléfono duplicado" pero no lo veo en la lista</strong>
+R: Busca con la secuencia de dígitos sin el +54. El cliente puede estar bajo otro nombre.
+
+<strong>P: No puedo cambiar el tipo de cliente</strong>
+R: Solo el admin puede cambiar tipos. Si necesitas, contacta al administrador.
+
+<strong>P: Los tags que creo no aparecen para otros clientes</strong>
+R: Los tags se crean automáticamente la primera vez. Todos los usuarios los verán disponibles para futuros clientes.
+
+<strong>P: ¿Puedo ver clientes de otras asesoras?</strong>
+R: Si eres asesora, no. Si eres admin, sí. Usa el filtro <strong>Por asesora</strong>.
+
+<hr>
+
+Vuelve a <strong><a href="../MANUAL-USUARIO.md">MANUAL-USUARIO</a></strong> o accede a la siguiente sección: <strong><a href="04-Inbox-Conversaciones.md">04-Inbox-Conversaciones</a></strong>.</p><p>
+<hr></p><h1>04 — Inbox y Conversaciones</h1>
+
+<h2>Descripción general</h2>
+
+El <strong>Inbox</strong> es tu bandeja de mensajes unificada. Aquí ves todas las conversaciones activas de tus clientes por <strong>WhatsApp e Instagram en un solo lugar</strong>. Es el corazón del CRM donde pasas la mayoría del tiempo respondiendo.
+
+<hr>
+
+<h2>Acceder al Inbox</h2>
+
+1. En el menú izquierdo, haz clic en <strong>Inbox</strong>
+2. Se abre tu bandeja con todas las conversaciones
+
+<h3>Navegación automática</h3>
+Si accedes a una conversación específica (ej: </code>/conversations/123<code>), te lleva directamente a ese chat.
+
+<hr>
+
+<h2>Vista de Inbox</h2>
+
+La pantalla del Inbox se divide en tres áreas:
+
+<h3>1️⃣ Panel de conversaciones (izquierda)</h3>
+Lista de todas tus conversaciones activas. Cada fila muestra:
+<li><strong>Avatar del cliente</strong> (foto/iniciales)</li>
+<li><strong>Nombre del cliente</strong></li>
+<li><strong>Último mensaje</strong> (preview de texto)</li>
+<li><strong>Hora del último mensaje</strong> ("hace 5 min", "hace 1 hora", etc.)</li>
+<li><strong>Indicador de no leídos</strong> (número rojo si hay mensajes sin leer)</li>
+<li><strong>Estado</strong> (pequeño chip: Recibido, Validación, etc.)</li>
+
+<h3>2️⃣ Chat (centro)</h3>
+Muestra la conversación completa con el cliente seleccionado:
+<li>Historial de mensajes</li>
+<li>Timestamp de cada mensaje</li>
+<li>Indicadores de estado (enviado, entregado, leído)</li>
+
+<h3>3️⃣ Panel de cliente (derecha, opcional)</h3>
+Información del cliente:
+<li>Nombre, teléfono, tipo</li>
+<li>Asesora responsable</li>
+<li>Estado actual</li>
+<li>Acceso rápido a perfil</li>
+
+<hr>
+
+<h2>Buscar conversaciones</h2>
+
+<h3>Buscar por nombre o teléfono</h3>
+1. En la barra de búsqueda (arriba del panel izquierdo)
+2. Escribe:
+   - Nombre del cliente: "Juan", "María"
+   - Teléfono: "351...", "9..."
+3. Los resultados se filtran en tiempo real
+
+<h3>Filtrar por estado</h3>
+1. Haz clic en <strong>Filtrar por estado</strong>
+2. Selecciona: Recibido, Validación, Presupuestando, etc.
+3. Solo verás conversaciones de clientes en ese estado
+
+<hr>
+
+<h2>Responder mensajes</h2>
+
+<h3>Paso 1: Selecciona la conversación</h3>
+1. En el panel izquierdo, haz clic en el cliente que quieres responder
+2. Su chat se abre en el centro
+
+<h3>Paso 2: Escribe el mensaje</h3>
+1. En la barra de entrada (abajo del chat)
+2. Escribe tu respuesta
+
+<h3>Paso 3: Envía el mensaje</h3>
+1. Presiona <strong>Enter</strong> o haz clic en el botón <strong>Enviar</strong>
+2. El mensaje se envía por WhatsApp o Instagram al cliente
+3. Aparecerá en el chat con un check gris (enviado)
+
+<h3>Indicadores de estado del mensaje</h3>
+
+| Indicador | Significado |
+|-----------|------------|
+| ✓ (gris) | Enviado (salió de nuestro servidor) |
+| ✓✓ (gris) | Entregado (llegó al teléfono del cliente) |
+| ✓✓ (azul) | Leído (el cliente lo leyó) |
+| ⚠️ | Falló (no se pudo enviar) |
+
+<hr>
+
+<h2>Escribir mensajes</h2>
+
+<h3>Texto simple</h3>
+Escribe normalmente y presiona Enter.
+
+<h3>Saltos de línea</h3>
+Para saltar líneas sin enviar:
+<li><strong>Mobil:</strong> presiona Shift + Enter</li>
+<li><strong>Desktop:</strong> presiona Shift + Enter o Ctrl + Enter (según navegador)</li>
+
+<h3>Emojis</h3>
+1. Usa el ícono 😊 (si está disponible)
+2. O copia/pega emojis directamente
+3. O en computadora, usa el atajo del SO
+
+<h3>Caracteres especiales</h3>
+Todos los caracteres se soportan: ñ, acentos, símbolos, etc.
+
+<hr>
+
+<h2>Enviar media (imágenes, videos, etc.)</h2>
+
+<h3>Si el cliente tiene opt-in habilitado</h3>
+1. En el chat, busca el ícono de <strong>📎 Adjuntar</strong>
+2. Selecciona: Imagen, Video, Audio, Documento
+3. Elige el archivo de tu computadora/teléfono
+4. Se carga y envía al cliente
+
+<h3>Limitaciones</h3>
+<li>Tamaño máximo por archivo: depende de Meta (típicamente 16 MB)</li>
+<li>Formatos soportados:</li>
+  - Imágenes: JPG, PNG, GIF, WebP
+  - Videos: MP4, 3GP
+  - Audio: MP3, OGG
+  - Documentos: PDF, DOCX, XLS, etc.
+
+<hr>
+
+<h2>Cambiar estado del cliente desde el chat</h2>
+
+Mientras estás en una conversación, puedes cambiar el estado del cliente sin salir del chat:
+
+1. En el panel de cliente (derecha) o arriba del chat
+2. Haz clic en <strong>Estado actual</strong>
+3. Selecciona nuevo estado (Validación, Presupuestando, etc.)
+4. Se actualiza en tiempo real
+
+<hr>
+
+<h2>Agregar tags desde el chat</h2>
+
+1. En el panel de cliente (derecha)
+2. Haz clic en <strong>+ Agregar tag</strong>
+3. Selecciona o crea un tag
+4. Se asigna al cliente
+
+<hr>
+
+<h2>Marcar como leído/no leído</h2>
+
+<h3>Marcar conversación como leída</h3>
+1. En el panel izquierdo, busca la conversación con indicador de no leídos
+2. Haz clic en ella (automáticamente se marca como leída)
+
+<h3>Marcar como no leído (para recordar después)</h3>
+1. En la lista, mantén presionado (móvil) o haz clic derecho (desktop)
+2. Selecciona <strong>Marcar como no leído</strong>
+3. La conversación volverá a aparecer con el número rojo
+
+<hr>
+
+<h2>Silenciar/Notificaciones</h2>
+
+<h3>Silenciar una conversación</h3>
+Si un cliente es muy activo y quieres evitar notificaciones:
+1. En el panel izquierdo, busca la conversación
+2. Mantén presionado (móvil) o haz clic derecho (desktop)
+3. Selecciona <strong>Silenciar notificaciones</strong>
+4. No recibirás alertas, pero seguirás viendo el chat
+
+<h3>Activar notificaciones nuevamente</h3>
+1. Mismo proceso
+2. Selecciona <strong>Activar notificaciones</strong>
+
+<hr>
+
+<h2>Ver historial de conversaciones archivadas</h2>
+
+<h3>Buscar conversaciones antiguas</h3>
+1. Si no ves una conversación en el Inbox (porque es muy antigua)
+2. Usa el buscador: escribe el nombre o teléfono
+3. Aparecerá aunque sea archivada
+4. Puedes continuar la conversación
+
+<hr>
+
+<h2>Elementos multimedia en el chat</h2>
+
+<h3>Visualizar imágenes</h3>
+<li>Las imágenes se muestran directamente en el chat (thumbnail)</li>
+<li>Haz clic para ver tamaño completo</li>
+
+<h3>Descargar archivos</h3>
+<li>Documentos, imágenes, videos: haz clic en el ícono de descarga</li>
+<li>Se descarga a tu dispositivo</li>
+
+<h3>Videos y audio</h3>
+<li>Se reproducen en el chat (si soporta el navegador)</li>
+<li>Si no, hay un botón de descarga</li>
+
+<hr>
+
+<h2>Gestión de conversaciones</h2>
+
+<h3>Bloquear cliente</h3>
+Si un cliente es abusivo:
+1. En el chat, haz clic en <strong>⋮ Más opciones</strong>
+2. Selecciona <strong>Bloquear cliente</strong>
+3. Ya no recibirás mensajes de este número
+4. Puedes desbloquear después en Configuración
+
+<h3>Reportar cliente</h3>
+Si el cliente envía spam o contenido inapropiado:
+1. En el chat, haz clic en <strong>⋮ Más opciones</strong>
+2. Selecciona <strong>Reportar</strong>
+3. Se registra para que el admin lo revise
+
+<h3>Cerrar conversación</h3>
+Si la venta fue concretada y no necesitas más contacto:
+1. Cambia estado del cliente a <strong>Comprado</strong>
+2. La conversación se archiva automáticamente
+3. Si el cliente vuelve a escribir, se abre automáticamente
+
+<hr>
+
+<h2>Escritorio vs. Mobile</h2>
+
+<h3>Escritorio (admin)</h3>
+<li>Panel de conversaciones (izquierda) + Chat (centro) + Detalles cliente (derecha)</li>
+<li>Más información visible</li>
+<li>Ideal para admin manejando múltiples clientes</li>
+
+<h3>Mobile (asesora)</h3>
+<li>Vista adaptada a pantalla chica</li>
+<li>Panel izquierdo: lista de conversaciones (desliza para ver más)</li>
+<li>Centro: el chat principal</li>
+<li>Detalles cliente: se abre en modal si toca el nombre</li>
+
+<hr>
+
+<h2>Configuración de bandeja</h2>
+
+<h3>Ordenar conversaciones</h3>
+Las conversaciones se ordenan por <strong>última actividad</strong> (más reciente arriba). No se puede cambiar este orden.
+
+<h3>Vista compacta vs. normal</h3>
+El CRM detecta automáticamente el tamaño de pantalla. Adapta la interfaz según dispositivo.
+
+<hr>
+
+<h2>Acceso por rol</h2>
+
+<h3>Si eres asesora</h3>
+<li>Ves solo tus conversaciones (clientes asignados a ti)</li>
+<li>Puedes responder, cambiar estado, agregar tags</li>
+<li>No puedes ver conversaciones de otras asesoras</li>
+
+<h3>Si eres admin</h3>
+<li>Ves todas las conversaciones de todos los clientes</li>
+<li>Puedes filtrar por asesora</li>
+<li>Puedes responder como si fueras la asesora (identificación visible)</li>
+
+<hr>
+
+<h2>Tips y buenas prácticas</h2>
+
+✅ <strong>Haz:</strong>
+<li>Responde rápido (mejor en menos de 1 hora)</li>
+<li>Actualiza estado del cliente cuando cambia</li>
+<li>Usa tags para organizar seguimientos</li>
+<li>Adjunta documentos importantes (presupuestos, confirmaciones)</li>
+<li>Archiva conversaciones cuando termina el proceso</li>
+
+❌ <strong>Evita:</strong>
+<li>Usar lenguaje inapropiado o grosero</li>
+<li>Hacer promesas que no puedas cumplir</li>
+<li>Dejar mensajes sin leer por mucho tiempo</li>
+<li>Enviar información confidencial de otros clientes</li>
+
+<hr>
+
+<h2>Troubleshooting</h2>
+
+<strong>P: No veo un cliente que debería estar en mi Inbox</strong>
+R: Puede estar asignado a otra asesora. Si eres admin, busca por nombre. Si eres asesora, contacta al admin.
+
+<strong>P: El mensaje no se envía, ¿qué pasa?</strong>
+R: Verifica tu conexión a internet. Si persiste, el cliente puede estar bloqueado en WhatsApp o Meta puede estar en mantenimiento.
+
+<strong>P: ¿Cuánto tiempo se guarda el historial?</strong>
+R: Indefinidamente. Todos los mensajes quedan en la BD. Puedes buscar conversaciones de hace años.
+
+<strong>P: ¿Puedo recuperar un mensaje que envié por error?</strong>
+R: No hay función de "deshacer" en esta versión. El mensaje se envía inmediatamente. Envía un segundo mensaje corrigiendo el error.
+
+<hr>
+
+Vuelve a <strong><a href="../MANUAL-USUARIO.md">MANUAL-USUARIO</a></strong> o accede a la siguiente sección: <strong><a href="05-Difusiones.md">05-Difusiones</a></strong>.</p><p>
+<hr></p><h1>05 — Difusiones Masivas</h1>
+
+> ⚠️ <strong>Solo disponible para administradores</strong>
+
+<hr>
+
+<h2>Descripción general</h2>
+
+Las <strong>difusiones</strong> te permiten enviar mensajes masivos a segmentos de clientes (ej: todos los cosmetólogos de Córdoba) usando plantillas aprobadas por Meta. Es útil para campañas, recordatorios, promociones.
+
+<hr>
+
+<h2>¿Qué es una difusión?</h2>
+
+Una difusión es:
+<li><strong>Mensaje enviado a múltiples clientes</strong> en una sola acción</li>
+<li><strong>Desde una plantilla Meta</strong> (pre-aprobada, con variables)</li>
+<li><strong>Con segmentación</strong> (selecciona qué clientes reciben)</li>
+<li><strong>En modo test o producción</strong> (test = todos van a un número de prueba)</li>
+<li><strong>Auditada</strong> (se registra quién envió, cuándo, cuántos recibieron)</li>
+
+<hr>
+
+<h2>Acceder a Difusiones</h2>
+
+1. Ve a <strong>Difusiones</strong> en el menú izquierdo
+2. Verás:
+   - <strong>Historial</strong> (todas las difusiones pasadas)
+   - Botón <strong>+ Nueva difusión</strong>
+
+<hr>
+
+<h2>Ver historial de difusiones</h2>
+
+<h3>Columnas</h3>
+| Columna | Descripción |
+|---------|-------------|
+| <strong>Fecha</strong> | Cuándo se envió |
+| <strong>Plantilla</strong> | Nombre de la template usada |
+| <strong>Segmento</strong> | Tipo de cliente (Cosmetóloga, etc.) |
+| <strong>Enviados</strong> | Cantidad de mensajes exitosos |
+| <strong>Fallidos</strong> | Cantidad que no se entregaron |
+| <strong>Costo</strong> | ARS total gastado en Meta |
+| <strong>Modo</strong> | Test o Producción |
+| <strong>Enviado por</strong> | Quién ejecutó la difusión |
+| <strong>Acción</strong> | Ver detalles |
+
+<h3>Ver detalles de una difusión</h3>
+1. Haz clic en el botón <strong>Ver detalles</strong>
+2. Se abre un modal mostrando:
+   - Parámetros de envío
+   - Lista de destinatarios (nombre, teléfono, estado)
+   - Información de costo y Meta
+
+<hr>
+
+<h2>Crear una nueva difusión (3 pasos)</h2>
+
+<h3>Acceder a crear difusión</h3>
+1. Haz clic en <strong>+ Nueva difusión</strong>
+2. Se abre el wizard de 3 pasos
+
+<hr>
+
+<h2>Paso 1: Seleccionar segmento</h2>
+
+<h3>¿Qué es un segmento?</h3>
+Un segmento es un grupo de clientes que comparten una característica (tipo, estado, etc.).
+
+<h3>Opciones de segmentación</h3>
+
+#### Por tipo de cliente (recomendado)
+1. Selecciona <strong>Segmento por tipo</strong>
+2. Elige un tipo:
+   - Cosmetóloga
+   - Esteticista
+   - Dermatóloga
+   - Revendedora
+   - Todos
+
+3. Se muestra:
+   - Cantidad de clientes que coinciden
+   - Asesora responsable de ese tipo
+   - Botón <strong>Siguiente</strong> para continuar
+
+<strong>Ejemplo:</strong>
+</code>`<code>
+Tipo seleccionado: Cosmetóloga
+Cantidad de clientes: 47
+Asesora responsable: María García
+</code>`<code>
+
+#### Por estado (opcional)
+Dentro del segmento elegido, puedes filtrar por estado:
+<li>Recibido</li>
+<li>Validación</li>
+<li>Presupuestando</li>
+<li>Sin comprobante</li>
+<li>Agendado</li>
+
+<strong>Combina:</strong>
+</code>`<code>
+Tipo: Cosmetóloga
+Estado: Presupuestando
+Total: 12 clientes
+</code>`<code>
+
+#### Por tags (opcional)
+Si necesitas segmento muy específico:
+1. Selecciona clientes con tags específicos (VIP, en seguimiento, etc.)
+
+<h3>Resumen del segmento</h3>
+Antes de continuar, se muestra:
+<li>Cantidad final de destinatarios</li>
+<li>Advertencia si son muchos (>1000): "¿Seguro? Esto enviará X mensajes"</li>
+<li>Botón <strong>Siguiente → Paso 2</strong></li>
+
+<hr>
+
+<h2>Paso 2: Seleccionar plantilla</h2>
+
+<h3>Listar plantillas disponibles</h3>
+
+Se muestran solo las plantillas <strong>de tipo difusión</strong> o <strong>uso tanto difusión como postventa</strong>:
+
+| Columna | Info |
+|---------|------|
+| <strong>Nombre</strong> | Nombre de la template |
+| <strong>Categoría</strong> | Marketing, Utility, Authentication |
+| <strong>Estado Meta</strong> | APPROVED, PENDING, REJECTED |
+| <strong>Tipo de header</strong> | Sin header, Texto, Imagen, Video |
+| <strong>Variables</strong> | </code>{{1}}<code>, </code>{{2}}<code>, etc. |
+
+<h3>Filtrar plantillas</h3>
+1. <strong>Por categoría:</strong> Marketing (promos), Utility (confirmaciones), Authentication (códigos)
+2. <strong>Por estado:</strong> Solo APPROVED se pueden usar
+3. <strong>Por búsqueda:</strong> Escribe el nombre
+
+<h3>Seleccionar plantilla</h3>
+1. Haz clic en la plantilla
+2. Se muestra <strong>preview</strong> con variables vacías
+3. Botón <strong>Seleccionar esta plantilla</strong>
+
+<h3>Vista de preview de plantilla</h3>
+
+</code>`<code>
+┌─────────────────────────────────────┐
+│ Plantilla: "Promoción Especial"      │
+│                                     │
+│ Header (Imagen):                    │
+│ [preview de imagen]                 │
+│                                     │
+│ Cuerpo:                             │
+│ "Hola {{1}}, tenemos oferta en      │
+│  {{2}} especialmente para {{3}}"    │
+│                                     │
+│ Botones:                            │
+│ [Ver catálogo]  [Más info]         │
+└─────────────────────────────────────┘
+
+Variables:
+{{1}} = Nombre del cliente
+{{2}} = Producto
+{{3}} = Tipo de cliente
+</code>`<code>
+
+<hr>
+
+<h2>Paso 3: Mapear variables y confirmar</h2>
+
+<h3>Mapeo de variables</h3>
+Si la plantilla tiene variables ({{1}}, {{2}}, etc.), aquí las asocias con datos reales:
+
+| Variable | Tu entrada | Resultado |
+|----------|-----------|----------|
+| </code>{{1}}<code> | Nombre del cliente | Se reemplaza automáticamente |
+| </code>{{2}}<code> | Producto | (escribes el valor fijo para todos) |
+| </code>{{3}}<code> | Tipo | Se reemplaza automáticamente |
+
+<h3>Variables automáticas</h3>
+<li></code>{{nombre}}<code> → se reemplaza con el nombre de cada cliente</li>
+<li></code>{{tipo}}<code> → se reemplaza con el tipo del cliente</li>
+<li></code>{{ciudad}}<code> → se reemplaza con la ciudad del cliente</li>
+
+<h3>Variables manuales</h3>
+<li></code>{{2}} = "Cremas Anti-Edad"<code> → mismo valor para todos los clientes</li>
+
+<h3>Entrada de variables</h3>
+1. Para cada variable, ingresa:
+   - Nombre/descripción (qué significa)
+   - Valor (fijo o dinámico)
+
+2. Ejemplo:
+</code>`<code>
+Variable {{1}}: nombre (automático del cliente)
+Variable {{2}}: producto_categoria 
+              → "Línea Premium"
+Variable {{3}}: tipo (automático del cliente)
+</code>`<code>
+
+<h3>Vista previa personalizada</h3>
+
+Antes de enviar, ves ejemplos con datos reales:
+
+</code>`<code>
+Ejemplo 1 (Cliente: Juan García, Cosmetóloga):
+"Hola Juan García, tenemos oferta en 
+ Línea Premium especialmente para Cosmetóloga"
+
+Ejemplo 2 (Cliente: María López, Esteticista):
+"Hola María López, tenemos oferta en 
+ Línea Premium especialmente para Esteticista"
+</code>`<code>
+
+<h3>Confirmación final</h3>
+
+Elige <strong>modo de envío:</strong>
+
+#### Modo TEST
+<li>Todos los mensajes van a un número de prueba (admin definido)</li>
+<li>No se gastan créditos de Meta</li>
+<li>Ideal para verificar antes de enviar masivo</li>
+<li>Se ve claramente: "TEST MODE"</li>
+
+<strong>Límite:</strong> hasta 20 mensajes en test
+
+#### Modo PRODUCCIÓN
+<li>Los mensajes se envían a los clientes reales</li>
+<li>Se gastan créditos Meta (ARS según tarifa)</li>
+<li>Se cobra por mensaje enviado (típicamente $10-20 ARS cada uno)</li>
+<li>Confirmación adicional: "¿Seguro enviar a 47 clientes?"</li>
+
+<h3>Enviar difusión</h3>
+
+1. Verifica:
+   - Segmento: correcto
+   - Plantilla: correcta
+   - Variables: bien mapeadas
+   - Modo: test o producción (según necesidad)
+
+2. Haz clic en <strong>Enviar difusión</strong>
+
+3. Progreso en vivo:
+</code>`<code>
+Enviando...
+━━━━━━━━━━━━━━━━━━ 50%
+Enviados: 23 / 47
+Fallidos: 1
+Costo: $230 ARS
+</code>`<code>
+
+4. Al terminar:
+</code>`<code>
+✅ Difusión completada
+   - 46 enviados
+   - 1 fallido (número bloqueado)
+   - Costo total: $460 ARS
+</code>`<code>
+
+<hr>
+
+<h2>Costos y Meta</h2>
+
+<h3>Tarifa Meta</h3>
+Meta cobra por cada mensaje enviado según:
+<li><strong>País:</strong> Argentina</li>
+<li><strong>Tipo de template:</strong> Marketing (más caro), Utility (más barato)</li>
+<li><strong>Volumen:</strong> a mayor volumen, mejor tarifa</li>
+
+<strong>Tarifa típica (sujeta a cambios):</strong>
+<li>Marketing: $20-30 ARS por mensaje</li>
+<li>Utility: $5-10 ARS por mensaje</li>
+
+<h3>Detalles de costo</h3>
+Cada difusión registra:
+<li>Costo en ARS (según tipo de cambio USD→ARS)</li>
+<li>Costo en USD (según tarifa Meta)</li>
+<li>Fecha del cambio aplicado</li>
+
+<h3>Ver costos en Analytics</h3>
+Ve a <strong>Analytics</strong> para ver:
+<li>Costo total gastado por período</li>
+<li>Costo promedio por estado</li>
+<li>ROI estimado por segmento</li>
+
+<hr>
+
+<h2>Errores comunes en difusiones</h2>
+
+<h3>"Plantilla no aprobada"</h3>
+<li>La plantilla está en estado PENDING o REJECTED</li>
+<li>Espera a que Meta la apruebe (típicamente 1-2 horas)</li>
+<li>O crea una nueva</li>
+
+<h3>"Sin variable de nombre/personalizacion"</h3>
+<li>Las difusiones mass deben tener al menos 1 variable personalizada</li>
+<li>Agrega </code>{{1}}<code> → nombre del cliente</li>
+
+<h3>"No hay clientes en el segmento"</h3>
+<li>El segmento seleccionado no tiene clientes</li>
+<li>Verifica: ¿hay clientes de ese tipo? ¿todos tienen opt-in?</li>
+
+<h3>"Error de envío en Meta"</h3>
+<li>Meta rechazó el mensaje (puede ser contenido)</li>
+<li>Verifica el contenido de la plantilla</li>
+<li>Contacta a Meta si persiste</li>
+
+<h3>"Algunos mensajes fallaron"</h3>
+<li>Es normal que 1-2% falle por:</li>
+  - Número bloqueado
+  - Cliente sin WhatsApp activo
+  - Errores de red temporales
+<li>Se reintenta automáticamente 2-3 veces</li>
+
+<hr>
+
+<h2>Opt-in y cumplimiento legal</h2>
+
+<h3>¿Qué es opt-in?</h3>
+El cliente marcó "sí" a recibir difusiones. En la BD:
+<li>Campo </code>opt_in_broadcasts = true<code></li>
+<li>El CRM <strong>solo envía a clientes con opt-in</strong></li>
+
+<h3>Desmarcar opt-in</h3>
+1. Si un cliente se queja, ve a su perfil
+2. Marca <strong>Opt-out</strong>
+3. Ya no recibe difusiones (aunque esté en el segmento)
+
+<h3>Nota legal</h3>
+<li>Cumplimos CAENE (Cámara Argentina de Ecommerce)</li>
+<li>Cada difusión incluye opción de desuscribirse (link footer)</li>
+<li>Registramos quién opt-out y cuándo</li>
+
+<hr>
+
+<h2>Tips para difusiones exitosas</h2>
+
+✅ <strong>Haz:</strong>
+<li>Comienza con modo TEST para verificar</li>
+<li>Personaliza con variables (nombre, tipo, ciudad)</li>
+<li>Usa templates APPROVED de Meta</li>
+<li>Segmenta bien (tipos específicos, estados listos)</li>
+<li>Revisa costos antes de enviar masivo</li>
+
+❌ <strong>Evita:</strong>
+<li>Enviar masivo sin test primero</li>
+<li>Usar templates no aprobadas</li>
+<li>Enviar a segmentos con opt-out</li>
+<li>Cambiar variables en último momento</li>
+<li>Enviar difusiones muy frecuentes (spam)</li>
+
+<hr>
+
+Vuelve a <strong><a href="../MANUAL-USUARIO.md">MANUAL-USUARIO</a></strong> o accede a la siguiente sección: <strong><a href="06-Plantillas.md">06-Plantillas</a></strong>.</p><p>
+<hr></p><h1>06 — Plantillas Meta</h1>
+
+> ⚠️ <strong>Solo disponible para administradores</strong>
+
+<hr>
+
+<h2>Descripción general</h2>
+
+Las <strong>plantillas</strong> son mensajes preaprobados por Meta que usas para difusiones masivas y postventa. Aquí creas, editas, subes imágenes y gestiona las plantillas.
+
+<hr>
+
+<h2>¿Qué es una plantilla Meta?</h2>
+
+Una plantilla es un mensaje predefinido con:
+<li><strong>Texto</strong> con variables (ej: </code>Hola {{1}}, bienvenido a {{2}}<code>)</li>
+<li><strong>Encabezado</strong> opcional (imagen, video o texto)</li>
+<li><strong>Botones</strong> opcionales (call-to-action)</li>
+<li><strong>Estado de aprobación</strong> (APPROVED, PENDING, REJECTED)</li>
+<li><strong>Categoría</strong> (Marketing, Utility, Authentication)</li>
+
+Meta <strong>debe aprobar</strong> cada plantilla antes de usar. Típicamente tarda 1-2 horas.
+
+<hr>
+
+<h2>Acceder a Plantillas</h2>
+
+1. Ve a <strong>Plantillas</strong> en el menú izquierdo
+2. Verás:
+   - <strong>Listado</strong> de todas tus plantillas
+   - Botón <strong>+ Nueva plantilla</strong>
+
+<hr>
+
+<h2>Ver lista de plantillas</h2>
+
+<h3>Columnas principales</h3>
+
+| Columna | Descripción |
+|---------|------------|
+| <strong>Nombre</strong> | ID de la plantilla |
+| <strong>Categoría</strong> | Marketing, Utility, Authentication |
+| <strong>Estado</strong> | 🟢 APPROVED, 🟡 PENDING, 🔴 REJECTED |
+| <strong>Tipo de header</strong> | Sin header, Texto, Imagen, Video |
+| <strong>Variables</strong> | Cantidad y nombres ({{1}}, {{2}}) |
+| <strong>Creada</strong> | Fecha de creación |
+| <strong>Uso</strong> | Difusión, Postventa, Ambas |
+| <strong>Acción</strong> | Ver, Editar, Eliminar |
+
+<h3>Filtros</h3>
+
+#### Por categoría
+</code>`<code>
+○ Todas
+○ Marketing
+○ Utility
+○ Authentication
+</code>`<code>
+
+#### Por estado
+</code>`<code>
+○ Todas
+○ Aprobadas (APPROVED)
+○ Pendientes (PENDING)
+○ Rechazadas (REJECTED)
+</code>`<code>
+
+#### Por tipo de uso
+</code>`<code>
+○ Todas
+○ Difusión
+○ Postventa
+○ Ambas
+</code>`<code>
+
+#### Búsqueda
+Escribe el nombre o parte del nombre para encontrar la plantilla.
+
+<hr>
+
+<h2>Ver detalles de una plantilla</h2>
+
+<h3>Acceder</h3>
+1. En la lista, haz clic en la plantilla
+2. Se abre una pantalla de detalles
+
+<h3>Información mostrada</h3>
+
+</code>`<code>
+┌─────────────────────────────────────┐
+│ Nombre: "Promocion_2024"            │
+│ Estado: 🟢 APPROVED                 │
+│ Categoría: Marketing                │
+│ Creada: 12/02/2024                  │
+│                                     │
+│ Encabezado:                         │
+│ [Imagen: 1200x627 px]               │
+│                                     │
+│ Cuerpo del mensaje:                 │
+│ "Hola {{1}}, te ofrecemos            │
+│  descuento en {{2}}.                │
+│  Válido hasta {{3}}"                │
+│                                     │
+│ Variables:                          │
+│ {{1}} = nombre (automático)         │
+│ {{2}} = producto (manual)           │
+│ {{3}} = fecha_oferta (manual)       │
+│                                     │
+│ Botones:                            │
+│ [Ver oferta] → https://...          │
+│ [Contacto]  → https://...           │
+│                                     │
+│ Uso: Difusión, Postventa            │
+└─────────────────────────────────────┘
+</code>`<code>
+
+<hr>
+
+<h2>Crear una nueva plantilla</h2>
+
+<h3>Paso 1: Acceder a crear</h3>
+1. Haz clic en <strong>+ Nueva plantilla</strong>
+2. Se abre formulario vacío
+
+<h3>Paso 2: Información básica</h3>
+
+#### Nombre
+<li>Identificador único en Meta</li>
+<li>Solo letras, números, guiones, sin espacios</li>
+<li>Ej: </code>promocion_verano_2024<code>, </code>bienvenida_nuevo_cliente<code></li>
+<li>Meta rechazará si el nombre ya existe</li>
+
+#### Categoría
+Selecciona una:
+<li><strong>Marketing</strong> — promociones, ofertas, anuncios (más caro)</li>
+<li><strong>Utility</strong> — confirmaciones, estado de pedido (más barato)</li>
+<li><strong>Authentication</strong> — códigos de verificación (a veces gratis)</li>
+
+Elige según el propósito del mensaje.
+
+#### Idioma
+Selecciona: <strong>Español Argentina</strong> (es_AR)
+
+<hr>
+
+<h3>Paso 3: Encabezado (opcional)</h3>
+
+Un encabezado puede ser:
+
+#### Sin encabezado
+Radio button: "Sin encabezado"
+→ El mensaje comienza directo con el texto
+
+#### Encabezado de texto
+Radio button: "Texto"
+→ Escribe texto que aparecerá arriba del cuerpo
+→ Ej: "¡Oferta especial!"
+
+#### Encabezado de imagen
+Radio button: "Imagen"
+→ Sube una imagen
+→ Recomendaciones:
+  - Tamaño: 1200x627 px
+  - Formato: JPG, PNG
+  - Peso: < 5 MB
+  - Debe cumplir políticas Meta (sin texto spam, llamadas de atención)
+
+<strong>Cómo subir imagen:</strong>
+1. Haz clic en <strong>Subir imagen</strong>
+2. Selecciona archivo de tu computadora
+3. Se carga y se muestra preview
+4. Si no te gusta, haz clic en <strong>Cambiar imagen</strong>
+
+#### Encabezado de video (raro)
+Radio button: "Video"
+→ Se requiere video en formato específico
+→ Contacta al admin si necesitas
+
+<hr>
+
+<h3>Paso 4: Cuerpo del mensaje</h3>
+
+#### Escribir el texto
+1. En el campo <strong>Mensaje</strong>, escribe el contenido
+2. Puede incluir variables: </code>{{1}}<code>, </code>{{2}}<code>, etc.
+3. Máximo 1024 caracteres
+
+#### Variables
+Las variables son placeholders que se reemplazan con datos reales:
+
+</code>`<code>
+Texto: "Hola {{1}}, tu {{2}} llegó a {{3}}"
+
+Cliente 1:
+Hola Juan, tu pedido llegó a Córdoba
+
+Cliente 2:
+Hola María, tu pedido llegó a Buenos Aires
+</code>`<code>
+
+<strong>Cómo usar variables:</strong>
+<li>Escribe </code>{{<code> seguido del número</li>
+<li>Ej: </code>{{1}}<code>, </code>{{2}}<code>, </code>{{3}}<code></li>
+<li>Meta acepta hasta 20 variables</li>
+<li>Típicamente usas 1-5</li>
+
+<strong>Variables recomendadas:</strong>
+<li></code>{{1}}<code> = nombre del cliente</li>
+<li></code>{{2}}<code> = producto/servicio</li>
+<li></code>{{3}}<code> = ciudad/tipo/fecha</li>
+<li></code>{{4}}<code> en adelante = datos específicos del negocio</li>
+
+<hr>
+
+<h3>Paso 5: Botones (opcional)</h3>
+
+Los botones son call-to-action que el cliente ve al pie del mensaje.
+
+#### Agregar botón
+1. Haz clic en <strong>+ Agregar botón</strong>
+2. Completa:
+   - <strong>Texto del botón</strong> (ej: "Ver más", "Comprar", "Contacto")
+   - <strong>Tipo:</strong>
+     - Link: lleva a una URL
+     - Teléfono: inicia llamada
+     - Localización: abre ubicación
+
+3. Según el tipo:
+   - <strong>Link:</strong> ingresa URL (debe empezar con https://)
+   - <strong>Teléfono:</strong> ingresa número
+   - <strong>Localización:</strong> busca dirección o coordenadas
+
+#### Límite de botones
+Meta permite máximo 2 botones por plantilla.
+
+#### Ejemplo de plantilla con botones
+</code>`<code>
+┌──────────────────────────────────────┐
+│ Hola {{1}}, te ofrecemos descuento  │
+│ en {{2}}. ¡No te lo pierdas!        │
+│                                      │
+│ [Ver oferta] [Contactarnos]         │
+└──────────────────────────────────────┘
+</code>`<code>
+
+<hr>
+
+<h3>Paso 6: Clasificación de uso (solo admin)</h3>
+
+¿Para qué usarás esta plantilla?
+
+| Opción | Significa |
+|--------|----------|
+| Difusión | Solo para campañas masivas |
+| Postventa | Solo para secuencias automáticas |
+| Ambas | Se puede usar en difusiones y postventa |
+
+Esta clasificación es <strong>local</strong> (no afecta Meta, es solo para organizar).
+
+<hr>
+
+<h3>Paso 7: Guardar y enviar a Meta</h3>
+
+1. Verifica todo:
+   - Nombre válido
+   - Texto sin errores
+   - Encabezado (si aplica) subido
+   - Botones configurados (si aplica)
+
+2. Haz clic en <strong>Crear plantilla</strong>
+
+3. El CRM:
+   - Valida campos
+   - Envía a Meta
+   - Te muestra estado: "Enviado a Meta, esperando aprobación..."
+
+4. Meta aprueba (típicamente 1-2 horas)
+   - ✅ Si es aprobada → </code>APPROVED<code>
+   - ❌ Si es rechazada → </code>REJECTED<code> (muestra motivo)
+
+<hr>
+
+<h2>Editar una plantilla</h2>
+
+<h3>Limitaciones</h3>
+Meta <strong>no permite editar plantillas ya aprobadas</strong>. Si necesitas cambios:
+
+#### Opción 1: Crear nueva plantilla
+1. Crea una plantilla con el contenido corregido
+2. Dale un nombre parecido (ej: </code>promocion_v2<code>)
+3. Elimina la plantilla antigua
+
+#### Opción 2: Si está REJECTED o PENDING
+1. Haz clic en <strong>Editar</strong>
+2. Modifica los campos
+3. Haz clic en <strong>Actualizar</strong>
+4. Se reenvía a Meta
+
+<hr>
+
+<h2>Eliminar una plantilla</h2>
+
+<h3>Eliminar plantilla local</h3>
+1. En la lista, busca la plantilla
+2. Haz clic en <strong>⋮ Más opciones</strong> → <strong>Eliminar</strong>
+3. Confirma: "¿Eliminar esta plantilla?"
+4. Se elimina del CRM pero <strong>Meta conserva un registro</strong>
+
+<h3>Considerar antes de eliminar</h3>
+<li>¿Hay difusiones que usan esta plantilla?</li>
+<li>¿Se ha enviado a clientes con esta plantilla?</li>
+<li>Es mejor crear "archivada" que eliminar</li>
+
+<hr>
+
+<h2>Resubir imagen de header</h2>
+
+Si necesitas cambiar la imagen de una plantilla APPROVED:
+
+<h3>Proceso</h3>
+1. Ve a la plantilla
+2. En el encabezado de imagen, haz clic en <strong>Cambiar imagen</strong>
+3. Sube nueva imagen
+4. El CRM actualiza en Meta automáticamente
+
+Esto <strong>no requiere re-aprobación</strong> (cambio de media sin cambiar estructura).
+
+<hr>
+
+<h2>Descarga de plantilla</h2>
+
+Puedes descargar un JSON con la definición completa de la plantilla (útil para backup o compartir):
+
+1. En la lista, haz clic en <strong>⋮</strong> → <strong>Descargar</strong>
+2. Se descarga archivo </code>.json<code> con toda la info
+
+<hr>
+
+<h2>Estados de plantilla explicados</h2>
+
+| Estado | Qué significa | Acción |
+|--------|--------------|--------|
+| 🟢 <strong>APPROVED</strong> | Meta la aprobó, lista para usar | Envía en difusiones/postventa |
+| 🟡 <strong>PENDING</strong> | Meta la está revisando | Espera 1-2 horas |
+| 🔴 <strong>REJECTED</strong> | Meta la rechazó | Lee motivo, edita, reenvía |
+
+<h3>¿Por qué rechaza Meta?</h3>
+
+Motivos comunes:
+<li><strong>Spam:</strong> texto con demasiadas MAYÚSCULAS o emojis</li>
+<li><strong>Política:</strong> links sospechosos o contenido prohibido</li>
+<li><strong>Formato:</strong> variables mal usadas</li>
+<li><strong>Lenguaje:</strong> palabras vedadas o incitación</li>
+
+Revisa el motivo y reenvía corrigiendo.
+
+<hr>
+
+<h2>Ejemplos de plantillas</h2>
+
+<h3>Ejemplo 1: Bienvenida</h3>
+</code>`<code>
+Nombre: bienvenida_cliente
+Categoría: Utility
+Encabezado: Sin
+Mensaje: "Hola {{1}}, ¡bienvenido a La Internacional! 
+          Somos especialistas en {{2}} y estamos 
+          listos para asesorarte."
+Variables: {{1}} = nombre, {{2}} = categoría
+Botones: [Explorar] [Contacto]
+</code>`<code>
+
+<h3>Ejemplo 2: Promoción</h3>
+</code>`<code>
+Nombre: promocion_verano
+Categoría: Marketing
+Encabezado: [Imagen de productos]
+Mensaje: "¡Oferta especial {{1}}! 
+          Este verano disfruta 30% en {{2}}.
+          Válido hasta {{3}}."
+Variables: {{1}} = nombre, {{2}} = producto, {{3}} = fecha
+Botones: [Ver ofertas]
+</code>`<code>
+
+<h3>Ejemplo 3: Confirmación de orden</h3>
+</code>`<code>
+Nombre: confirmacion_pedido
+Categoría: Utility (más barato)
+Encabezado: Sin
+Mensaje: "Tu pedido #{{1}} ha sido confirmado.
+          Entrega estimada: {{2}} días.
+          Tracking: {{3}}"
+Variables: Automáticas de sistema
+Botones: [Rastrear] [Contacto]
+</code>`<code>
+
+<hr>
+
+<h2>Tips y buenas prácticas</h2>
+
+✅ <strong>Haz:</strong>
+<li>Nombres descriptivos y únicos</li>
+<li>Prueba el texto antes de enviar a Meta</li>
+<li>Usa variables para personalizar</li>
+<li>Mantén encabezados profesionales</li>
+<li>Clasifica correctamente por uso</li>
+
+❌ <strong>Evita:</strong>
+<li>Nombres con espacios o caracteres especiales</li>
+<li>Spam (emojis excesivos, MAYÚSCULAS)</li>
+<li>Links sospechosos o acortados</li>
+<li>Editar plantillas ya aprobadas (crear nuevas)</li>
+<li>Cambios de última hora antes de difusión</li>
+
+<hr>
+
+<h2>Troubleshooting</h2>
+
+<strong>P: Mi plantilla fue rechazada, ¿qué hago?</strong>
+R: Lee el motivo en la sección "Motivo de rechazo". Edita la plantilla, corrige el problema, y reenvía.
+
+<strong>P: ¿Cuánto tarda Meta en aprobar?</strong>
+R: Típicamente 1-2 horas. En casos especiales, hasta 24 horas.
+
+<strong>P: ¿Puedo usar links externos en botones?</strong>
+R: Sí, pero deben ser links seguros (https://). Meta rechaza links sospechosos.
+
+<strong>P: ¿Cuál es el máximo de variables?</strong>
+R: Meta permite hasta 20 variables por plantilla, pero recomendamos máximo 5 para simplicidad.
+
+<strong>P: ¿Puedo cambiar la imagen después de aprobada?</strong>
+R: Sí, cambios de media solo no requieren re-aprobación. Cambios estructurales (texto, variables, botones) sí requieren nueva aprobación.
+
+<hr>
+
+Vuelve a <strong><a href="../MANUAL-USUARIO.md">MANUAL-USUARIO</a></strong> o accede a la siguiente sección: <strong><a href="07-Postventa.md">07-Postventa</a></strong>.</p><p>
+<hr></p><h1>07 — Postventa y Secuencias Automáticas</h1>
+
+> ⚠️ <strong>Solo disponible para administradores</strong>
+
+<hr>
+
+<h2>Descripción general</h2>
+
+La <strong>postventa</strong> te permite automatizar mensajes 1:1 a clientes después de eventos clave (compra, inactividad, cumpleaños). No es spam masivo, es seguimiento inteligente y personalizado.
+
+<hr>
+
+<h2>¿Qué es una secuencia de postventa?</h2>
+
+Una secuencia de postventa es:
+<li><strong>Automatizada:</strong> se ejecuta sin intervención manual</li>
+<li><strong>Personalizada:</strong> cada cliente recibe su propio mensaje 1:1</li>
+<li><strong>Basada en eventos:</strong> se dispara por compra, inactividad, fecha, etc.</li>
+<li><strong>Auditada:</strong> queda registro de quién recibió qué y cuándo</li>
+<li><strong>Desacoplada de Meta Cloud API:</strong> se envía vía whatsapp-web.js (sesión privada, no sujeta a límites de difusión)</li>
+
+<hr>
+
+<h2>¿Por qué postventa aparte?</h2>
+
+Meta Cloud API tiene restricciones para mensajes 1:1 personalizados en masa. La postventa usa <strong>sesiones WhatsApp Web privadas</strong> (una por asesora) para sortear esto sin violar ToS.
+
+<strong>Ventaja:</strong> puedes enviar mensajes más flexibles, con contenido dinámico, sin esperar aprobación de Meta.
+
+<hr>
+
+<h2>Acceder a Postventa</h2>
+
+1. Ve a <strong>Postventa</strong> en el menú izquierdo
+2. Verás:
+   - <strong>Secuencias activas</strong> (lista de automatizaciones en curso)
+   - <strong>Historial de envíos</strong> (log de quién recibió qué)
+   - Botón <strong>+ Nueva secuencia</strong>
+
+<hr>
+
+<h2>Ver secuencias activas</h2>
+
+<h3>Columnas</h3>
+
+| Columna | Descripción |
+|---------|------------|
+| <strong>Nombre</strong> | Identificador de la secuencia |
+| <strong>Trigger</strong> | Qué evento la dispara (compra, inactividad, etc.) |
+| <strong>Plantilla</strong> | Nombre del template usado |
+| <strong>Activa</strong> | Habilitada o pausada |
+| <strong>Enviadas este mes</strong> | Cantidad de mensajes esta luna |
+| <strong>Último envío</strong> | Cuándo fue el más reciente |
+| <strong>Acción</strong> | Pausar, Editar, Ver logs |
+
+<hr>
+
+<h2>Crear una nueva secuencia</h2>
+
+<h3>Paso 1: Acceder a crear</h3>
+1. Haz clic en <strong>+ Nueva secuencia</strong>
+2. Se abre formulario
+
+<h3>Paso 2: Información básica</h3>
+
+#### Nombre
+<li>Identificador único</li>
+<li>Ej: </code>agradecimiento_post_compra<code>, </code>recordatorio_inactivos<code></li>
+
+#### Estado
+<li>Radio button: <strong>Habilitada</strong> o <strong>Pausada</strong></li>
+<li>Por defecto: Habilitada</li>
+<li>Puedes pausar sin eliminar</li>
+
+<hr>
+
+<h3>Paso 3: Definir el trigger (qué dispara la secuencia)</h3>
+
+Un trigger es el evento que activa el envío automático.
+
+#### Opciones de trigger
+
+##### Post-compra
+</code>`<code>
+Trigger: "Post-compra"
+Descripción: Se ejecuta cuando un cliente cambia 
+             de estado a "Comprado"
+Delay: opcional (ej: enviar después de 3 días)
+</code>`<code>
+
+Uso típico: Agradecimiento, encuesta de satisfacción, recomendación de productos.
+
+##### Inactividad
+</code>`<code>
+Trigger: "Inactividad"
+Descripción: Se ejecuta si el cliente no ha 
+             interactuado en X días
+Días configurables: 7, 14, 30 (defecto 30)
+</code>`<code>
+
+Uso típico: "¿Necesitas asesoramiento?", recordatorio de oferta.
+
+##### Cumpleaños
+</code>`<code>
+Trigger: "Cumpleaños"
+Descripción: Se ejecuta en la fecha de nacimiento 
+             del cliente (si la tiene registrada)
+Frecuencia: Una vez al año
+</code>`<code>
+
+Uso típico: Ofertas especiales de cumpleaños, saludos personalizados.
+
+##### Días personalizados
+</code>`<code>
+Trigger: "Cada N días"
+Descripción: Se repite cada X días
+Días: configurable (ej: cada 7 días)
+Límite: máximo 1 vez al mes para evitar spam
+</code>`<code>
+
+Uso típico: Seguimiento semanal a clientes en gestión.
+
+<hr>
+
+<h3>Paso 4: Configurar condiciones (filtros)</h3>
+
+Opcionalmente, puedes restringir a qué clientes aplica:
+
+#### Tipo de cliente
+<li>Solo Cosmetólogas</li>
+<li>Solo Esteticistas</li>
+<li>Solo Revendedoras</li>
+<li>Todos</li>
+
+#### Asesora responsable
+<li>Solo para una asesora específica</li>
+<li>Todas las asesoras</li>
+
+#### Rango de fecha
+<li>Solo clientes creados después del: [fecha]</li>
+<li>Antes del: [fecha]</li>
+
+<strong>Ejemplo:</strong>
+</code>`<code>
+Secuencia: "Bienvenida nuevos"
+Trigger: Post-compra
+Condición: Solo clientes creados últimos 30 días
+Resultado: Solo clientes nuevos reciben el mensaje
+</code>`<code>
+
+<hr>
+
+<h3>Paso 5: Seleccionar plantilla</h3>
+
+Elige la plantilla de texto para usar:
+
+1. Selecciona <strong>Plantilla</strong>
+2. Aparecen templates marcadas como "Postventa" o "Ambas"
+3. Se muestra preview
+
+<strong>Nota:</strong> Las plantillas en postventa no necesitan aprobación Meta (son 1:1), pero deben estar creadas.
+
+<hr>
+
+<h3>Paso 6: Mapear variables</h3>
+
+Si la plantilla tiene variables, asocia con datos reales:
+
+| Variable | Tipo | Valor |
+|----------|------|-------|
+| </code>{{1}}<code> | Automático | Nombre del cliente |
+| </code>{{2}}<code> | Manual | "Descuento especial" |
+| </code>{{3}}<code> | Automático | Ciudad del cliente |
+
+<hr>
+
+<h3>Paso 7: Guardar secuencia</h3>
+
+1. Verifica:
+   - Nombre único
+   - Trigger claro
+   - Plantilla seleccionada
+   - Condiciones sensatas
+
+2. Haz clic en <strong>Crear secuencia</strong>
+
+3. Se activa inmediatamente si está habilitada
+   - Comenzará a ejecutarse según el trigger configurado
+
+<hr>
+
+<h2>Gestionar secuencias</h2>
+
+<h3>Ver secuencia en detalle</h3>
+1. En la lista, haz clic en el nombre
+2. Se abre panel con:
+   - Parámetros
+   - Logs de ejecución (últimas 100)
+   - Estadísticas
+
+<h3>Pausar secuencia</h3>
+1. En la lista, haz clic en <strong>Pausar</strong>
+2. Se detiene temporalmente
+3. Puedes reactivar después sin perder historial
+
+<h3>Editar secuencia</h3>
+1. Haz clic en <strong>Editar</strong>
+2. Modifica: nombre, trigger, condiciones, plantilla
+3. Haz clic en <strong>Guardar cambios</strong>
+
+<strong>Nota:</strong> cambios se aplican a futuros envíos, no retroactivos.
+
+<h3>Eliminar secuencia</h3>
+1. Haz clic en <strong>⋮ Más opciones</strong> → <strong>Eliminar</strong>
+2. Confirma: "¿Eliminar secuencia?"
+3. <strong>Importante:</strong> se conserva historial, solo se elimina la regla
+
+<hr>
+
+<h2>Historial de envíos (logs)</h2>
+
+<h3>Ver logs de una secuencia</h3>
+1. Abre la secuencia
+2. Baja a <strong>Historial de envíos</strong>
+3. Se muestra tabla:
+
+| Columna | Info |
+|---------|------|
+| <strong>Fecha</strong> | Cuándo se envió |
+| <strong>Cliente</strong> | Nombre y teléfono |
+| <strong>Asesora</strong> | Quién envió (nombre asesora) |
+| <strong>Mensaje</strong> | Preview del contenido |
+| <strong>Estado</strong> | Enviado, Entregado, Leído, Error |
+| <strong>Error (si aplica)</strong> | Motivo si falló |
+
+<h3>Filtrar logs</h3>
+<li>Por rango de fechas</li>
+<li>Por estado (éxito, error)</li>
+<li>Por cliente</li>
+
+<h3>Descargar logs</h3>
+1. Haz clic en <strong>Descargar CSV</strong>
+2. Se descarga reporte con todos los envíos de la secuencia
+
+<hr>
+
+<h2>Estadísticas de postventa</h2>
+
+<h3>Por secuencia</h3>
+</code>`<code>
+Secuencia: "Agradecimiento post-compra"
+Enviados este mes: 12
+Entregados: 11 (92%)
+Fallos: 1 (8%)
+Tasa de lectura: 73% (8 de 11)
+</code>`<code>
+
+<h3>Global</h3>
+Desde el menú <strong>Postventa → Dashboard</strong> (si existe):
+</code>`<code>
+Total de secuencias: 5
+Activas: 4
+Pausadas: 1
+Mensajes enviados (mes): 47
+Tasa de éxito: 96%
+Tasa de lectura promedio: 72%
+</code>`<code>
+
+<hr>
+
+<h2>Manejo de errores</h2>
+
+<h3>Errores comunes en postventa</h3>
+
+#### "Sesión WhatsApp Web no disponible"
+<li>La sesión de una asesora está offline</li>
+<li>El CRM reinicia automáticamente después de 1 hora</li>
+<li>O el admin puede forzar reconexión en <strong>Configuración</strong></li>
+
+#### "Cliente sin teléfono registrado"
+<li>El cliente no tiene teléfono válido</li>
+<li>Se salta y continúa con el siguiente</li>
+
+#### "Número bloqueado"
+<li>El cliente bloqueó el WhatsApp de la asesora</li>
+<li>El mensaje falla con estado "blocked"</li>
+<li>Se reintenta después de 7 días</li>
+
+#### "Rate limit de Meta"
+<li>Se alcanzó el límite de mensajes 1:1 en corto tiempo</li>
+<li>El CRM espera y reintenta</li>
+<li>El log muestra "reintentando..."</li>
+
+<hr>
+
+<h2>Casos de uso comunes</h2>
+
+<h3>1. Agradecimiento post-compra</h3>
+</code>`<code>
+Nombre: agradecimiento_compra
+Trigger: Post-compra
+Delay: Inmediato
+Plantilla: "Gracias {{1}}, tu compra de {{2}} 
+           fue procesada. ¿Necesitas más ayuda?"
+Condiciones: Ninguna (todos los que compran)
+</code>`<code>
+
+<h3>2. Recordatorio de inactividad</h3>
+</code>`<code>
+Nombre: recordatorio_30dias
+Trigger: Inactividad (>30 días)
+Plantilla: "¡Hola {{1}}! Hace tiempo no nos vemos.
+           Tenemos nuevas {{2}} especiales para ti."
+Condiciones: Solo tipo "Revendedora"
+</code>`<code>
+
+<h3>3. Mensaje de cumpleaños</h3>
+</code>`<code>
+Nombre: cumpleaños_descuento
+Trigger: Cumpleaños
+Plantilla: "¡Feliz cumpleaños {{1}}! 🎂
+           Te ofrecemos 25% en toda la {{2}}"
+Condiciones: Ninguna
+</code>`<code>
+
+<h3>4. Follow-up semanal</h3>
+</code>`<code>
+Nombre: seguimiento_semanal
+Trigger: Cada 7 días
+Plantilla: "Hola {{1}}, ¿cómo va todo?
+           Podemos ayudarte con algo?"
+Condiciones: Estado = "Presupuestando"
+</code>`<code>
+
+<hr>
+
+<h2>Límites y consideraciones</h2>
+
+<h3>Límite de mensajes</h3>
+<li>Máximo 20 mensajes 1:1 por sesión por hora</li>
+<li>Si una secuencia genera > 20, se encola y se procesa después</li>
+
+<h3>Frecuencia máxima</h3>
+<li>Una secuencia no envía al mismo cliente > 1 vez al mes</li>
+<li>Protege contra spam</li>
+
+<h3>Horarios</h3>
+<li>Los mensajes se envían en <strong>horario comercial</strong> (9 AM - 9 PM, hora Argentina)</li>
+<li>Fuera de ese rango se encolan</li>
+
+<h3>Reintentós</h3>
+<li>Si un envío falla, se reintenta 2-3 veces</li>
+<li>Espaciado en 5, 15, 60 minutos</li>
+
+<hr>
+
+<h2>Monitoreo y alertas</h2>
+
+<h3>Estado de sesiones</h3>
+Ve a <strong>Configuración → Postventa → Estado de sesiones</strong>:
+</code>`<code>
+Asesora 1 (María):  🟢 Conectada (última actividad: hace 5 min)
+Asesora 2 (Laura):  🟡 Desconectada (reconectando...)
+Asesora 3 (Paula):  🔴 Offline (última sesión: 23/02)
+</code>`<code>
+
+<h3>Alertas importantes</h3>
+El admin recibe notificación si:
+<li>Una sesión está desconectada > 1 hora</li>
+<li>Tasa de fallos > 20% en una secuencia</li>
+<li>Un cliente bloqueó a la asesora (se requiere desbloqueo manual)</li>
+
+<hr>
+
+<h2>Tips y buenas prácticas</h2>
+
+✅ <strong>Haz:</strong>
+<li>Crea secuencias específicas (no "todo para todos")</li>
+<li>Usa triggers claros (compra, inactividad, fechas)</li>
+<li>Prueba primero con pequeño segmento</li>
+<li>Monitorea logs para ver qué está funcionando</li>
+<li>Pausa si hay muchos errores</li>
+
+❌ <strong>Evita:</strong>
+<li>Triggers muy frecuentes (spam)</li>
+<li>Mensajes genéricos sin personalización</li>
+<li>Condiciones demasiado restrictivas</li>
+<li>Cambios en triggers sin revisar impacto</li>
+<li>Múltiples secuencias al mismo cliente en corto tiempo</li>
+
+<hr>
+
+<h2>Troubleshooting</h2>
+
+<strong>P: ¿Por qué algunos mensajes fallan?</strong>
+R: Causas comunes: cliente bloqueó, sin teléfono, sesión offline, número incorrecto. Revisa el log para el motivo específico.
+
+<strong>P: ¿Puedo modificar un mensaje ya enviado?</strong>
+R: No. El mensaje ya llegó. Envía un segundo mensaje corrigiendo.
+
+<strong>P: ¿A qué hora se envían?</strong>
+R: Dentro de 9 AM - 9 PM hora Argentina. Si programas fuera, se encola para el siguiente horario comercial.
+
+<strong>P: ¿Puedo pausar una secuencia sin eliminarla?</strong>
+R: Sí, haz clic en <strong>Pausar</strong>. Se congela sin eliminar el historial.
+
+<strong>P: ¿Puedo cambiar la plantilla de una secuencia activa?</strong>
+R: Sí, edita la secuencia. Cambios aplican a futuros envíos.
+
+<hr>
+
+Vuelve a <strong><a href="../MANUAL-USUARIO.md">MANUAL-USUARIO</a></strong> o accede a la siguiente sección: <strong><a href="08-Analytics.md">08-Analytics</a></strong>.</p><p>
+<hr></p><h1>08 — Analytics y Reportes</h1>
+
+> ⚠️ <strong>Solo disponible para administradores</strong>
+
+<hr>
+
+<h2>Descripción general</h2>
+
+<strong>Analytics</strong> te muestra métricas clave del negocio:
+<li><strong>Embudo de ventas:</strong> cuántos clientes en cada estado</li>
+<li><strong>Tasas de conversión:</strong> porcentaje que avanza en el embudo</li>
+<li><strong>Costos por estado:</strong> cuánto gastamos en Meta por cliente</li>
+<li><strong>Desempeño de asesoras:</strong> quién está produciendo más</li>
+<li><strong>Análisis de campañas:</strong> qué difusiones funcionan mejor</li>
+
+<hr>
+
+<h2>Acceder a Analytics</h2>
+
+1. Ve a <strong>Analytics</strong> en el menú izquierdo
+2. Verás varios dashboards y gráficos
+
+<hr>
+
+<h2>1. Embudo de ventas</h2>
+
+<h3>Visualización</h3>
+Un gráfico en forma de embudo mostrando:
+
+</code>`<code>
+┌─────────────────────────────────┐
+│ Recibido               150       │
+├─────────────────────────────────┤
+│ Validación             95 (63%)  │
+├──────────────────────┐           │
+│ Presupuestando   42 (28%)        │
+├──────────────┐                   │
+│ Sin cpt.  18 (43%)               │
+├──────────┐                       │
+│ Agendado 12 (67%)               │
+├────────┐                         │
+│ Comprado 10 (83%)               │
+└─────────────────────────────────┘
+</code>`<code>
+
+<h3>Qué significa</h3>
+<li><strong>Eje izquierdo:</strong> número absoluto de clientes</li>
+<li><strong>Porcentaje:</strong> % que avanzó desde la etapa anterior</li>
+<li><strong>Ancho:</strong> visual, proporcional a cantidad</li>
+
+<h3>Filtros disponibles</h3>
+<li><strong>Por rango de fecha:</strong> última semana, mes, año, personalizado</li>
+<li><strong>Por asesora:</strong> una específica o todas</li>
+<li><strong>Por tipo de cliente:</strong> Cosmetóloga, Esteticista, etc.</li>
+
+<h3>Interpretación</h3>
+</code>`<code>
+Recibido → Validación: 63% de nuevos clientes se validan
+Validación → Presupuestando: 44% de validados piden presupuesto
+Presupuestando → Compra: 24% de presupuestos se cierran
+</code>`<code>
+
+Si algún porcentaje es bajo, identifica el cuello de botella y ajusta la estrategia.
+
+<hr>
+
+<h2>2. Tabla de conversión por estado</h2>
+
+<h3>Vista tabular del embudo</h3>
+
+| Estado | Total | % del total | Conversión anterior |
+|--------|-------|------------|----------------------|
+| Recibido | 150 | 100% | — |
+| Validación | 95 | 63% | 63% de nuevos |
+| Presupuestando | 42 | 28% | 44% de validados |
+| Sin comprobante | 18 | 12% | 43% de presupuestando |
+| Agendado | 12 | 8% | 67% de sin cpt |
+| Comprado | 10 | 6.7% | 83% de agendados |
+
+<h3>Cómo leerla</h3>
+<li><strong>Total:</strong> número de clientes en ese estado</li>
+<li><strong>% del total:</strong> proporción sobre el universo</li>
+<li><strong>Conversión anterior:</strong> qué % avanzó desde la etapa previa</li>
+
+<h3>Usar para identificar problemas</h3>
+<li>Si "Validación" es muy bajo → revisar proceso de validación</li>
+<li>Si "Presupuestando → Comprado" es bajo → ofertas no competitivas o asesoras no cerradoras</li>
+
+<hr>
+
+<h2>3. Costo promedio por estado</h2>
+
+<h3>Gráfico de barras</h3>
+
+</code>`<code>
+Recibido:        $50 ARS/cliente
+Validación:      $45 ARS/cliente
+Presupuestando:  $60 ARS/cliente
+Sin comprobante: $80 ARS/cliente
+Agendado:        $75 ARS/cliente
+Comprado:        $120 ARS/cliente
+</code>`<code>
+
+<h3>Interpretación</h3>
+<li>El cliente "Comprado" costó $120 en difusiones de Meta</li>
+<li>Si el margen por venta es > $120, es rentable</li>
+<li>Si es < $120, revisar estrategia</li>
+
+<h3>Cálculo</h3>
+Costo promedio = (Gasto total en difusiones) / (Clientes en estado)
+
+Ejemplo:
+</code>`<code>
+Difusión a Cosmetólogas:
+<li>50 mensajes enviados</li>
+<li>Costo: $500 ARS</li>
+<li>Costo promedio: $10 por mensaje</li>
+
+Si 5 pasaron a "Presupuestando":
+<li>Costo por presupuesto: $100 ARS</li>
+</code>`<code>
+
+<hr>
+
+<h2>4. Desempeño de asesoras</h2>
+
+<h3>Tabla de asesoras</h3>
+
+| Asesora | Clientes | En seguimiento | Vendieron | Tasa de cierre |
+|---------|----------|---|---|---|
+| María | 42 | 15 | 8 | 19% |
+| Laura | 38 | 8 | 7 | 18% |
+| Paula | 35 | 18 | 4 | 11% |
+| Ana | 40 | 12 | 6 | 15% |
+
+<h3>Métricas por asesora</h3>
+<li><strong>Clientes:</strong> total asignados</li>
+<li><strong>En seguimiento:</strong> actualmente en estado Presupuestando</li>
+<li><strong>Vendieron:</strong> pasaron a Comprado</li>
+<li><strong>Tasa de cierre:</strong> % de sus clientes que compraron</li>
+
+<h3>Usar para evaluar</h3>
+<li>Quién tiene mejor desempeño</li>
+<li>Quién necesita capacitación</li>
+<li>Detectar problemas de asignación (una sobrecargada, otra con pocos)</li>
+
+<h3>Acción</h3>
+Si una asesora tiene baja tasa:
+1. Verifica cantidad de clientes (¿tiene suficientes?)
+2. Revisa tiempo de respuesta en Inbox (¿responde rápido?)
+3. Ofrece coaching/mentoría
+
+<hr>
+
+<h2>5. Historial de difusiones</h2>
+
+<h3>Tabla de campañas</h3>
+
+| Fecha | Campaña | Segmento | Enviados | Costo | CTR* |
+|-------|---------|----------|----------|-------|-----|
+| 15/02 | Promo Verano | Cosmetólogas | 120 | $600 | 8% |
+| 12/02 | Recordatorio | Revendedoras | 80 | $200 | 3% |
+| 08/02 | Bienvenida | Nuevas | 50 | $100 | 12% |
+
+*CTR = Click-Through Rate (clientes que interactuaron)
+
+<h3>Filtros</h3>
+<li>Por rango de fechas</li>
+<li>Por tipo de plantilla</li>
+<li>Por éxito (>90% entregados) o fallos</li>
+
+<h3>Análisis</h3>
+<li>Compara costos vs. resultados</li>
+<li>Qué campañas funcionaron mejor</li>
+<li>Optimiza futuras difusiones</li>
+
+<hr>
+
+<h2>6. Gráfico de tendencias</h2>
+
+<h3>Evolución de clientes</h3>
+
+</code>`<code>
+Clientes por estado (últimos 30 días)
+
+Comprado  ▄▆██▇▅▆▇█▅  Crecimiento constante
+Agendado  ▄▅▄▆▄▇▅▄▆▆  Estable
+Presupuestando ▆█▇█▆▇█▆▇▅ Activo
+</code>`<code>
+
+<h3>Ver patrón</h3>
+<li>¿Compras crecen semana a semana?</li>
+<li>¿Hay dias con más presupuestos?</li>
+<li>¿Qué impulsó picos?</li>
+
+<h3>Usar para planificación</h3>
+</code>`<code>
+Si viernes es pico de presupuestos:
+→ Planifica difusiones para jueves
+→ Asesoras listas para responder viernes
+</code>`<code>
+
+<hr>
+
+<h2>7. ROI por difusión</h2>
+
+<h3>Tabla de retorno</h3>
+
+| Difusión | Invertido | Clientes adicionales | Valor estimado | ROI |
+|----------|-----------|---|---|---|
+| Promo Verano | $600 | 12 | $2,400 | 300% |
+| Recordatorio | $200 | 2 | $400 | 100% |
+| Bienvenida | $100 | 4 | $800 | 700% |
+
+<strong>Fórmula:</strong>
+</code>`<code>
+ROI = ((Valor generado - Inversión) / Inversión) * 100%
+</code>`<code>
+
+<h3>Considerar</h3>
+<li>Valor por cliente asignado (promedio de ticket)</li>
+<li>Período de conversión (cuánto tarda convertirse)</li>
+<li>Retención (clientes repetidores)</li>
+
+<hr>
+
+<h2>8. Filtros globales de Analytics</h2>
+
+<h3>Rango de fecha</h3>
+<li><strong>Últimos 7 días</strong></li>
+<li><strong>Últimos 30 días</strong></li>
+<li><strong>Este mes</strong></li>
+<li><strong>Mes pasado</strong></li>
+<li><strong>Este año</strong></li>
+<li><strong>Personalizado</strong> (elige fechas)</li>
+
+<h3>Por asesora</h3>
+<li>Todas</li>
+<li>María</li>
+<li>Laura</li>
+<li>Paula</li>
+<li>Ana</li>
+<li>(cada asesora del equipo)</li>
+
+<h3>Por tipo de cliente</h3>
+<li>Todos</li>
+<li>Cosmetóloga</li>
+<li>Esteticista</li>
+<li>Dermatóloga</li>
+<li>Revendedora</li>
+
+<h3>Por estado</h3>
+<li>Todos</li>
+<li>Recibido</li>
+<li>Validación</li>
+<li>Presupuestando</li>
+<li>Sin comprobante</li>
+<li>Agendado</li>
+<li>Comprado</li>
+
+<hr>
+
+<h2>Exportar reportes</h2>
+
+<h3>Descargar como CSV</h3>
+1. En cualquier tabla, haz clic en <strong>Descargar CSV</strong>
+2. Se abre archivo en Excel
+3. Edita, presenta, archiva
+
+<h3>Descargar como PDF (futuro)</h3>
+Próximamente: opción de generar PDF de dashboards
+
+<h3>Compartir reportes</h3>
+1. Copia la URL actual (con filtros aplicados)
+2. Envía a otro admin
+3. Ese admin ve exactamente lo mismo
+
+<hr>
+
+<h2>Dashboards personalizados (si disponible)</h2>
+
+<h3>Crear dashboard personalizado</h3>
+1. Haz clic en <strong>+ Nuevo dashboard</strong>
+2. Nombre: "Métricas Cosmetólogas"
+3. Selecciona gráficos que quieres
+4. Filtra por tipos/asesoras
+5. <strong>Guardar dashboard</strong>
+
+<h3>Acceder después</h3>
+En el menú <strong>Analytics → Dashboards</strong> verás:
+<li>Dashboard principal (por defecto)</li>
+<li>Tus dashboards personalizados</li>
+
+<hr>
+
+<h2>Casos de uso comunes</h2>
+
+<h3>Caso 1: Revisar performance semanal</h3>
+1. Abre <strong>Embudo de ventas</strong>
+2. Filtra: últimos 7 días
+3. Compara con semana anterior
+4. Identifica cambios
+
+<h3>Caso 2: Evaluar una asesora</h3>
+1. Ve a <strong>Desempeño de asesoras</strong>
+2. Haz clic en el nombre de la asesora
+3. Se filtra Analytics a solo sus datos
+4. Revisa embudo, tendencias, ROI
+
+<h3>Caso 3: Justificar inversión en Meta</h3>
+1. Ve a <strong>ROI por difusión</strong>
+2. Selecciona mes completo
+3. Suma ROI de todas las campañas
+4. Comparte con liderazgo
+
+<h3>Caso 4: Detectar cuello de botella</h3>
+1. <strong>Embudo de ventas</strong> muestra todos los porcentajes
+2. Si porcentaje bajo en una etapa → ese es el problema
+3. Investiga: proceso, asesoras, competencia, precio
+
+<hr>
+
+<h2>Interpretar métricas clave</h2>
+
+| Métrica | Qué significa | Acción si es baja |
+|---------|--------------|---|
+| Tasa Recibido→Validación | % de nuevos clientes que validas | Revisar proceso de validación |
+| Tasa Validación→Presupuestando | % de clientes que piden presupuesto | Mejorar oferta, tiempo de respuesta |
+| Tasa de cierre | % final que compran | Capacitar asesoras, revisar precio |
+| Costo por cliente | Gasto Meta / clientes | Reducir frecuencia de difusiones |
+| ROI | Retorno en $ | Evaluar si vale la pena difundir |
+
+<hr>
+
+<h2>Tips para lectura de datos</h2>
+
+✅ <strong>Haz:</strong>
+<li>Revisa Analytics 1 vez por semana</li>
+<li>Compara semana vs. semana (no absoluto)</li>
+<li>Identifica tendencias, no fluctuaciones únicas</li>
+<li>Valida números contra sistema actual</li>
+<li>Documenta decisiones basadas en datos</li>
+
+❌ <strong>Evita:</strong>
+<li>Tomar decisiones por 1 punto de dato</li>
+<li>Cambiar estrategia cada vez que baja</li>
+<li>Ignorar contexto externo (vacaciones, eventos, etc.)</li>
+<li>Comparar períodos diferentes sin justificación</li>
+
+<hr>
+
+<h2>Troubleshooting</h2>
+
+<strong>P: Un número parece mal, ¿dónde checkeo?</strong>
+R: Ve a <strong>Clientes</strong>, filtra por estado → busca clientes en ese estado → cuenta manual. Si no coincide, hay un bug.
+
+<strong>P: ¿Puedo ver analytics de clientes específicos?</strong>
+R: Parcialmente. Filtra por asesora/tipo/estado. Para cliente específico, ve a <strong>Clientes → Detalles</strong>.
+
+<strong>P: Los números cambian cada vez que actualizo</strong>
+R: Puede haber envíos en tránsito (webhooks de Meta). Espera 5 minutos y recarga.
+
+<strong>P: ¿Cuánto atrás puedo ver datos?</strong>
+R: Toda la historia desde que el CRM comenzó. No hay límite.
+
+<hr>
+
+Vuelve a <strong><a href="../MANUAL-USUARIO.md">MANUAL-USUARIO</a></strong> o accede a la siguiente sección: <strong><a href="09-Configuracion.md">09-Configuracion</a></strong>.</p><p>
+<hr></p><h1>09 — Configuración (Administrador)</h1>
+
+> ⚠️ <strong>Solo disponible para administradores</strong>
+
+<hr>
+
+<h2>Descripción general</h2>
+
+La sección <strong>Configuración</strong> es el panel de control del sistema. Aquí gesionas usuarios, tipos de clientes, credenciales de Meta, y otros ajustes globales.
+
+<hr>
+
+<h2>Acceder a Configuración</h2>
+
+1. Ve a <strong>Configuración</strong> en el menú izquierdo (solo admin)
+2. Verás una lista de opciones de configuración
+
+<hr>
+
+<h2>1. Gestión de usuarios</h2>
+
+<h3>Ver lista de usuarios</h3>
+1. En Configuración, haz clic en <strong>Usuarios</strong>
+2. Se muestra tabla con todos los usuarios
+
+| Columna | Info |
+|---------|------|
+| <strong>Nombre</strong> | Nombre completo |
+| <strong>Email</strong> | Email de login |
+| <strong>Rol</strong> | Admin o Asesora |
+| <strong>Estado</strong> | Activo / Inactivo |
+| <strong>Teléfono</strong> | Teléfono asignado (para postventa) |
+| <strong>Creado</strong> | Fecha de creación |
+| <strong>Acción</strong> | Editar, Desactivar, Eliminar |
+
+<h3>Crear usuario nuevo</h3>
+1. Haz clic en <strong>+ Nuevo usuario</strong>
+2. Completa formulario:
+   - <strong>Nombre completo</strong> (ej: María García)
+   - <strong>Email</strong> (ej: maria.garcia@lainternacional.com.ar)
+   - <strong>Rol:</strong> Admin o Asesora
+   - <strong>Teléfono:</strong> (obligatorio si es asesora, para postventa)
+   - <strong>Contraseña temporal</strong>
+
+3. Haz clic en <strong>Crear usuario</strong>
+4. El usuario recibe email con contraseña temporal
+5. Primera vez que abre el CRM, debe cambiar contraseña
+
+<h3>Editar usuario</h3>
+1. En la tabla, haz clic en el nombre del usuario
+2. Modifica:
+   - Nombre
+   - Email (cuidado, afecta login)
+   - Rol
+   - Teléfono
+   - Estado (activo/inactivo)
+
+3. Haz clic en <strong>Guardar cambios</strong>
+
+<h3>Desactivar usuario</h3>
+Sin borrar (conserva historial):
+1. Haz clic en <strong>Desactivar</strong>
+2. Confirmación: "¿Desactivar usuario?"
+3. El usuario no puede loguearse
+4. Sus datos y conversaciones se conservan
+5. Puedes reactivar después
+
+<h3>Eliminar usuario</h3>
+Borrado completo (soft-delete):
+1. Haz clic en <strong>⋮</strong> → <strong>Eliminar</strong>
+2. Confirmación: "¿Eliminar usuario?"
+3. Se borra pero el historial (conversaciones, difusiones) se mantiene para auditoría
+
+<hr>
+
+<h2>2. Tipos de clientes</h2>
+
+<h3>Ver tipos</h3>
+1. En Configuración, haz clic en <strong>Tipos de clientes</strong>
+2. Se muestra lista de categorías:
+   - Cosmetóloga
+   - Esteticista
+   - Dermatóloga
+   - Revendedora
+   - Otros
+
+<h3>Crear tipo nuevo</h3>
+1. Haz clic en <strong>+ Nuevo tipo</strong>
+2. Completa:
+   - <strong>Nombre:</strong> "Maquilladora", "Coach de belleza"
+   - <strong>Descripción:</strong> (opcional)
+   - <strong>Asesora por defecto:</strong> (opcional) quién debe atender este tipo
+
+3. Haz clic en <strong>Crear</strong>
+
+<h3>Editar tipo</h3>
+1. En la lista, haz clic en el nombre
+2. Modifica nombre, descripción, asesora por defecto
+3. Haz clic en <strong>Guardar cambios</strong>
+
+<h3>Eliminar tipo</h3>
+⚠️ <strong>Cuidado:</strong> si hay clientes de este tipo, la opción está deshabilitada. Primero cambia esos clientes a otro tipo.
+
+1. Haz clic en <strong>Eliminar</strong>
+2. Confirmación
+3. Se elimina el tipo
+
+<hr>
+
+<h2>3. Tags personalizados</h2>
+
+<h3>Ver tags</h3>
+1. En Configuración, haz clic en <strong>Tags</strong>
+2. Se muestra lista:
+
+| Tag | Color | Clientes | Creado |
+|-----|-------|----------|--------|
+| VIP | 🔴 Rojo | 8 | 10/01 |
+| En seguimiento | 🟡 Amarillo | 15 | 15/01 |
+| Contacto directo | 🟢 Verde | 3 | 20/01 |
+
+<h3>Crear tag</h3>
+1. Haz clic en <strong>+ Nuevo tag</strong>
+2. Completa:
+   - <strong>Nombre:</strong> "Oferta especial", "A revisar", etc.
+   - <strong>Color:</strong> selecciona de paleta (RGB o hex)
+
+3. Haz clic en <strong>Crear</strong>
+
+<h3>Editar tag</h3>
+1. Haz clic en el tag
+2. Modifica nombre y color
+3. Haz clic en <strong>Guardar</strong>
+
+<h3>Eliminar tag</h3>
+⚠️ Si hay clientes con este tag, puedes:
+<li>Opción 1: Remover tag de todos los clientes, luego eliminar</li>
+<li>Opción 2: Renombrar tag (más seguro)</li>
+
+1. Haz clic en <strong>Eliminar</strong>
+2. Si hay clientes, se muestra advertencia
+3. Confirma
+
+<hr>
+
+<h2>4. Credenciales de Meta</h2>
+
+<h3>Dónde están mis credenciales</h3>
+1. En Configuración, haz clic en <strong>Credenciales Meta</strong>
+2. Se muestra sección con:
+
+</code>`<code>
+WABA ID (WhatsApp Business Account)
+│ Identificador: 1894314254553697
+
+Phone Number ID
+│ Identificador: 1127647270424016
+│ Teléfono: +54 351 672 0095
+
+Access Token
+│ 🔐 Visible solo para admin
+│ Última actualización: 12/02/2024
+│ Expira: 12/03/2024 (renovar)
+</code>`<code>
+
+<h3>Actualizar Access Token</h3>
+<strong>Cuándo:</strong> Meta puede revocar el token por seguridad, o tú lo rotaste. El CRM comenzará a fallar con errores 401.
+
+1. En Meta for Developers:
+   - Ve a tu app Meta
+   - Settings → Business integrations (o Apps y sitios web)
+   - Busca "Access Token" o "Tokens"
+   - Copia token nuevo
+
+2. Vuelve a CRM → Configuración → Credenciales Meta
+3. Haz clic en <strong>Cambiar token de acceso</strong>
+4. Pega token nuevo
+5. Haz clic en <strong>Validar y guardar</strong>
+6. El CRM valida contra Meta
+7. Si es válido: "✅ Token actualizado"
+8. Si es inválido: "❌ Token rechazado por Meta"
+
+<h3>Número de prueba (test)</h3>
+El número donde van los envíos en modo TEST.
+
+1. Haz clic en <strong>Cambiar número de prueba</strong>
+2. Ingresa número en E.164: </code>+549351234567<code>
+3. Haz clic en <strong>Guardar</strong>
+
+> Nota: El número de prueba debe estar agregado en Meta for Developers.
+
+<hr>
+
+<h2>5. Estadísticas de uso</h2>
+
+<h3>Consumo de Meta</h3>
+</code>`<code>
+Período: Últimos 30 días
+
+Mensajes enviados: 347
+Costo: $3,470 ARS (USD 23)
+
+Desglose:
+<li>Difusiones: 300 mensajes ($3,000)</li>
+<li>Postventa: 47 mensajes ($470)</li>
+
+Tarifa promedio: $10 ARS por mensaje
+</code>`<code>
+
+<h3>Clientes</h3>
+</code>`<code>
+Total: 492
+Nuevos este mes: 47
+Activos: 380 (últimos 30 días)
+Con opt-in: 450 (91%)
+Opt-out: 42 (9%)
+</code>`<code>
+
+<h3>Asesoras</h3>
+</code>`<code>
+Activas: 5
+Sesiones WhatsApp Web (postventa): 5/5 conectadas
+</code>`<code>
+
+<hr>
+
+<h2>6. Preferencias del sistema</h2>
+
+<h3>Idioma</h3>
+<li>Español (Argentina)</li>
+<li>(Futuro: inglés, portugués)</li>
+
+<h3>Zona horaria</h3>
+<li>America/Argentina/Buenos_Aires (configurado por defecto)</li>
+
+<h3>Moneda</h3>
+<li>ARS (peso argentino)</li>
+
+<h3>Tema</h3>
+<li>Claro / Oscuro (por preferencia de usuario)</li>
+
+<hr>
+
+<h2>7. Backup y datos</h2>
+
+<h3>Exportar datos de clientes</h3>
+1. Haz clic en <strong>Exportar datos</strong>
+2. Selecciona formato:
+   - CSV (compatible con Excel)
+   - JSON (técnico)
+
+3. Selecciona qué incluir:
+   - Solo clientes activos / todos
+   - Solo con conversaciones
+   - Período de tiempo
+
+4. Haz clic en <strong>Descargar</strong>
+5. Se descarga archivo
+
+<h3>Importar datos (migración)</h3>
+Si necesitas migrar desde otro sistema:
+1. Haz clic en <strong>Importar datos</strong>
+2. Sube archivo CSV o JSON
+3. El CRM mapea campos
+4. Muestra preguntas sobre duplicados
+5. Completa importación
+
+<hr>
+
+<h2>8. Logs y auditoría</h2>
+
+<h3>Ver logs de sistema</h3>
+1. Haz clic en <strong>Logs</strong>
+2. Muestra tabla con eventos:
+
+| Hora | Usuario | Acción | Recurso | Resultado |
+|------|---------|--------|---------|-----------|
+| 14:30 | María | Login | users.auth | éxito |
+| 14:35 | María | Crear cliente | clients | éxito |
+| 14:40 | Admin | Cambiar rol | users | éxito |
+
+<h3>Filtrar logs</h3>
+<li>Por rango de fecha</li>
+<li>Por usuario</li>
+<li>Por tipo de acción (create, update, delete, login, etc.)</li>
+<li>Por recurso (clients, conversations, etc.)</li>
+
+<h3>Buscar evento específico</h3>
+Barra de búsqueda: escribe nombre usuario, cliente, email, etc.
+
+<h3>Descargar logs</h3>
+1. Haz clic en <strong>Descargar CSV</strong>
+2. Se exporta table actual con filtros aplicados
+
+<hr>
+
+<h2>9. Gestión de permisos</h2>
+
+<h3>Opciones de rol</h3>
+
+#### Admin
+<li>Acceso completo a todas las secciones</li>
+<li>Puede crear/editar/eliminar usuarios</li>
+<li>Puede cambiar settings globales</li>
+
+#### Asesora
+<li>Acceso solo a:</li>
+  - Inbox (bandeja de conversaciones)
+  - Clientes (solo los suyos)
+  - Perfil personal
+<li>No ve: Difusiones, Plantillas, Analytics, Configuración</li>
+
+<h3>Cambiar permisos a usuario</h3>
+1. En <strong>Usuarios</strong>, selecciona usuario
+2. Modifica <strong>Rol</strong>
+3. Haz clic en <strong>Guardar cambios</strong>
+
+> Cambio es inmediato. Si el usuario estaba logueado, se le revoca acceso a secciones al siguiente request.
+
+<hr>
+
+<h2>10. Notificaciones y alertas</h2>
+
+<h3>Configurar alertas</h3>
+1. En Configuración, haz clic en <strong>Alertas</strong>
+2. Selecciona qué alertas recibir por email:
+
+</code>`<code>
+☑️ Difusión completada (éxito o error)
+☑️ Plantilla rechazada por Meta
+☑️ Sesión WhatsApp desconectada (postventa)
+☑️ Tasa de error > 20% en campaña
+☑️ Token de Meta próximo a expirar
+☐ Nuevo cliente importado
+☐ Cliente cambió de estado
+</code>`<code>
+
+3. Haz clic en <strong>Guardar preferencias</strong>
+
+<hr>
+
+<h2>11. Integración con sistema actual</h2>
+
+<h3>Sincronización (futuro)</h3>
+Si la empresa usa un sistema actual, esta sección permitiría:
+<li><strong>Mapeo de campos:</strong> qué datos sincronizan</li>
+<li><strong>Frecuencia:</strong> cada cuánto se sincroniza</li>
+<li><strong>Test de conexión:</strong> verifica que el sistema actual esté online</li>
+<li><strong>Historial de sync:</strong> quién se sincronizó, cuándo, qué falló</li>
+
+Por ahora: funcionalidad manual, coordinada con el freelance del sistema actual.
+
+<hr>
+
+<h2>12. API y webhooks (para desarrolladores)</h2>
+
+<h3>Keys de API</h3>
+Si necesitas integrar con sistemas externos:
+1. Haz clic en <strong>API Keys</strong>
+2. Se muestra clave privada (oculta)
+3. Opción <strong>Regenerar</strong> (revoca clave actual)
+
+<h3>Webhooks</h3>
+Configuración de endpoints que Meta notifica:
+<li>URL de webhook</li>
+<li>Verify token</li>
+<li>Status del endpoint</li>
+<li>Logs de webhooks recibidos</li>
+
+<hr>
+
+<h2>Procedimientos comunes en Configuración</h2>
+
+<h3>Agregar una nueva asesora</h3>
+1. Ve a <strong>Usuarios</strong> → <strong>+ Nuevo usuario</strong>
+2. Nombre, email, rol <strong>Asesora</strong>
+3. Teléfono: ej "+549351234567" (para postventa)
+4. Crear usuario
+5. Email se envía al nuevo usuario con contraseña temporal
+6. Opcionalmente: ve a <strong>Tipos de clientes</strong>, asigna esta asesora a ciertos tipos
+
+<h3>Cambiar asesora de un cliente</h3>
+1. Ve a <strong>Clientes</strong>
+2. Busca cliente
+3. En detalles, <strong>Cambiar asesora</strong>
+4. Selecciona asesora
+5. Guardas
+
+O en <strong>Usuarios</strong>, ve a la asesora → clientes asignados → editar ahí.
+
+<h3>Refrescar credenciales de Meta</h3>
+1. Ve a <strong>Credenciales Meta</strong>
+2. Token vence próximamente
+3. Haz clic en <strong>Cambiar token</strong>
+4. Ve a Meta for Developers, copia token nuevo
+5. Pega en CRM, valida
+6. Listo
+
+<h3>Revisar quién accedió y qué hizo</h3>
+1. Ve a <strong>Logs</strong>
+2. Filtra por usuario: "María"
+3. Filtra por acción: "Login"
+4. Ves historial de accesos
+5. Haz clic en evento para detalles
+
+<hr>
+
+<h2>Tips para administrador</h2>
+
+✅ <strong>Haz:</strong>
+<li>Revisa <strong>Logs</strong> semanalmente (auditoría)</li>
+<li>Actualiza <strong>Token de Meta</strong> antes de que expire</li>
+<li>Responda tickets de asesoras rápido (configuración técnica)</li>
+<li>Documente cambios en tipos de clientes, tags, usuarios</li>
+<li>Haz backups periódicos (descarga datos)</li>
+
+❌ <strong>Evita:</strong>
+<li>Cambiar configuración sin testing previo</li>
+<li>Borrar usuarios sin archivar conversaciones</li>
+<li>Shared tokens (cada admin su token propio)</li>
+<li>Ignorar alertas de sistemas (token expirando, sesiones offline)</li>
+
+<hr>
+
+Vuelve a <strong><a href="../MANUAL-USUARIO.md">MANUAL-USUARIO</a></strong> o accede a la siguiente sección: <strong><a href="10-FAQ-Troubleshooting.md">10-FAQ-Troubleshooting</a></strong>.</p><p>
+<hr></p><h1>10 — FAQ y Solución de Problemas</h1>
+
+<hr>
+
+<h2>Preguntas frecuentes</h2>
+
+<h3>General</h3>
+
+<strong>P: ¿Qué es La Internacional CRM?</strong>
+R: Es una plataforma para gestionar clientes, mensajes de WhatsApp/Instagram, campañas masivas y seguimiento de ventas. Funciona en paralelo al sistema actual de la empresa.
+
+<strong>P: ¿Necesito instalar algo?</strong>
+R: No. Es una app web. Solo necesitas navegador moderno y conexión a internet.
+
+<strong>P: ¿Funciona en móvil?</strong>
+R: Sí. Está optimizado para desktop (admin) y mobile/tablet (asesoras).
+
+<strong>P: ¿Mis datos son seguros?</strong>
+R: Sí. Uso HTTPS, autenticación JWT, y se aloja en Railway (plataforma segura).
+
+<hr>
+
+<h2>Login y acceso</h2>
+
+<strong>P: Olvidé mi contraseña, ¿qué hago?</strong>
+R: Contacta al administrador. No hay botón de "Forgot password" (por seguridad). El admin puede resetear tu contraseña.
+
+<strong>P: ¿Puedo usar el mismo email en múltiples cuentas?</strong>
+R: No. El email es único. El admin debe crear un email nuevo para cada usuario.
+
+<strong>P: ¿Mi sesión expira?</strong>
+R: Sí. Inactividad > 1 hora = sesión expira. Debes loguearte de nuevo.
+
+<strong>P: ¿Puedo estar logueado en 2 dispositivos a la vez?</strong>
+R: Sí. Cada dispositivo tiene su propia sesión. Cerrar en uno no afecta el otro.
+
+<strong>P: ¿Qué hacer si otra persona usa mi login?</strong>
+R: Contacta al admin para cambiar tu contraseña inmediatamente. El admin puede ver en Logs quién accedió.
+
+<hr>
+
+<h2>Clientes</h2>
+
+<strong>P: ¿Cómo busco un cliente que no encuentro?</strong>
+R: Ve a <strong>Clientes</strong>, barra de búsqueda. Busca por:
+<li>Nombre (completo o parcial)</li>
+<li>Teléfono (completo o primeros dígitos)</li>
+<li>Email</li>
+
+Si sigue sin aparecer: ¿el cliente está en otro estado? ¿está asignado a otra asesora?
+
+<strong>P: ¿Puedo crear un cliente desde móvil?</strong>
+R: Sí (si eres admin o asesora con permisos). Aunque es más fácil desde desktop.
+
+<strong>P: ¿Qué pasa si subo un cliente duplicado?</strong>
+R: El CRM detecta por teléfono. Te muestra advertencia y opción de:
+<li>Actualizar cliente existente</li>
+<li>Saltear</li>
+<li>Crear duplicado (no recomendado)</li>
+
+<strong>P: ¿Puedo cambiar el teléfono de un cliente?</strong>
+R: Sí, pero cuidado: afecta conversaciones. Si cambias el teléfono, el historial sigue en el viejo. Mejor: crea cliente nuevo y archiva el viejo.
+
+<strong>P: ¿Se sincroniza con el sistema actual?</strong>
+R: No automáticamente. El admin sincroniza manualmente coordinando con el otro sistema.
+
+<hr>
+
+<h2>Inbox y conversaciones</h2>
+
+<strong>P: ¿Por qué no veo una conversación?</strong>
+R: Posibles razones:
+<li>Conversación muy antigua → búscala por nombre</li>
+<li>Cliente asignado a otra asesora → contacta admin</li>
+<li>Cliente eliminado → revisa logs</li>
+<li>Conversación archivada → busca el cliente en Clientes</li>
+
+<strong>P: ¿Cómo me marca un cliente si no tengo WhatsApp?</strong>
+R: El cliente te escribe por WhatsApp o Instagram al número configurado. Llega al Inbox del CRM.
+
+<strong>P: ¿Puedo ver mensajes de otros asesoras?</strong>
+R: Si eres asesora: no (privacidad). Si eres admin: sí, todas las conversaciones.
+
+<strong>P: ¿Se guardan los mensajes?</strong>
+R: Sí, indefinidamente. Puedes buscar conversaciones de hace años.
+
+<strong>P: ¿Por qué algunos mensajes fallan?</strong>
+R: Causas comunes:
+<li>Internet del cliente desconectado</li>
+<li>Cliente bloqueó tu número</li>
+<li>Problema con Meta temporario</li>
+<li>Número incorrecto o inactivo</li>
+
+El log muestra el motivo específico.
+
+<strong>P: ¿Puedo borrar un mensaje?</strong>
+R: No. Una vez enviado, queda. Si cometiste error, envía mensaje de corrección.
+
+<strong>P: ¿Puedo silenciar notificaciones de un cliente?</strong>
+R: Sí. En la lista de Inbox, haz clic derecho (desktop) o mantén presionado (mobile) → Silenciar notificaciones.
+
+<strong>P: ¿Puedo bloquear a un cliente abusivo?</strong>
+R: Sí. En el chat, <strong>⋮ Más opciones</strong> → <strong>Bloquear cliente</strong>. Ya no recibirás mensajes.
+
+<hr>
+
+<h2>Difusiones</h2>
+
+<strong>P: ¿Cuál es la diferencia entre test y producción?</strong>
+R: <strong>Test:</strong> todos los mensajes van a un número de prueba, sin gastar créditos. <strong>Producción:</strong> los mensajes se envían a clientes reales, se cobran a Meta.
+
+<strong>P: ¿Cuánto cuesta una difusión?</strong>
+R: Meta cobra por mensaje, típicamente $10-30 ARS dependiendo del tipo (Marketing más caro, Utility más barato).
+
+<strong>P: ¿Puedo enviar a clientes específicos?</strong>
+R: No selector individual en UI. Filtra por tipo/estado, eso es lo máximo. Para clientes específicos, crea un tag y segmenta por ese tag.
+
+<strong>P: ¿Cuál es el límite de clientes por difusión?</strong>
+R: No hay límite técnico. La UI mostrará advertencia si > 1000, pero procede igual.
+
+<strong>P: ¿Se pueden enviar URLs en difusiones?</strong>
+R: Sí, pero en el botón de call-to-action. El texto no puede tener links (Meta lo rechaza como spam).
+
+<strong>P: ¿Cuántas variables puede tener un mensaje?</strong>
+R: Hasta 20, pero recomendamos máximo 5 (variables automáticas: nombre, tipo, ciudad).
+
+<strong>P: ¿Qué pasa si el cliente bloqueó mi número?</strong>
+R: El mensaje falla. En el log aparece "blocked". Después de 7 días se reintenta.
+
+<hr>
+
+<h2>Plantillas Meta</h2>
+
+<strong>P: ¿Cuánto tarda Meta en aprobar una plantilla?</strong>
+R: Típicamente 1-2 horas. En casos raros, hasta 24 horas.
+
+<strong>P: ¿Por qué rechaza Meta mi plantilla?</strong>
+R: Motivos comunes:
+<li>Spam: demasiadas MAYÚSCULAS, emojis, llamadas de atención</li>
+<li>Política: contenido vedado, links sospechosos</li>
+<li>Formato: variables mal usadas</li>
+<li>Lenguaje: palabras prohibidas</li>
+
+Revisa el motivo y reenvía corrigiendo.
+
+<strong>P: ¿Puedo editar una plantilla ya aprobada?</strong>
+R: No, Meta no lo permite. Opciones:
+<li>Crea nueva plantilla (ej: </code>promo_v2<code>)</li>
+<li>Elimina la vieja (el registro permanece)</li>
+
+<strong>P: ¿Qué diferencia hay entre categoría Marketing y Utility?</strong>
+R: Marketing es más caro (promociones, ofertas). Utility es más barato (confirmaciones, info). Elige según propósito.
+
+<strong>P: ¿Puedo subir video como header?</strong>
+R: Sí, pero es raro. Formato MP4, máximo tamaño. Contacta al admin si lo necesitas.
+
+<hr>
+
+<h2>Postventa</h2>
+
+<strong>P: ¿Cómo funciona postventa?</strong>
+R: Automatiza mensajes 1:1 cuando ocurren eventos (compra, inactividad, cumpleaños). Se envían por sesión WhatsApp Web privada, no Cloud API.
+
+<strong>P: ¿Por qué está separada de difusiones?</strong>
+R: Difusiones usan Meta Cloud API (masivo, aprobado). Postventa usa WhatsApp Web (1:1, flexible), para no violar ToS de Meta.
+
+<strong>P: ¿Qué pasa si la sesión de postventa se cae?</strong>
+R: La asesora debe reconectar escaneando QR. El admin puede forzar reconexión en Configuración.
+
+<strong>P: ¿Cuántos mensajes puedo enviar por hora?</strong>
+R: Máximo ~20 por sesión (Meta). Si más, se encolan y se procesan después.
+
+<strong>P: ¿Puedo programar un mensaje para mañana?</strong>
+R: No. Se envía cuando se cumpla el trigger (compra, inactividad, etc.).
+
+<strong>P: ¿Qué pasa si el cliente rechaza el mensaje?</strong>
+R: Se registra en los logs con estado "failed". Se reintenta días después.
+
+<hr>
+
+<h2>Analytics</h2>
+
+<strong>P: ¿Por qué los números no coinciden con el sistema actual?</strong>
+R: El CRM es paralelo. Datos pueden estar duplicados, omitidos, o con diferentes definiciones de "estado". Sincroniza manualmente con admin del otro sistema.
+
+<strong>P: ¿Puedo exportar reportes?</strong>
+R: Sí. En cualquier tabla, <strong>Descargar CSV</strong>. Se abre en Excel.
+
+<strong>P: ¿Qué significa ROI?</strong>
+R: Retorno on Investment. (Valor generado - Inversión) / Inversión × 100%. Si es >100%, valió la pena gastar.
+
+<strong>P: ¿Se incluye postventa en métricas?</strong>
+R: Parcialmente. Difusiones sí. Postventa todavía en construcción.
+
+<hr>
+
+<h2>Configuración</h2>
+
+<strong>P: ¿Cómo agregó una nueva asesora?</strong>
+R: Admin: <strong>Configuración → Usuarios → + Nuevo usuario</strong>. Completa datos, asigna teléfono, rol Asesora.
+
+<strong>P: ¿Mi teléfono es visible para los clientes?</strong>
+R: No. Tu teléfono aparece en el CRM solo para postventa automática (sesiones).
+
+<strong>P: ¿Cómo cambio mi contraseña?</strong>
+R: <strong>Configuración → Mi cuenta → Cambiar contraseña</strong>. (Solo admin). Asesoras contactan admin.
+
+<strong>P: ¿Dónde está el token de Meta?</strong>
+R: <strong>Configuración → Credenciales Meta</strong> (solo admin visible).
+
+<strong>P: ¿Qué pasa si el token de Meta expira?</strong>
+R: Difusiones/plantillas fallan con error 401. Admin debe actualizar el token en Configuración.
+
+<hr>
+
+<h2>Errores comunes</h2>
+
+<h3>Error 401 (Unauthorized)</h3>
+<strong>Síntoma:</strong> Difusiones/plantillas fallan, dicen "401 Unauthorized"
+<strong>Causa:</strong> Token de Meta expiró o es inválido
+<strong>Solución:</strong> Admin va a <strong>Configuración → Credenciales Meta</strong> → Actualiza token
+
+<h3>Error 403 (Forbidden)</h3>
+<strong>Síntoma:</strong> Acción rechazada (sin permiso)
+<strong>Causa:</strong> Tu rol no tiene ese permiso
+<strong>Solución:</strong> Si es necesario, contacta admin para elevar rol
+
+<h3>No se envía difusión</h3>
+<strong>Síntoma:</strong> Difusión se queda en estado "enviando"
+<strong>Causa:</strong> Puede ser internet, Meta, o sesión cerrada
+<strong>Solución:</strong> 
+<li>Espera 5 minutos</li>
+<li>Recarga página</li>
+<li>Si sigue, contacta admin</li>
+
+<h3>Conversación no llega</h3>
+<strong>Síntoma:</strong> Cliente escribe pero no ves el mensaje
+<strong>Causa:</strong> Webhook de Meta tardío, o conexión lenta
+<strong>Solución:</strong>
+<li>Actualiza página (F5)</li>
+<li>Espera 30 segundos</li>
+<li>Si no llega, contacta admin (revisar logs de webhook)</li>
+
+<h3>Cliente duplicado</h3>
+<strong>Síntoma:</strong> Mismo cliente aparece 2 veces
+<strong>Causa:</strong> Se creó manual + se importó, o error de importación
+<strong>Solución:</strong> 
+<li>Admin revisa en Clientes → teléfono duplicado</li>
+<li>Elimina uno, mantiene el activo</li>
+
+<h3>Sesión expira constantemente</h3>
+<strong>Síntoma:</strong> Vuelve a login cada poco
+<strong>Causa:</strong> Inactividad > 1 hora, o problema de cookies
+<strong>Solución:</strong>
+<li>Mantente activo</li>
+<li>Limpia cookies del navegador (Ctrl+Shift+Del)</li>
+<li>Vuelve a loguearte</li>
+
+<hr>
+
+<h2>Troubleshooting avanzado</h2>
+
+<h3>Mi bandeja está vacía, ¿dónde están mis clientes?</h3>
+1. <strong>Verifica rol:</strong> ¿Eres asesora o admin?
+2. <strong>Verifica asignación:</strong> ¿Clientes asignados a ti?
+3. <strong>Verifica estado:</strong> ¿Clientes en estado "recibido"?
+4. <strong>Verifica opt-in:</strong> ¿Clientes con opt_in_broadcasts = true?
+
+Si todo lo anterior es sí, contacta admin.
+
+<h3>Las métricas no cuadran</h3>
+1. Ingresa a <strong>Clientes</strong>, filtra por estado
+2. Cuenta manualmente
+3. Compara con Analytics
+4. Si hay discrepancia, puede haber:
+   - Webhooks de Meta retrasados (espera 5 min)
+   - Clientes duplicados (busca por teléfono)
+   - Cliente soft-deleted (no aparece en búsqueda normal)
+
+<h3>Plantilla rechazada, ¿por qué?</h3>
+1. Lee motivo en detalles de plantilla
+2. Causas típicas:
+   - Texto con SPAM (muchas MAYÚSCULAS, emojis)
+   - Variables mal usadas (ej: </code>{{0}}<code> en lugar de </code>{{1}}`)
+   - Links sospechosos
+   - Palabras prohibidas
+3. Edita la plantilla y reenvía
+
+<h3>Diffusión tiene muchos fallos</h3>
+1. Ve a <strong>Historial de difusiones</strong>
+2. Abre la difusión
+3. Busca "fallidos"
+4. Click en un fallo → ver motivo (blocked, invalid number, etc.)
+5. Si muchos "blocked": clientes rechazaron, considera nueva estrategia
+
+<hr>
+
+<h2>Contactar soporte</h2>
+
+Si tu problema no está aquí:
+
+1. <strong>Describe:</strong> qué intentabas hacer, qué pasó, qué error viste
+2. <strong>Captura pantalla:</strong> si es visual
+3. <strong>Comparte logs:</strong> admin puede revisar
+4. <strong>Pasos para reproducir:</strong> paso a paso cómo llegaste al error
+
+Contacta a: [correo del admin/soporte]
+
+<hr>
+
+<h2>Sugerencias y feedback</h2>
+
+¿Encontraste un bug? ¿Tienes idea para mejorar el CRM?
+
+Reporta aquí: [formulario/email de sugerencias]
+
+Tu feedback nos ayuda a mejorar.
+
+<hr>
+
+Fin del manual. Vuelve a <strong><a href="../MANUAL-USUARIO.md">MANUAL-USUARIO</a></strong> o navega a cualquier sección.</p><p>
+<hr></p>
+  </div>
+  <script>
+    function generatePDF() {
+      const element = document.getElementById('content');
+      const opt = {
+        margin: 10,
+        filename: 'Manual-Usuario.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { format: 'a4' }
+      };
+      html2pdf().set(opt).save(opt.filename).from(element).save();
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+erDiagram
+    USERS ||--o{ REFRESH_TOKEN : generates
+    USERS ||--o{ CLIENT : advisor_id
+    USERS ||--o{ CONVERSATION : advisor_id
+    USERS ||--o{ MESSAGE : from_user_id
+    USERS ||--o{ BROADCAST : created_by
+    USERS ||--o{ POSTSALE_SEQUENCE : created_by
+
+    CLIENT_TYPE ||--o{ CLIENT : "has many"
+    CLIENT ||--o{ CLIENT_TAG : tags
+    TAG ||--o{ CLIENT_TAG : "tagged by"
+    CLIENT ||--o{ CLIENT_STATE_HISTORY : "state changes"
+    CLIENT ||--o{ CONVERSATION : "has many"
+
+    CHANNEL ||--o{ CONVERSATION : "has many"
+    CONVERSATION ||--o{ MESSAGE : "contains"
+    CONVERSATION ||--o{ CONVERSATION_TAG : tags
+    TAG ||--o{ CONVERSATION_TAG : "tagged by"
+
+    BROADCAST ||--o{ BROADCAST_RECIPIENT : "sends to"
+    CLIENT ||--o{ BROADCAST_RECIPIENT : "receives"
+    BROADCAST_RECIPIENT ||--o{ MESSAGE : "creates"
+
+    WEBHOOK_EVENT ||--o{ MESSAGE : "triggers"
+
+    POSTSALE_SEQUENCE ||--o{ POSTSALE_TRIGGER : triggers
+    POSTSALE_SEQUENCE ||--o{ POSTSALE_LOG : "logs execution"
+    CLIENT ||--o{ POSTSALE_LOG : "subject"
+
+    ANALYTICS_SESSION ||--o{ ANALYTICS_METRIC : contains

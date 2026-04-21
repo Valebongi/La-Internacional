@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 import { IonIcon } from '@ionic/react';
 import {
   chatbubblesOutline,
+  flashOutline,
   peopleOutline,
   megaphoneOutline,
   documentTextOutline,
@@ -22,7 +23,8 @@ interface NavItem {
 }
 
 const PRIMARY_NAV: NavItem[] = [
-  { to: '/inbox', label: 'Bandeja', icon: chatbubblesOutline, badge: 6 },
+  { to: '/inbox', label: 'Bandeja', icon: chatbubblesOutline, adminOnly: true },
+  { to: '/opportunities', label: 'Oportunidades', icon: flashOutline },
   { to: '/clients', label: 'Clientes', icon: peopleOutline },
   { to: '/broadcasts', label: 'Difusiones', icon: megaphoneOutline, badge: 2 },
   { to: '/templates', label: 'Plantillas', icon: documentTextOutline },

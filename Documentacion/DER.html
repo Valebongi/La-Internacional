@@ -1,0 +1,25 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><title>DER - CRM La Internacional</title><script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script><style>body{font-family:Arial,sans-serif;margin:0;padding:20px;background:#f5f5f5}.container{max-width:1200px;margin:0 auto;background:white;padding:30px;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,0.1)}h1{color:#1a5490;text-align:center;margin-bottom:30px}.controls{text-align:center;margin-bottom:20px}button{background:#0066cc;color:white;padding:10px 20px;border:none;border-radius:5px;cursor:pointer;font-size:14px}button:hover{background:#0052a3}.mermaid{display:flex;justify-content:center}@media print{button{display:none}}</style></head><body><div class="container"><h1>Diagrama Entidad-Relación — CRM La Internacional</h1><div class="controls"><button onclick="capturePNG()">📸 Capturar como PNG</button><button onclick="window.print()">🖨️ Imprimir / Guardar PDF</button></div><div class="mermaid">erDiagram
+    USERS ||--o{ REFRESH_TOKEN : generates
+    USERS ||--o{ CLIENT : advisor_id
+    USERS ||--o{ CONVERSATION : advisor_id
+    USERS ||--o{ MESSAGE : from_user_id
+    USERS ||--o{ BROADCAST : created_by
+    USERS ||--o{ POSTSALE_SEQUENCE : created_by
+    CLIENT_TYPE ||--o{ CLIENT : "has many"
+    CLIENT ||--o{ CLIENT_TAG : tags
+    TAG ||--o{ CLIENT_TAG : "tagged by"
+    CLIENT ||--o{ CLIENT_STATE_HISTORY : "state changes"
+    CLIENT ||--o{ CONVERSATION : "has many"
+    CHANNEL ||--o{ CONVERSATION : "has many"
+    CONVERSATION ||--o{ MESSAGE : "contains"
+    CONVERSATION ||--o{ CONVERSATION_TAG : tags
+    TAG ||--o{ CONVERSATION_TAG : "tagged by"
+    BROADCAST ||--o{ BROADCAST_RECIPIENT : "sends to"
+    CLIENT ||--o{ BROADCAST_RECIPIENT : "receives"
+    BROADCAST_RECIPIENT ||--o{ MESSAGE : "creates"
+    WEBHOOK_EVENT ||--o{ MESSAGE : "triggers"
+    POSTSALE_SEQUENCE ||--o{ POSTSALE_TRIGGER : triggers
+    POSTSALE_SEQUENCE ||--o{ POSTSALE_LOG : "logs execution"
+    CLIENT ||--o{ POSTSALE_LOG : "subject"
+    ANALYTICS_SESSION ||--o{ ANALYTICS_METRIC : contains
+</div><script>mermaid.initialize({startOnLoad:true,theme:"default"});mermaid.contentLoaded();async function capturePNG(){const canvas=await html2canvas(document.querySelector(".mermaid"));const link=document.createElement("a");link.href=canvas.toDataURL();link.download="DER.png";link.click();}</script></div></body></html>

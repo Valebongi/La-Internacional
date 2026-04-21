@@ -39,6 +39,6 @@ export const useUsersStore = create<UsersState>()(
         return get().users.find((u) => u.id === id) ?? null;
       },
     }),
-    { name: 'lid-users-store', version: 1 },
+    { name: 'lid-users-store', version: 2 },
   ),
 );
