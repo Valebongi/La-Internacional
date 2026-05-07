@@ -29,8 +29,7 @@ export function ConfigProvider({ children }: { children: React.ReactNode }) {
     const fetchConfig = async () => {
       try {
         setLoading(true);
-        const apiBase = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080';
-        const response = await fetch(`${apiBase}/api/config/public`);
+        const response = await fetch('/api/config/public');
 
         if (!response.ok) {
           throw new Error(`Failed to fetch config: ${response.statusText}`);
@@ -88,8 +87,9 @@ export function useConfig(): AppConfig {
   if (!context) {
     throw new Error('useConfig debe usarse dentro de ConfigProvider');
   }
+  // Siempre devolver config (ya tiene fallback values si falla la carga)
   if (!context.config) {
-    throw new Error('Config aún no está cargada');
+    throw new Error('Config no disponible');
   }
   return context.config;
 }
