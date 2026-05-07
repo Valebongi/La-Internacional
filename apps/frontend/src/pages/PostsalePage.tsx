@@ -39,6 +39,16 @@ interface SessionData {
   status: SessionStatus; lastActivity: string; msgsToday: number;
 }
 
+const MOCK_SESSIONS: SessionData[] = [
+  { advisorId: 'a_sofia', advisor: 'Sofía', color: '#7C3AED', status: 'connected',    lastActivity: 'hace 2 min',  msgsToday: 38 },
+  { advisorId: 'a_carla', advisor: 'Carla', color: '#2563EB', status: 'connected',    lastActivity: 'hace 8 min',  msgsToday: 24 },
+  { advisorId: 'a_julia', advisor: 'Julia', color: '#0EA5E9', status: 'qr-required',  lastActivity: 'hace 1 h',    msgsToday: 0  },
+  { advisorId: 'a_lu',    advisor: 'Lu',    color: '#EC4899', status: 'connected',    lastActivity: 'hace 15 min', msgsToday: 19 },
+  { advisorId: 'a_mica',  advisor: 'Mica',  color: '#10B981', status: 'disconnected', lastActivity: 'ayer',        msgsToday: 0  },
+];
+
+/* ── Página principal ────────────────────────────────── */
+
 export default function PostsalePage() {
   const { user } = useAuth();
   const config = useConfig();

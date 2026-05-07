@@ -94,7 +94,7 @@ export default function SettingsPage() {
           </div>
         )}
         {tab === 'pricing' && <PricingTab />}
-        {tab === 'credentials' && <CredentialsTab />}
+        {tab === 'credentials' && <CredentialsTab templatesService={templatesService} />}
         {tab === 'optout' && (
           <div className="lid-empty">
             <div className="lid-empty-icon"><IonIcon icon={banOutline} /></div>
@@ -122,7 +122,7 @@ export default function SettingsPage() {
 
 /* ============ Credenciales tab ============ */
 
-function CredentialsTab() {
+function CredentialsTab({ templatesService }: any) {
   const override = useDevCredentialsStore((s) => s.metaTokenOverride);
   const updatedAt = useDevCredentialsStore((s) => s.updatedAt);
   const setToken = useDevCredentialsStore((s) => s.setToken);
