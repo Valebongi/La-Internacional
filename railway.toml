@@ -1,57 +1,11 @@
 # Railway deployment configuration
-# https://docs.railway.app/deploy/config-as-code
+# https://docs.railway.com/config-as-code/reference
 
 [build]
-builder = "docker"
-dockerfile = "Dockerfile.backend"
+builder = "DOCKERFILE"
+dockerfilePath = "Dockerfile.backend"
 
 [deploy]
 startCommand = "node apps/backend/dist/services/gateway/main"
-restartPolicyType = "on_failure"
+restartPolicyType = "ON_FAILURE"
 restartPolicyMaxRetries = 3
-
-[[services]]
-name = "backend"
-dockerfile = "Dockerfile.backend"
-port = 8080
-startCommand = "node apps/backend/dist/services/gateway/main"
-
-[[services]]
-name = "frontend"
-dockerfile = "Dockerfile.frontend"
-port = 80
-
-[[services]]
-name = "postgres"
-image = "postgres:16-alpine"
-port = 5432
-
-[variables]
-# Production defaults
-NODE_ENV = "production"
-GATEWAY_PORT = "8080"
-
-# Service URLs (Railway internal networking)
-AUTH_URL = "http://auth-service.railway.internal:3001"
-CRM_CORE_URL = "http://crm-core-service.railway.internal:3002"
-MESSAGING_URL = "http://messaging-service.railway.internal:3003"
-BROADCASTS_URL = "http://broadcasts-service.railway.internal:3004"
-POSTSALE_URL = "http://postsale-service.railway.internal:3005"
-ANALYTICS_URL = "http://analytics-service.railway.internal:3006"
-INTEGRATION_URL = "http://integration-service.railway.internal:3007"
-
-# Frontend
-VITE_API_BASE_URL = "https://your-railway-domain.up.railway.app"
-VITE_APP_NAME = "CRM La Internacional"
-VITE_USE_MOCKS = "false"
-VITE_POLL_INBOX_MS = "15000"
-VITE_POLL_NOTIFICATIONS_MS = "30000"
-VITE_POLL_CHAT_MS = "5000"
-
-# Misc
-EXTERNAL_SYSTEM_MOCK = "true"
-META_GRAPH_VERSION = "v25.0"
-
-[variables.production]
-# Override for production - keep sensitive vars in Railway UI
-LOG_LEVEL = "info"

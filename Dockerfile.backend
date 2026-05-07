@@ -10,11 +10,12 @@ WORKDIR /app
 COPY package*.json ./
 COPY apps/backend/package*.json ./apps/backend/
 
-# Install dependencies
+# Install root dependencies (production only)
 RUN npm ci --omit=dev
 
-# Copy source
+# Copy backend source and install backend dependencies (including devDeps for build)
 COPY apps/backend ./apps/backend
+RUN cd apps/backend && npm ci
 
 # Build all services (NestJS monorepo)
 RUN cd apps/backend && npm run build
