@@ -22,11 +22,18 @@ RUN npm run build:fe
 # Stage 2: Runtime (nginx)
 FROM nginx:alpine
 
-# Copy nginx config
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Copy nginx config template
+COPY nginx.conf /etc/nginx/conf.d/default.conf.template
 
 # Copy built frontend
 COPY --from=builder /app/apps/frontend/dist /usr/share/nginx/html
+
+# Create startup script to substitute environment variables
+RUN echo '#!/bin/sh\n\
+BACKEND_HOST=${BACKEND_HOST:-localhost:8080}\n\
+sed "s|\${BACKEND_HOST:-localhost:8080}|$BACKEND_HOST|g" /etc/nginx/conf.d/default.conf.template > /etc/nginx/conf.d/default.conf\n\
+nginx -g "daemon off;"\n\
+' > /docker-entrypoint.sh && chmod +x /docker-entrypoint.sh
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
@@ -34,4 +41,4 @@ HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
 
 EXPOSE 80
 
-CMD ["nginx", "-g", "daemon off;"]
+ENTRYPOINT ["/docker-entrypoint.sh"]
