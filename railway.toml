@@ -48,9 +48,9 @@
 #
 # ─────────────────────────────────────────────────────────────────────────────
 
-[build]
-builder = "DOCKERFILE"
-dockerfilePath = "Dockerfile.backend"
+# [build] se configura por servicio en Railway Dashboard → Settings → Source
+# Backend:  Dockerfile path = Dockerfile.backend
+# Frontend: Dockerfile path = Dockerfile.frontend
 
 [deploy]
 healthcheckPath = "/health"

@@ -4,7 +4,7 @@
   "private": true,
   "description": "CRM backend. NestJS monorepo: gateway + 7 servicios.",
   "scripts": {
-    "build": "nest build --all",
+    "build": "nest build gateway && nest build auth-service && nest build crm-core-service && nest build messaging-service && nest build broadcasts-service && nest build postsale-service && nest build analytics-service && nest build integration-service",
     "format": "prettier --write \"services/**/*.ts\"",
     "start:gateway": "nest start gateway --watch",
     "start:auth": "nest start auth-service --watch",
