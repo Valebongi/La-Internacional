@@ -3,8 +3,6 @@ import { useInboxStore } from '@/stores/inbox.store';
 import { useCrmStore } from '@/stores/crm.store';
 import { useOpportunitiesStore } from '@/stores/opportunities.store';
 
-const GATEWAY_URL = (import.meta.env.VITE_API_BASE_URL as string | undefined) ?? 'http://localhost:8080';
-
 export function useInboundMessages() {
   const addNotification = useInboxStore((s) => s.addNotification);
   const findByPhone = useCrmStore((s) => s.findByPhone);
@@ -18,8 +16,10 @@ export function useInboundMessages() {
   upsertRef.current = upsertFromMessage;
 
   useEffect(() => {
-    console.log('[LID] Connecting SSE to', `${GATEWAY_URL}/webhooks/meta/stream`);
-    const es = new EventSource(`${GATEWAY_URL}/webhooks/meta/stream`);
+    // Use relative path that's proxied by nginx, not absolute localhost URL
+    const sseUrl = '/webhooks/meta/stream';
+    console.log('[LID] Connecting SSE to', sseUrl);
+    const es = new EventSource(sseUrl);
 
     es.onopen = () => console.log('[LID] SSE connected ✓');
 
