@@ -6,16 +6,18 @@ FROM node:20-alpine AS builder
 
 WORKDIR /app
 
-# Copy package files
+# Copy package files (root level)
 COPY package*.json ./
+
+# Copy backend package files
 COPY apps/backend/package*.json ./apps/backend/
 
-# Install root dependencies (production only)
-RUN npm install --omit=dev
-
-# Copy backend source and install backend dependencies (including devDeps for build)
-COPY apps/backend ./apps/backend
+# Install dependencies - backend only (not root monorepo)
+# We only need backend dependencies for the build
 RUN cd apps/backend && npm install
+
+# Copy backend source code
+COPY apps/backend ./apps/backend
 
 # Build all services (NestJS monorepo)
 RUN cd apps/backend && npm run build
@@ -31,10 +33,10 @@ RUN addgroup -g 1001 -S nodejs && adduser -S nodejs -u 1001
 # Install dumb-init for proper signal handling
 RUN apk add --no-cache dumb-init
 
-# Copy from builder
-COPY --from=builder --chown=nodejs:nodejs /app/package*.json ./
-COPY --from=builder --chown=nodejs:nodejs /app/node_modules ./node_modules
-COPY --from=builder --chown=nodejs:nodejs /app/apps/backend ./apps/backend
+# Copy from builder - minimal needed for runtime
+COPY --from=builder --chown=nodejs:nodejs /app/apps/backend/node_modules ./apps/backend/node_modules
+COPY --from=builder --chown=nodejs:nodejs /app/apps/backend/dist ./apps/backend/dist
+COPY --from=builder --chown=nodejs:nodejs /app/apps/backend/package*.json ./apps/backend/
 
 # Use non-root user
 USER nodejs
