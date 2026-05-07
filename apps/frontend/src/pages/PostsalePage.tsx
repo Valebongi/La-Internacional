@@ -8,7 +8,8 @@ import {
 import { useAuth } from '@/lib/auth-context';
 import { isAdmin } from '@/lib/permissions';
 import { useCrmStore, type Client } from '@/stores/crm.store';
-import { templatesService, type MetaTemplate } from '@/services/templates.service';
+import { createTemplatesService, type MetaTemplate } from '@/services/templates.service';
+import { useConfig } from '@/ConfigContext';
 import { messagesService } from '@/services/messages.service';
 import { usePostsaleConfigStore, POSTSALE_STATIC } from '@/stores/postsale-config.store';
 
@@ -37,6 +38,11 @@ interface SessionData {
   advisorId: string; advisor: string; color: string;
   status: SessionStatus; lastActivity: string; msgsToday: number;
 }
+
+export default function PostsalePage() {
+  const { user } = useAuth();
+  const config = useConfig();
+  const templatesService = createTemplatesService(config.metaWabaId);
 
 const MOCK_SESSIONS: SessionData[] = [
   { advisorId: 'a_sofia', advisor: 'Sofía', color: '#7C3AED', status: 'connected',    lastActivity: 'hace 2 min',  msgsToday: 38 },

@@ -16,10 +16,11 @@ import {
 } from 'ionicons/icons';
 import { CLIENT_TYPES, useCrmStore, type Client, type ClientType } from '@/stores/crm.store';
 import {
-  templatesService,
+  createTemplatesService,
   extractHeaderImageUrl,
   type MetaTemplate,
 } from '@/services/templates.service';
+import { useConfig } from '@/ConfigContext';
 import { messagesService, type SendResult } from '@/services/messages.service';
 import { formatPhonePretty } from '@/lib/phone';
 import { usePricingStore, formatARS } from '@/stores/pricing.store';
@@ -38,6 +39,8 @@ const STEPS = [
 
 export default function BroadcastNewPage() {
   const history = useHistory();
+  const config = useConfig();
+  const templatesService = createTemplatesService(config.metaWabaId);
   const [step, setStep] = useState(1);
 
   // Store

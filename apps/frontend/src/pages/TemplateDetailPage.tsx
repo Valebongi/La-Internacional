@@ -16,7 +16,7 @@ import {
   documentOutline,
 } from 'ionicons/icons';
 import {
-  templatesService,
+  createTemplatesService,
   categoryBadgeClass,
   statusMeta,
   extractHeaderImageUrl,
@@ -24,6 +24,7 @@ import {
   type TemplateButton,
   type TemplateComponent,
 } from '@/services/templates.service';
+import { useConfig } from '@/ConfigContext';
 import { usePricingStore, formatARS } from '@/stores/pricing.store';
 import { cashOutline } from 'ionicons/icons';
 import { useAuditStore } from '@/stores/audit.store';
@@ -32,6 +33,9 @@ import { useUsersStore } from '@/stores/users.store';
 export default function TemplateDetailPage() {
   const { id } = useParams<{ id: string }>();
   const history = useHistory();
+  const config = useConfig();
+  const templatesService = createTemplatesService(config.metaWabaId);
+  
   const [t, setT] = useState<MetaTemplate | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);

@@ -8,7 +8,8 @@ import {
 import { mockAdvisors } from '@/lib/mock-data';
 import { usePricingStore, formatARS } from '@/stores/pricing.store';
 import { fetchMetaPricing } from '@/services/pricing.service';
-import { templatesService, type TemplateCategory } from '@/services/templates.service';
+import { createTemplatesService, type TemplateCategory } from '@/services/templates.service';
+import { useConfig } from '@/ConfigContext';
 import { useDevCredentialsStore, maskToken } from '@/stores/dev-credentials.store';
 
 const TABS = [
@@ -24,6 +25,8 @@ const TABS = [
 
 export default function SettingsPage() {
   const [tab, setTab] = useState('advisors');
+  const config = useConfig();
+  const templatesService = createTemplatesService(config.metaWabaId);
 
   return (
     <div className="lid-page lid-fade-up">
