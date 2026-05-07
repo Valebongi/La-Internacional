@@ -1,0 +1,49 @@
+# Multi-stage build para backend NestJS
+# Optimizado para Railway: pequeño, rápido, secure
+
+# Stage 1: Build
+FROM node:20-alpine AS builder
+
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+COPY apps/backend/package*.json ./apps/backend/
+
+# Install dependencies
+RUN npm ci --omit=dev
+
+# Copy source
+COPY apps/backend ./apps/backend
+
+# Build all services (NestJS monorepo)
+RUN cd apps/backend && npm run build
+
+# Stage 2: Runtime
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Security: Create non-root user
+RUN addgroup -g 1001 -S nodejs && adduser -S nodejs -u 1001
+
+# Install dumb-init for proper signal handling
+RUN apk add --no-cache dumb-init
+
+# Copy from builder
+COPY --from=builder --chown=nodejs:nodejs /app/package*.json ./
+COPY --from=builder --chown=nodejs:nodejs /app/node_modules ./node_modules
+COPY --from=builder --chown=nodejs:nodejs /app/apps/backend ./apps/backend
+
+# Use non-root user
+USER nodejs
+
+# Health check (gateway listens on $PORT, default 8080)
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+  CMD node -e "require('http').get('http://localhost:' + (process.env.GATEWAY_PORT || 8080) + '/health', (r) => {if (r.statusCode !== 200) throw new Error(r.statusCode)})"
+
+# Signal handling via dumb-init
+ENTRYPOINT ["dumb-init", "--"]
+
+# Default: start gateway. Can override with different service
+CMD ["node", "apps/backend/dist/services/gateway/main"]

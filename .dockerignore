@@ -1,0 +1,25 @@
+.DS_Store
+.env.local
+.env.*.local
+node_modules/
+dist/
+build/
+
+# Git
+.git
+.gitignore
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# Docker
+.dockerignore
+docker-compose.override.yml
+
+# Temporary
+.turbo
+*.log

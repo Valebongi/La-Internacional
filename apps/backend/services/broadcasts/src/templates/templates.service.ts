@@ -2,6 +2,21 @@ import { HttpException, Injectable, Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import type { CreateTemplateDto } from './dto/create-template.dto';
 
+interface MetaTemplate {
+  id: string;
+  name: string;
+  category: string;
+  language: string;
+  status: string;
+  components: unknown[];
+  rejected_reason?: string;
+}
+
+// Excluir plantillas creadas en inglés (sample templates de Meta)
+function isTemplateInEnglish(template: MetaTemplate): boolean {
+  return template.language === 'en' || template.language?.toLowerCase() === 'en_us';
+}
+
 @Injectable()
 export class TemplatesService {
   private readonly logger = new Logger(TemplatesService.name);
@@ -43,7 +58,9 @@ export class TemplatesService {
 
   list() {
     const url = `${this.endpoint()}?limit=100&fields=id,name,category,language,status,components,rejected_reason`;
-    return this.metaFetch(url);
+    return this.metaFetch<{ data: MetaTemplate[] }>(url).then(result => ({
+      data: (result.data ?? []).filter(t => !isTemplateInEnglish(t))
+    }));
   }
 
   create(dto: CreateTemplateDto) {

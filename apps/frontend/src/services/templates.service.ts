@@ -43,6 +43,11 @@ export interface CreateTemplateInput {
 const WABA_ID = import.meta.env.VITE_META_WABA_ID;
 const BASE = `/api/meta/${WABA_ID}/message_templates`;
 
+// Excluir plantillas creadas en inglés (sample templates de Meta)
+function isTemplateInEnglish(template: MetaTemplate): boolean {
+  return template.language === 'en' || template.language?.toLowerCase() === 'en_us';
+}
+
 async function handle<T>(res: Response): Promise<T> {
   const body = await res.json().catch(() => ({}));
   if (!res.ok) {
@@ -60,7 +65,10 @@ export const templatesService = {
   async list(): Promise<{ data: MetaTemplate[] }> {
     if (!WABA_ID) throw new Error('VITE_META_WABA_ID no está configurado');
     const res = await metaFetch(`${BASE}?limit=100&fields=${FIELDS}`);
-    return handle(res);
+    const result = await handle<{ data: MetaTemplate[] }>(res);
+    // Filtrar plantillas en inglés
+    result.data = (result.data ?? []).filter(t => !isTemplateInEnglish(t));
+    return result;
   },
 
   async get(id: string): Promise<MetaTemplate> {
