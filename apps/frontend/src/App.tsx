@@ -2,6 +2,7 @@ import { IonApp, IonRouterOutlet } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { AuthProvider, useAuth } from '@/lib/auth-context';
+import { ConfigProvider } from '@/ConfigContext';
 import { isAdmin } from '@/lib/permissions';
 import AppShell from '@/components/layout/AppShell';
 import LoginPage from '@/pages/LoginPage';
@@ -61,16 +62,18 @@ function ProtectedRoutes() {
 export default function App() {
   return (
     <IonApp>
-      <AuthProvider>
-        <IonReactRouter>
-          <IonRouterOutlet>
-            <Switch>
-              <Route exact path="/login" component={LoginPage} />
-              <Route component={ProtectedRoutes} />
-            </Switch>
-          </IonRouterOutlet>
-        </IonReactRouter>
-      </AuthProvider>
+      <ConfigProvider>
+        <AuthProvider>
+          <IonReactRouter>
+            <IonRouterOutlet>
+              <Switch>
+                <Route exact path="/login" component={LoginPage} />
+                <Route component={ProtectedRoutes} />
+              </Switch>
+            </IonRouterOutlet>
+          </IonReactRouter>
+        </AuthProvider>
+      </ConfigProvider>
     </IonApp>
   );
 }

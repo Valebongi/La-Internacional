@@ -40,9 +40,6 @@ export interface CreateTemplateInput {
   components: TemplateComponent[];
 }
 
-const WABA_ID = import.meta.env.VITE_META_WABA_ID;
-const BASE = `/api/meta/${WABA_ID}/message_templates`;
-
 // Excluir plantillas creadas en inglés (sample templates de Meta)
 function isTemplateInEnglish(template: MetaTemplate): boolean {
   return template.language === 'en' || template.language?.toLowerCase() === 'en_us';
@@ -61,52 +58,61 @@ async function handle<T>(res: Response): Promise<T> {
 
 const FIELDS = 'id,name,category,language,status,components,rejected_reason';
 
-export const templatesService = {
-  async list(): Promise<{ data: MetaTemplate[] }> {
-    if (!WABA_ID) throw new Error('VITE_META_WABA_ID no está configurado');
-    const res = await metaFetch(`${BASE}?limit=100&fields=${FIELDS}`);
-    const result = await handle<{ data: MetaTemplate[] }>(res);
-    // Filtrar plantillas en inglés
-    result.data = (result.data ?? []).filter(t => !isTemplateInEnglish(t));
-    return result;
-  },
+/**
+ * Factory function que crea un servicio de templates con el WABA_ID dinámico
+ * Llamar desde componentes React que tengan acceso a useConfig()
+ */
+export function createTemplatesService(wabaId: string) {
+  if (!wabaId) {
+    throw new Error('WABA_ID no está configurado');
+  }
 
-  async get(id: string): Promise<MetaTemplate> {
-    const res = await metaFetch(`/api/meta/${id}?fields=${FIELDS}`);
-    return handle(res);
-  },
+  const BASE = `/api/meta/${wabaId}/message_templates`;
 
-  async create(input: CreateTemplateInput): Promise<{ id: string; status: TemplateStatus; category: TemplateCategory }> {
-    if (!WABA_ID) throw new Error('VITE_META_WABA_ID no está configurado');
-    const res = await metaFetch(BASE, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(input),
-    });
-    return handle(res);
-  },
+  return {
+    async list(): Promise<{ data: MetaTemplate[] }> {
+      const res = await metaFetch(`${BASE}?limit=100&fields=${FIELDS}`);
+      const result = await handle<{ data: MetaTemplate[] }>(res);
+      // Filtrar plantillas en inglés
+      result.data = (result.data ?? []).filter(t => !isTemplateInEnglish(t));
+      return result;
+    },
 
-  async remove(name: string): Promise<{ success: boolean }> {
-    if (!WABA_ID) throw new Error('VITE_META_WABA_ID no está configurado');
-    const res = await metaFetch(`${BASE}?name=${encodeURIComponent(name)}`, { method: 'DELETE' });
-    return handle(res);
-  },
+    async get(id: string): Promise<MetaTemplate> {
+      const res = await metaFetch(`/api/meta/${id}?fields=${FIELDS}`);
+      return handle(res);
+    },
 
-  async uploadHeaderMedia(file: File): Promise<{ handle: string }> {
-    const buf = await file.arrayBuffer();
-    const res = await metaFetch('/api/upload-header', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/octet-stream',
-        'x-file-name': file.name,
-        'x-file-type': file.type,
-        'x-file-size': String(file.size),
-      },
-      body: buf,
-    });
-    return handle(res);
-  },
-};
+    async create(input: CreateTemplateInput): Promise<{ id: string; status: TemplateStatus; category: TemplateCategory }> {
+      const res = await metaFetch(BASE, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(input),
+      });
+      return handle(res);
+    },
+
+    async remove(name: string): Promise<{ success: boolean }> {
+      const res = await metaFetch(`${BASE}?name=${encodeURIComponent(name)}`, { method: 'DELETE' });
+      return handle(res);
+    },
+
+    async uploadHeaderMedia(file: File): Promise<{ handle: string }> {
+      const buf = await file.arrayBuffer();
+      const res = await metaFetch('/api/upload-header', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/octet-stream',
+          'x-file-name': file.name,
+          'x-file-type': file.type,
+          'x-file-size': String(file.size),
+        },
+        body: buf,
+      });
+      return handle(res);
+    },
+  };
+}
 
 export function statusBadgeClass(status: TemplateStatus): string {
   switch (status) {

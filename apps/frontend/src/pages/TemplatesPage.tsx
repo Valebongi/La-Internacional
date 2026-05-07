@@ -14,7 +14,7 @@ import {
   pauseCircleOutline,
 } from 'ionicons/icons';
 import {
-  templatesService,
+  createTemplatesService,
   categoryBadgeClass,
   statusMeta,
   extractHeaderImageUrl,
@@ -22,6 +22,7 @@ import {
   type TemplateCategory,
   type TemplateStatus,
 } from '@/services/templates.service';
+import { useConfig } from '@/ConfigContext';
 import { usePricingStore, formatARS } from '@/stores/pricing.store';
 import { cashOutline } from 'ionicons/icons';
 import { useAuditStore } from '@/stores/audit.store';
@@ -56,6 +57,9 @@ const STATUS_FILTERS: { id: StatusFilterId; label: string }[] = [
 
 export default function TemplatesPage() {
   const history = useHistory();
+  const config = useConfig();
+  const templatesService = createTemplatesService(config.metaWabaId);
+  
   const [items, setItems] = useState<MetaTemplate[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -75,7 +79,7 @@ export default function TemplatesPage() {
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [templatesService]);
 
   useEffect(() => { load(); }, [load]);
 

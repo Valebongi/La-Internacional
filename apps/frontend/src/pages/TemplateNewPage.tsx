@@ -13,11 +13,12 @@ import {
   trashOutline,
 } from 'ionicons/icons';
 import {
-  templatesService,
+  createTemplatesService,
   type CreateTemplateInput,
   type TemplateCategory,
   type TemplateComponent,
 } from '@/services/templates.service';
+import { useConfig } from '@/ConfigContext';
 import { usePricingStore, formatARS } from '@/stores/pricing.store';
 import { cashOutline } from 'ionicons/icons';
 import { useAuth } from '@/lib/auth-context';
@@ -52,6 +53,9 @@ function extractVarCount(text: string): number {
 
 export default function TemplateNewPage() {
   const history = useHistory();
+  const config = useConfig();
+  const templatesService = createTemplatesService(config.metaWabaId);
+  
   const fileInputRef = useRef<HTMLInputElement>(null);
   const { user } = useAuth();
   const recordTemplateCreation = useAuditStore((s) => s.recordTemplateCreation);
