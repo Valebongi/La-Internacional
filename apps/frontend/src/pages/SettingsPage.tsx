@@ -9,7 +9,7 @@ import { mockAdvisors } from '@/lib/mock-data';
 import { usePricingStore, formatARS } from '@/stores/pricing.store';
 import { fetchMetaPricing } from '@/services/pricing.service';
 import { templatesService, type TemplateCategory } from '@/services/templates.service';
-import { useDevCredentialsStore, maskToken } from '@/stores/dev-credentials.store';
+import { useDevCredentialsStore, getEffectiveMetaTokenOverride, maskToken } from '@/stores/dev-credentials.store';
 
 const TABS = [
   { id: 'advisors', label: 'Asesoras', icon: personOutline },
@@ -122,8 +122,10 @@ export default function SettingsPage() {
 function CredentialsTab() {
   const override = useDevCredentialsStore((s) => s.metaTokenOverride);
   const updatedAt = useDevCredentialsStore((s) => s.updatedAt);
+  const hydrated = useDevCredentialsStore((s) => s.hydrated);
   const setToken = useDevCredentialsStore((s) => s.setToken);
   const clearToken = useDevCredentialsStore((s) => s.clearToken);
+  const effectiveOverride = getEffectiveMetaTokenOverride();
 
   const [input, setInput] = useState('');
   const [reveal, setReveal] = useState(false);
@@ -213,6 +215,9 @@ function CredentialsTab() {
             Guardado: {new Date(updatedAt).toLocaleString('es-AR')}
           </div>
         )}
+        <div className="lid-muted" style={{ fontSize: 11, marginTop: 6 }}>
+          Diagnostico: store {hydrated ? 'hidratado' : 'pendiente'} · fuente efectiva {effectiveOverride ? 'override' : '.env'}
+        </div>
       </div>
 
       <div className="lid-card">

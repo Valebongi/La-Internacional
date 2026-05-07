@@ -1,5 +1,5 @@
 import { useMemo, useState, type FormEvent } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { IonIcon } from '@ionic/react';
 import {
   arrowBackOutline,
@@ -18,6 +18,7 @@ import { isAdmin } from '@/lib/permissions';
 
 export default function ClientNewPage() {
   const history = useHistory();
+  const location = useLocation();
   const { user } = useAuth();
   const admin = isAdmin(user);
   const addClient = useCrmStore((s) => s.addClient);
@@ -28,6 +29,13 @@ export default function ClientNewPage() {
   // Si es advisor, solo puede elegir tipos que le pertenezcan
   const currentAdvisor = !admin ? advisors.find((a) => a.id === user?.advisorId) ?? null : null;
   const allowedTypes: ClientType[] = admin ? [...CLIENT_TYPES] : currentAdvisor?.clientTypes ?? [];
+  const fromInbox = new URLSearchParams(location.search).get('source') === 'inbox';
+  const backPath = fromInbox ? '/inbox' : '/clients';
+  const pageTitle = fromInbox ? 'Nuevo contacto' : 'Nuevo cliente';
+  const pageSubtitle = fromInbox
+    ? 'Usa el mismo formulario completo de cliente para registrar el contacto desde bandeja.'
+    : 'La asesora se asigna automaticamente segun el tipo.';
+  const submitLabel = fromInbox ? 'Crear contacto' : 'Crear cliente';
 
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
@@ -77,14 +85,14 @@ export default function ClientNewPage() {
 
   return (
     <div className="lid-page lid-fade-up" style={{ maxWidth: 760 }}>
-      <button className="lid-icon-btn" onClick={() => history.push('/clients')} style={{ marginBottom: 16 }} title="Volver">
+      <button className="lid-icon-btn" onClick={() => history.push(backPath)} style={{ marginBottom: 16 }} title="Volver">
         <IonIcon icon={arrowBackOutline} />
       </button>
 
       <div className="lid-page-header">
         <div>
-          <h1 className="lid-page-title">Nuevo cliente</h1>
-          <p className="lid-page-subtitle">La asesora se asigna automáticamente según el tipo.</p>
+          <h1 className="lid-page-title">{pageTitle}</h1>
+          <p className="lid-page-subtitle">{pageSubtitle}</p>
         </div>
       </div>
 
@@ -256,12 +264,12 @@ export default function ClientNewPage() {
         )}
 
         <div className="lid-row" style={{ justifyContent: 'flex-end', gap: 10 }}>
-          <button type="button" className="lid-icon-btn" onClick={() => history.push('/clients')} style={{ width: 'auto', padding: '0 18px', fontSize: 13, fontWeight: 600 }}>
+          <button type="button" className="lid-icon-btn" onClick={() => history.push(backPath)} style={{ width: 'auto', padding: '0 18px', fontSize: 13, fontWeight: 600 }}>
             Cancelar
           </button>
           <button type="submit" className="lid-btn-gradient">
             <IonIcon icon={personAddOutline} style={{ marginRight: 6, verticalAlign: '-3px' }} />
-            Crear cliente
+            {submitLabel}
           </button>
         </div>
       </form>
