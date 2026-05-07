@@ -145,6 +145,7 @@ export default function PostsalePage() {
         <PostsaleRunModal
           action={activeAction}
           clients={clients}
+          templatesService={templatesService}
           onClose={() => setRunning(null)}
         />
       )}
@@ -239,12 +240,13 @@ type RunPhase = 'preview' | 'sending' | 'done';
 interface RunResult { name: string; ok: boolean; error?: string }
 
 function PostsaleRunModal({
-  action, clients, onClose,
+  action, clients, templatesService, onClose,
 }: {
   action: PostsaleAction;
   clients: Client[];
+  templatesService: ReturnType<typeof createTemplatesService>;
   onClose(): void;
-}) {
+}){
   const [template, setTemplate] = useState<MetaTemplate | null>(null);
   const [loadingTemplate, setLoadingTemplate] = useState(true);
   const [templateError, setTemplateError] = useState<string | null>(null);
@@ -265,7 +267,7 @@ function PostsaleRunModal({
       })
       .catch((e) => setTemplateError((e as Error).message))
       .finally(() => setLoadingTemplate(false));
-  }, [action.templateName]);
+  }, [action.templateName, templatesService]);
 
   const send = async () => {
     if (!template) return;
