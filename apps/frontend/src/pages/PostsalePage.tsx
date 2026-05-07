@@ -8,7 +8,7 @@ import {
 import { useAuth } from '@/lib/auth-context';
 import { isAdmin } from '@/lib/permissions';
 import { useCrmStore, type Client } from '@/stores/crm.store';
-import { createTemplatesService, type MetaTemplate } from '@/services/templates.service';
+import { createTemplatesService, extractHeaderImageUrl, type MetaTemplate } from '@/services/templates.service';
 import { useConfig } from '@/ConfigContext';
 import { messagesService } from '@/services/messages.service';
 import { usePostsaleConfigStore, POSTSALE_STATIC } from '@/stores/postsale-config.store';
@@ -259,6 +259,8 @@ function PostsaleRunModal({
 
   useEffect(() => {
     setLoadingTemplate(true);
+    setTemplateError(null);
+    setTemplate(null);
     templatesService.list()
       .then((r) => {
         const found = (r.data ?? []).find((t) => t.name === action.templateName && t.status === 'APPROVED');
@@ -275,18 +277,28 @@ function PostsaleRunModal({
     setResults([]);
     setProgress(0);
 
-    const header = template.components?.find((c) => c.type === 'HEADER');
     let headerMediaId: string | undefined;
-    if (header?.format === 'IMAGE') {
-      const imgUrl = header.example?.header_handle?.[0];
-      if (imgUrl) {
-        const r = await messagesService.resendHeaderMedia(imgUrl);
-        if (r.ok) headerMediaId = r.mediaId;
+    const headerImageUrl = extractHeaderImageUrl(template);
+    if (headerImageUrl) {
+      const upload = await messagesService.resendHeaderMedia(headerImageUrl);
+      if (!upload.ok) {
+        setResults([{ name: 'Preparacion del header', ok: false, error: upload.error }]);
+        setPhase('done');
+        return;
       }
+      headerMediaId = upload.mediaId;
     }
 
+    const sampleClient = matchingClients[0];
+    const bodyExamples = template.components?.find((c) => c.type === 'BODY')?.example?.body_text?.[0] ?? [];
+
     const targets = testMode
-      ? [{ to: TEST_PHONE, name: 'Test', type: '', city: '' }]
+      ? [{
+          to: TEST_PHONE,
+          name: sampleClient?.name ?? bodyExamples[0] ?? 'Cliente test',
+          type: sampleClient?.type ?? bodyExamples[1] ?? 'Producto test',
+          city: sampleClient?.city ?? bodyExamples[2] ?? 'Cordoba',
+        }]
       : matchingClients.map((c) => ({
           to: c.phone.replace(/^\+/, ''),
           name: c.name,

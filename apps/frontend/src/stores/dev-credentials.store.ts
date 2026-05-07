@@ -14,17 +14,51 @@ import { persist } from 'zustand/middleware';
 interface DevCredentialsState {
   metaTokenOverride: string | null;
   updatedAt: string | null;
+  hydrated: boolean;
 
   setToken(token: string): void;
   clearToken(): void;
   hasOverride(): boolean;
 }
 
+const STORAGE_NAME = 'lid-dev-credentials';
+
+type PersistedDevCredentials = {
+  state?: {
+    metaTokenOverride?: string | null;
+    updatedAt?: string | null;
+  };
+  version?: number;
+};
+
+function readPersistedCredentials(): PersistedDevCredentials['state'] | null {
+  if (typeof window === 'undefined') return null;
+  try {
+    const raw = window.localStorage.getItem(STORAGE_NAME);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw) as PersistedDevCredentials;
+    return parsed.state ?? null;
+  } catch {
+    return null;
+  }
+}
+
+export function getEffectiveMetaTokenOverride(): string | null {
+  const fromState = useDevCredentialsStore.getState().metaTokenOverride?.trim();
+  if (fromState) return fromState;
+
+  const fromStorage = readPersistedCredentials()?.metaTokenOverride?.trim();
+  return fromStorage || null;
+}
+
+const initialPersisted = readPersistedCredentials();
+
 export const useDevCredentialsStore = create<DevCredentialsState>()(
   persist(
     (set, get) => ({
-      metaTokenOverride: null,
-      updatedAt: null,
+      metaTokenOverride: initialPersisted?.metaTokenOverride?.trim() || null,
+      updatedAt: initialPersisted?.updatedAt ?? null,
+      hydrated: !!initialPersisted,
 
       setToken(token) {
         const trimmed = token.trim();
@@ -42,7 +76,21 @@ export const useDevCredentialsStore = create<DevCredentialsState>()(
         return !!get().metaTokenOverride;
       },
     }),
-    { name: 'lid-dev-credentials', version: 1 },
+    {
+      name: STORAGE_NAME,
+      version: 1,
+      onRehydrateStorage: () => (state) => {
+        if (state) {
+          useDevCredentialsStore.setState({
+            metaTokenOverride: state.metaTokenOverride?.trim() || null,
+            updatedAt: state.updatedAt ?? null,
+            hydrated: true,
+          });
+          return;
+        }
+        useDevCredentialsStore.setState({ hydrated: true });
+      },
+    },
   ),
 );
 

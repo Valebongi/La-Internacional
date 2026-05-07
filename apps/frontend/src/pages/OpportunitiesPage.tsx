@@ -86,22 +86,20 @@ function OppCard({ opp }: { opp: Opportunity }) {
         </span>
 
         {opp.status === 'active' ? (
-          <div style={{ display: 'flex', gap: 6 }}>
+          <div className="lid-opp-actions">
             <button
-              className="lid-btn lid-btn-sm"
-              style={{ background: 'var(--lid-success)', color: '#fff', border: 'none' }}
+              className="lid-opp-action lid-opp-action-won"
               onClick={() => closeOpportunity(opp.id, 'won')}
             >
               <IonIcon icon={checkmarkCircleOutline} />
-              Ganada
+              <span>Marcar ganada</span>
             </button>
             <button
-              className="lid-btn lid-btn-sm"
-              style={{ background: 'var(--lid-danger)', color: '#fff', border: 'none' }}
+              className="lid-opp-action lid-opp-action-lost"
               onClick={() => closeOpportunity(opp.id, 'lost')}
             >
               <IonIcon icon={closeCircleOutline} />
-              Perdida
+              <span>Marcar perdida</span>
             </button>
           </div>
         ) : (

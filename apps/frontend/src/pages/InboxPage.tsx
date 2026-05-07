@@ -46,7 +46,11 @@ export default function InboxPage() {
           <button className="lid-icon-btn" title="Orden">
             <IonIcon icon={filterOutline} />
           </button>
-          <button className="lid-btn-gradient" style={{ padding: '10px 16px', fontSize: 13 }}>
+          <button
+            className="lid-btn-gradient"
+            style={{ padding: '10px 16px', fontSize: 13 }}
+            onClick={() => history.push('/clients/new?source=inbox')}
+          >
             <IonIcon icon={addOutline} style={{ marginRight: 6, verticalAlign: '-3px' }} />
             Nuevo contacto
           </button>

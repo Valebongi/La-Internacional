@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRESUPUESTO - CRM La Internacional</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+        }
+        
+        .page {
+            padding: 0;
+            background: white;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+            color: white;
+            padding: 20px 40px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo {
+            width: 150px;
+            height: auto;
+            flex-shrink: 0;
+        }
+        
+        .header-content {
+            flex: 1;
+            text-align: center;
+            margin: 0 20px;
+        }
+        
+        header h1 {
+            font-size: 32px;
+            margin-bottom: 0;
+            letter-spacing: 1px;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .page-content {
+            padding: 40px;
+            min-height: 800px;
+            background: white;
+        }
+        
+        .page-content > h2:first-of-type {
+            margin-top: 0;
+        }
+        
+        h1 {
+            color: #0066cc;
+            font-size: 22px;
+            margin: 25px 0 20px 0;
+            border-bottom: 2px solid #0066cc;
+            padding-bottom: 10px;
+            background-color: transparent;
+            border-radius: 0;
+        }
+        
+        h2 {
+            color: #0066cc;
+            background: transparent;
+            font-size: 18px;
+            margin: 35px 0 20px 0;
+            padding: 0;
+            border: none;
+            border-bottom: 2px solid #0066cc;
+            padding-bottom: 10px;
+            border-radius: 0;
+        }
+        
+        h3 {
+            color: #0066cc;
+            font-size: 15px;
+            margin: 25px 0 18px 0;
+            padding: 0;
+            background-color: transparent;
+            border-left: none;
+            border-radius: 0;
+        }
+        
+        h4 {
+            color: #0066cc;
+            font-size: 13px;
+            margin: 18px 0 12px 0;
+            font-weight: bold;
+            text-decoration: none;
+            text-decoration-color: transparent;
+            text-decoration-thickness: 0;
+        }
+        
+        p {
+            text-align: justify;
+            margin-bottom: 12px;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+        
+        ul {
+            margin: 15px 0 15px 30px;
+            font-size: 13px;
+        }
+        
+        ol {
+            margin: 15px 0 15px 40px;
+            font-size: 13px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 12px;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f0f0f0;
+            font-weight: bold;
+            color: #0066cc;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            color: #c7254e;
+        }
+        
+        strong {
+            color: #0066cc;
+            font-weight: 600;
+        }
+        
+        em {
+            font-style: italic;
+            color: #555;
+        }
+        
+        hr {
+            border: none;
+            border-top: 1px solid #e0e0e0;
+            margin: 30px 0;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+            color: white;
+            padding: 15px 40px;
+            text-align: center;
+            font-size: 12px;
+        }
+        
+        footer p {
+            margin: 3px 0;
+            text-align: center;
+        }
+        
+        .print-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #0066cc;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 102, 204, 0.3);
+        }
+        
+        .print-button:hover {
+            background-color: #0052a3;
+        }
+        
+        @page {
+            size: A4;
+            margin: 20mm 20mm 20mm 20mm;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                margin: 0;
+                padding: 0;
+            }
+            
+            .print-button {
+                display: none;
+            }
+            
+            .container {
+                box-shadow: none;
+                max-width: 100%;
+                margin: 0;
+            }
+            
+            .page {
+                margin: 0;
+                padding: 0;
+                display: block;
+            }
+            
+            .page-content {
+                margin: 0;
+                padding: 20mm 20mm 20mm 20mm;
+            }
+            
+            .page-content > h2:first-of-type {
+                margin-top: 0;
+                padding-top: 0;
+            }
+            
+            header {
+                page-break-after: avoid;
+            }
+            
+            footer {
+                position: static;
+                page-break-inside: avoid;
+                margin: 30px 0 0 0;
+                padding: 15px 20px;
+            }
+            
+            h2 {
+                page-break-inside: avoid;
+                page-break-after: avoid;
+                orphans: 3;
+                widows: 3;
+            }
+            
+            h3 {
+                page-break-inside: avoid;
+                page-break-after: avoid;
+                orphans: 3;
+                widows: 3;
+            }
+            
+            table {
+                page-break-inside: avoid;
+            }
+            
+            ul, ol {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="page">
+            <header>
+                <img src="logo-white-1024.png" alt="Logo La Internacional" class="logo">
+                <div class="header-content">
+                    <h1>Propuesta de Presupuestación</h1>
+                </div>
+                <div style="width: 150px;"></div>
+            </header>
+            
+            <div class="page-content">
+                <h1>PROPUESTA DE PRESUPUESTACIÓN</h1>
+<h2>CRM Integrado de Gestión de Clientes y Comunicaciones</h2>
+<p><strong>La Internacional Distribuidora</strong></p>
+<p><strong>Documento de Presupuesto Técnico-Comercial</strong></p>
+<p><strong>Versión 1.0</strong></p>
+<hr>
+<h2>1. RESUMEN EJECUTIVO</h2>
+<p>Este documento detalla los costos asociados a la implementación y operación de una plataforma CRM integrada diseñada específicamente para La Internacional. La solución centraliza la gestión de clientes, automatiza comunicaciones por WhatsApp e Instagram, y proporciona visibilidad total sobre el desempeño comercial de cada asesora.</p>
+<p>La plataforma está estructurada en componentes funcionales independientes, permitiendo que cada parte del negocio sea medible, monitoreable y escalable. Los costos se dividen en dos categorías:</p>
+<ul><li><strong>Costos de Desarrollo e Implementación</strong> — inversión única al inicio del proyecto</li><li><strong>Costos Operacionales Variables</strong> — asociados directamente al uso real del sistema</li></ul>
+<hr>
+<h2>2. COMPONENTES FUNCIONALES DEL SISTEMA</h2>
+<h3>2.1 Módulo de Recepción y Gestión de Contacto (Bandeja Unificada)</h3>
+<p><strong>Qué incluye:</strong></p>
+<ul><li>Integración centralizada de 5 líneas de WhatsApp actuales</li><li>Integración de mensajes directos de Instagram</li><li>Interfaz única desde la cual ver todos los contactos entrantes</li><li>Asignación automática de clientes a asesoras según tipo de cliente (Cosmetóloga, Esteticista, Dermatóloga, Revendedora)</li><li>Eliminación manual de búsqueda de números — el sistema valida automáticamente si el teléfono ya existe</li></ul>
+<p><strong>Por qué importa:</strong></p>
+<p>Reduce el tiempo de triaje y evita duplicación de esfuerzos. Las asesoras no pierden tiempo verificando manualmente si un cliente ya está en el sistema.</p>
+<p><strong>Costo estimado de desarrollo:</strong> <code>[PLACEHOLDER]</code></p>
+<hr>
+<h3>2.2 Módulo de Gestión de Clientes (CRM Core)</h3>
+<p><strong>Qué incluye:</strong></p>
+<ul><li>Base de datos centralizada de clientes anti-duplicidad</li><li>Búsqueda por teléfono, nombre, ciudad, tipo de profesión</li><li>Historial completo de interacciones por cliente (mensajes, estado, fecha de último contacto)</li><li>Sistema de estados — cada cliente progresa por: Recibido → En validación → Presupuestando → Sin comprobante → Agendado → Comprado</li><li>Etiquetado flexible para segmentación y priorización</li><li>Filtrado por asesora, tipo de cliente, o estado específico</li></ul>
+<p><strong>Por qué importa:</strong></p>
+<p>Es el corazón del sistema. Toda decisión comercial se toma a partir de datos de clientes. La visibilidad centralizada evita que clientes "se pierdan" entre sistemas.</p>
+<p><strong>Costo estimado de desarrollo:</strong> <code>[PLACEHOLDER]</code></p>
+<hr>
+<h3>2.3 Módulo de Difusiones Masivas (Motor de Envíos)</h3>
+<p><strong>Qué incluye:</strong></p>
+<ul><li>Integración nativa con WhatsApp Business API (Meta Cloud API) — 100% legal y seguro</li><li>Gestor de plantillas aprobadas por Meta (se crea/aprueba una vez, se reutiliza N veces)</li><li>Segmentación dinámica — filtrar clientes por tipo, asesora, estado, ciudad</li><li>Límites de seguridad integrados (máximo 20 envíos por ejecución, para evitar sobrecarga de API)</li><li>Modo "test" — validar antes de enviar a toda la audiencia</li><li>Imágenes en headers — subida y reutilización de media files</li></ul>
+<p><strong>Por qué importa:</strong></p>
+<p>Reemplaza el proceso manual de "armar lista de 250 contactos, copiar en WhatsApp Web, etc.". Un click dispara a todos. Ahorra horas de trabajo operativo por difusión.</p>
+<p><strong>Costo estimado de desarrollo:</strong> <code>[PLACEHOLDER]</code></p>
+<hr>
+<h3>2.4 Módulo de Postventa Automatizada</h3>
+<p><strong>Qué incluye:</strong></p>
+<ul><li>Secuencias automáticas de seguimiento post-compra (ej. "día 7 después de compra")</li><li>Triggers personalizables: post-compra, inactividad (X días sin compras), cumpleaños, días personalizados</li><li>Mensajes puntuales 1:1 a cada cliente (no masivos) — camuflado, sin facturación de plantilla</li><li>Restricción por tipo de cliente u asesora específica</li><li>Contador de "enviados este mes" para auditoría</li><li>Microservicio aislado — si algo falla en postventa, el resto del sistema sigue funcionando</li></ul>
+<p><strong>Por qué importa:</strong></p>
+<p>Mantiene clientes activos sin intervención manual. Un cliente con baja actividad recibe un recordatorio automático. Post-compra, un "gracias por tu compra" aumenta la retención.</p>
+<p><strong>Costo estimado de desarrollo:</strong> <code>[PLACEHOLDER]</code></p>
+<hr>
+<h3>2.5 Módulo de Analítica y Reportes</h3>
+<p><strong>Qué incluye:</strong></p>
+<ul><li>Dashboard ejecutivo de tasas de conversión (clientes nuevos → clientes que compraron)</li><li>Análisis por etapa — ¿dónde abandonan los clientes? (ej. post-presupuesto)</li><li>Costo por difusión vs. resultado comercial — si se gastaron $100 en una difusión, ¿cuánto ingreso generó?</li><li>Costo por estado — para que un cliente llegue del estado "Presupuestando" al estado "Comprado", ¿cuál fue la inversión media en difusiones?</li><li>Reportes por asesora — rendimiento individual, clientes atendidos, cierre de ventas</li><li>Embudos visuales — ver la progresión de clientes a través de cada etapa</li></ul>
+<p><strong>Por qué importa:</strong></p>
+<p>Sin datos, es imposible optimizar. Este módulo responde: "¿estamos invirtiendo bien en difusiones?" y "¿quién es la asesora más efectiva?"</p>
+<p><strong>Costo estimado de desarrollo:</strong> <code>[PLACEHOLDER]</code></p>
+<hr>
+<h3>2.6 Plataforma Frontend y Acceso</h3>
+<p><strong>Qué incluye:</strong></p>
+<ul><li>Interfaz web responsive (funciona en desktop y tablets)</li><li>Acceso para Admin (ve todo, gestiona usuarios, ve reportes)</li><li>Acceso para Asesoras (ve sus clientes, bandeja propia, historial)</li><li>Autenticación segura con contraseña (JWT)</li><li>No requiere instalación — funciona desde cualquier navegador</li><li>Diseño intuitivo, sin necesidad de capacitación compleja</li></ul>
+<p><strong>Por qué importa:</strong></p>
+<p>Es la puerta de entrada. Si es complicado de usar, la adopción falla.</p>
+<p><strong>Costo estimado de desarrollo:</strong> <code>[PLACEHOLDER]</code></p>
+<hr>
+<h3>2.7 Infraestructura, Hosting y Deployment</h3>
+<p><strong>Qué incluye:</strong></p>
+<ul><li>Servidor en la nube (Railway) — disponibilidad 24/7</li><li>Base de datos PostgreSQL (escalable, confiable, estándar industria)</li><li>Monitoreo de salud del sistema (alertas si algo cae)</li><li>Respaldos automáticos diarios</li><li>Certificado SSL (HTTPS seguro)</li><li>Configuración de múltiples bases de datos lógicas (aislamiento por servicio, por seguridad)</li></ul>
+<p><strong>Por qué importa:</strong></p>
+<p>La plataforma debe estar disponible cuando lo necesitan. No es "instalar en una computadora". Está en la nube, disponible desde cualquier lugar.</p>
+<p><strong>Costo estimado de desarrollo:</strong> <code>[PLACEHOLDER]</code></p>
+<hr>
+<h2>3. ESTRUCTURA DE COSTOS</h2>
+<h3>3.1 Costos de Desarrollo e Implementación (Inversión Inicial)</h3>
+<p>A continuación, detallamos los componentes principales y sus costos asociados:</p>
+<table><tbody><thead><tr><th>Componente</th><th>Descripción</th><th>Costo</th></tr></thead><tbody><tr><td><strong>Módulo Recepción y Gestión de Contacto</strong></td><td>Integración WhatsApp + Instagram, bandeja unificada, asignación automática</td><td>`[PLACEHOLDER]`</td></tr><tr><td><strong>Módulo CRM Core</strong></td><td>Base de datos clientes, anti-duplicidad, segmentación, estados</td><td>`[PLACEHOLDER]`</td></tr><tr><td><strong>Módulo Difusiones Masivas</strong></td><td>Integración Meta Cloud API, gestor de plantillas, segmentación dinámica</td><td>`[PLACEHOLDER]`</td></tr><tr><td><strong>Módulo Postventa Automatizada</strong></td><td>Secuencias automáticas, microservicio aislado, triggers configurables</td><td>`[PLACEHOLDER]`</td></tr><tr><td><strong>Módulo Analítica</strong></td><td>Dashboard, embudos, tasas de conversión, reportes por asesora</td><td>`[PLACEHOLDER]`</td></tr><tr><td><strong>Plataforma Frontend</strong></td><td>Interfaz web responsive, autenticación, gestión de usuarios</td><td>`[PLACEHOLDER]`</td></tr><tr><td><strong>Infraestructura y Hosting</strong></td><td>Servidor Railway, BD PostgreSQL, monitoreo, respaldos, SSL</td><td>`[PLACEHOLDER]`</td></tr><tr><td></td><td></td><td></td></tr><tr><td><strong>TOTAL DESARROLLO E IMPLEMENTACIÓN</strong></td><td></td><td>`[PLACEHOLDER]`</td></tr></tbody></table>
+<hr>
+<h3>3.2 Costos Operacionales Variables (Costo por Uso)</h3>
+<p>La plataforma genera costos variables <strong>únicamente por mensajes enviados a través de WhatsApp Cloud API</strong> (Meta). Estos costos están directamente vinculados a:</p>
+<ul><li><strong>Difusiones masivas</strong> — cada template dispuesta a N clientes</li><li><strong>Postventa automatizada</strong> — cada secuencia que envía mensajes 1:1</li></ul>
+<p><strong>Nota importante:</strong> No hay costo variable por:</p>
+<ul><li>Cantidad de clientes en la base de datos</li><li>Cantidad de mensajes recibidos</li><li>Cantidad de consultas a reportes</li><li>Cantidad de usuarios del sistema</li><li>Hosting o infraestructura</li></ul>
+<h4>Tabla de Precios Meta para WhatsApp Cloud API</h4>
+<p>Los precios varían según la plantilla, la región y la fecha. A continuación se proporciona una estructura de referencia:</p>
+<p><strong>Por tipo de plantilla:</strong></p>
+<table><tbody><thead><tr><th>Tipo de Mensaje</th><th>Categoría Meta</th><th>Precio por envío*</th><th>Notas</th></tr></thead><tbody><tr><td><strong>Únicamente texto</strong></td><td>UTILITY</td><td>`[PLACEHOLDER USD]`</td><td>Seguimientos, confirmaciones</td></tr><tr><td><strong>Texto + imagen/video</strong></td><td>UTILITY</td><td>`[PLACEHOLDER USD]`</td><td>Promociones con visual</td></tr><tr><td><strong>Texto con botones interactivos</strong></td><td>UTILITY</td><td>`[PLACEHOLDER USD]`</td><td>Llamadas a acción (CTA)</td></tr><tr><td><strong>Difusiones generales</strong></td><td>MARKETING</td><td>`[PLACEHOLDER USD]`</td><td>Novedades, listas de precios</td></tr></tbody></table>
+<p>*Los precios están denominados en USD. El costo final en ARS dependerá del tipo de cambio vigente en la fecha del envío.</p>
+<hr>
+<h4>Ejemplo de Cálculo de Costos Operacionales</h4>
+<p><strong>Caso A: Difusión semanal a todas las cosmetólogas</strong></p>
+<p>Supongamos:</p>
+<ul><li>250 cosmetólogas registradas</li><li>1 plantilla de MARKETING con texto + imagen</li><li>Precio unitario: <code>[PLACEHOLDER USD]</code></li></ul>
+<p><strong>Costo por difusión:</strong> 250 × <code>[PLACEHOLDER USD]</code> = <code>[PLACEHOLDER USD]</code></p>
+<p><strong>Costo mensual (4 difusiones):</strong> <code>[PLACEHOLDER USD]</code></p>
+<p><strong>Costo anual (52 difusiones):</strong> <code>[PLACEHOLDER USD]</code></p>
+<hr>
+<p><strong>Caso B: Postventa automática post-compra</strong></p>
+<p>Supongamos:</p>
+<ul><li>50 clientes compraron este mes</li><li>1 mensaje UTILITY de seguimiento por cliente</li><li>Precio unitario: <code>[PLACEHOLDER USD]</code></li></ul>
+<p><strong>Costo por envío:</strong> 50 × <code>[PLACEHOLDER USD]</code> = <code>[PLACEHOLDER USD]</code></p>
+<p><strong>Costo mensual:</strong> <code>[PLACEHOLDER USD]</code> (varía según compras)</p>
+<p><strong>Costo anual estimado:</strong> <code>[PLACEHOLDER USD]</code> (base en histórico de compras)</p>
+<hr>
+<h4>Control de Costos</h4>
+<p>El sistema incluye mecanismos de control integrados:</p>
+<ol><li><strong>Límites de seguridad</strong> — máximo 20 envíos simultáneos, para prevenir sobrecargas</li><li><strong>Modo test</strong> — antes de enviar a toda la audiencia, se valida con un número de prueba</li><li><strong>Auditoría completa</strong> — cada difusión queda registrada: quién la envió, cuándo, a cuántos, costo aproximado</li><li><strong>Reportes de costo</strong> — dashboard que muestra gasto acumulado en mensajes vs. ingresos generados</li></ol>
+<hr>
+<h2>4. TIMELINE DE IMPLEMENTACIÓN</h2>
+<table><tbody><thead><tr><th>Fase</th><th>Duración Estimada</th><th>Hitos</th></tr></thead><tbody><tr><td><strong>Fase 1: Planificación y Setup</strong></td><td>1-2 semanas</td><td>Acceso a credenciales Meta, definición final de requisitos, setup de infraestructura</td></tr><tr><td><strong>Fase 2: Desarrollo Core</strong></td><td>4-6 semanas</td><td>Módulos CRM, Recepción, Backend base</td></tr><tr><td><strong>Fase 3: Integración Meta</strong></td><td>2-3 semanas</td><td>Difusiones, postventa, sincronización de templates</td></tr><tr><td><strong>Fase 4: Analítica e Integración Sistema Actual</strong></td><td>2-3 semanas</td><td>Dashboard, reportes, sincronización bidireccional</td></tr><tr><td><strong>Fase 5: Testing, Capacitación y Go-Live</strong></td><td>1-2 semanas</td><td>QA completo, capacitación de usuarios, migración de datos históricos</td></tr></tbody></table>
+<p><strong>Total estimado:</strong> 10-17 semanas (incluye buffers para ajustes)</p>
+<hr>
+<h2>5. GARANTÍAS Y SOPORTE POST-LANZAMIENTO</h2>
+<p>Una vez implementada la plataforma, se incluye:</p>
+<ul><li><strong>30 días de soporte intensivo</strong> — resolución de bugs críticos, ajustes de flujos, capacitación adicional</li><li><strong>Documentación completa</strong> — manual de usuario, guía de administración, video tutoriales</li><li><strong>Sesiones de capacitación</strong> — 1 sesión en vivo con todo el equipo (admin + asesoras)</li><li><strong>Escalabilidad garantizada</strong> — la infraestructura soporta crecimiento a 50,000+ contactos sin degradación</li></ul>
+<hr>
+<h2>6. CONSIDERACIONES TÉCNICAS Y LIMITACIONES CONOCIDAS</h2>
+<h3>6.1 Dependencias Externas</h3>
+<ul><li><strong>Meta Cloud API</strong> — La plataforma depende de que Meta mantenga disponibilidad y estabilidad. Meta tiene SLA del 99.9%, pero ocasionalmente hay interrupciones. No está en nuestras manos, pero sí monitoreamos.</li></ul>
+<h3>6.2 Privacidad y Cumplimiento Normativo</h3>
+<ul><li>Todos los datos se almacenan encriptados en tránsito (HTTPS) y en reposo (en la base de datos)</li><li>La plataforma cumple con GDPR y las políticas de Meta respecto a privacidad</li><li>Se requiere consentimiento de clientes para recibir mensajes (opt-in), especialmente para difusiones</li></ul>
+<hr>
+<p><strong>Preparado por:</strong> DAX</p>
+<p><strong>Fecha:</strong> [Fecha del documento]</p>
+<p><strong>Versión:</strong> 1.0</p>
+<p><strong>Válido hasta:</strong> [Fecha de vigencia - ej. 30 días]</p>
+<hr>
+<h3>Anexo: Glosario de Términos Técnicos</h3>
+<p><strong>CRM:</strong> Customer Relationship Management. Sistema de gestión de relaciones con clientes.</p>
+<p><strong>WhatsApp Cloud API (Meta):</strong> Acceso oficial a WhatsApp a través de servidores de Meta. Es la forma legal de automatizar envíos masivos.</p>
+<p><strong>Template (Plantilla Meta):</strong> Mensaje preformateado aprobado por Meta. Puede incluir texto, variables, imágenes o botones interactivos. Una vez aprobada, se puede reutilizar sin esperar nuevamente.</p>
+<p><strong>Webhook:</strong> Notificación automática que Meta envía a nuestro servidor cada vez que ocurre algo (ej. "cliente leyó el mensaje", "cliente respondió").</p>
+<p><strong>Microservicio:</strong> Componente de software independiente que puede fallar sin afectar al resto del sistema. En este caso, la postventa está en un microservicio aislado por seguridad.</p>
+<p><strong>JWT (Token):</strong> Credencial segura que los usuarios obtienen al hacer login. Permite que la plataforma sepa quién eres sin requerir contraseña en cada petición.</p>
+<p><strong>PostgreSQL:</strong> Base de datos confiable, escalable, estándar en la industria. Similar a SQL Server pero open-source.</p>
+<p><strong>Railway:</strong> Plataforma de hosting en la nube. Aloja el servidor, la BD, y garantiza disponibilidad 24/7.</p>
+<p><strong>API REST:</strong> Forma estándar de que dos sistemas se comuniquen. Nuestro CRM "habla" con Meta y con el sistema actual a través de APIs.</p>
+<hr>
+            </div>
+            
+            <footer>
+                <p><strong>La Internacional Distribuidora</strong></p>
+                <p>Documento de Presupuesto Técnico-Comercial | Preparado por: DAX</p>
+            </footer>
+        </div>
+    </div>
+    
+    <button class="print-button" onclick="window.print()">🖨️ Imprimir / Guardar como PDF</button>
+</body>
+</html>
