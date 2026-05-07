@@ -1,23 +1,59 @@
 # Railway deployment configuration
-# This file is intentionally minimal to allow auto-detection of multiple services.
-# 
-# For multi-service projects (frontend + backend), it's better to let Railway
-# auto-detect Dockerfiles rather than hard-code paths.
+# Este archivo configura el servicio BACKEND.
+# Para el servicio FRONTEND, ver Dockerfile.frontend + instrucciones abajo.
 #
-# Supported Dockerfile names for auto-detection:
-# - Dockerfile (default)
-# - Dockerfile.{serviceName}
+# ─────────────────────────────────────────────────────────────────────────────
+# SETUP EN RAILWAY DASHBOARD
+# ─────────────────────────────────────────────────────────────────────────────
 #
-# Railway will auto-detect:
-# - Dockerfile.backend → Backend service
-# - Dockerfile.frontend → Frontend service
-# 
-# Manual configuration can be done in Railway Dashboard UI.
+# Servicio BACKEND:
+#   Source → Dockerfile path: Dockerfile.backend
+#   Variables (mínimas para arrancar):
+#     NODE_ENV=production
+#     JWT_SECRET=<random-fuerte>
+#     JWT_EXPIRES_IN=7d
+#     GATEWAY_PORT=8080   (o dejar vacío; se usa PORT de Railway)
+#     AUTH_URL=http://localhost:3001
+#     CRM_CORE_URL=http://localhost:3002
+#     MESSAGING_URL=http://localhost:3003
+#     BROADCASTS_URL=http://localhost:3004
+#     POSTSALE_URL=http://localhost:3005
+#     ANALYTICS_URL=http://localhost:3006
+#     INTEGRATION_URL=http://localhost:3007
+#     EXTERNAL_SYSTEM_MOCK=true
+#     META_GRAPH_VERSION=v25.0
+#     META_ACCESS_TOKEN=<tu token de Meta>
+#     META_APP_ID=<tu app id>
+#     META_PHONE_NUMBER_ID=<tu phone number id>
+#     META_BUSINESS_ACCOUNT_ID=<tu waba id>
+#     META_VERIFY_TOKEN=<token para webhook>
+#
+# Servicio FRONTEND:
+#   Source → Dockerfile path: Dockerfile.frontend
+#   Build args (en Railway Dashboard → Variables):
+#     VITE_USE_MOCKS=false
+#     VITE_API_BASE_URL=   (vacío = URLs relativas, nginx proxea al backend)
+#     VITE_APP_NAME=CRM La Internacional
+#     VITE_META_WABA_ID=<tu waba id>
+#     VITE_META_PHONE_NUMBER_ID=<tu phone number id>
+#     VITE_META_TEST_PHONE=<teléfono de prueba>
+#   Variables de runtime:
+#     BACKEND_HOST=<nombre-servicio-backend>.railway.internal:8080
+#       Ej: la-internacional-backend.railway.internal:8080
+#
+# Base de datos PostgreSQL:
+#   Add → Database → PostgreSQL
+#   Railway auto-inyecta DATABASE_URL.
+#   Crear segunda DB para postsale o usar misma con schema diferente.
+#
+# ─────────────────────────────────────────────────────────────────────────────
 
-# If you need to override, uncomment and modify:
-# [build]
-# builder = "DOCKERFILE"
-# dockerfilePath = "Dockerfile.backend"
-# 
-# [deploy]
-# startCommand = "node apps/backend/dist/services/gateway/main"
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "Dockerfile.backend"
+
+[deploy]
+healthcheckPath = "/health"
+healthcheckTimeout = 300
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 5

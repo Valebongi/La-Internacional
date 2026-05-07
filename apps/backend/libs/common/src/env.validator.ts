@@ -79,12 +79,12 @@ export class EnvironmentVariables {
   INTEGRATION_URL?: string;
 
   @IsString()
-  @IsNotEmpty()
-  DATABASE_URL: string;
+  @IsOptional()
+  DATABASE_URL?: string;
 
   @IsString()
-  @IsNotEmpty()
-  POSTSALE_DATABASE_URL: string;
+  @IsOptional()
+  POSTSALE_DATABASE_URL?: string;
 
   @IsString()
   @IsNotEmpty()

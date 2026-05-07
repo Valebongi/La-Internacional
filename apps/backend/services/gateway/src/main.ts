@@ -7,7 +7,7 @@ async function bootstrap() {
   validateConfig();
 
   const app = await NestFactory.create(AppModule);
-  const port = Number(process.env.GATEWAY_PORT ?? 8080);
+  const port = Number(process.env.PORT ?? process.env.GATEWAY_PORT ?? 8080);
   app.enableCors();
   await app.listen(port);
   console.log(`[gateway-service] listening on :${port}`);
