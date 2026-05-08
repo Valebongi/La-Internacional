@@ -1,7 +1,6 @@
 # Frontend: Vite + React + Ionic
-# Build stage genera los estáticos; runtime sirve via nginx.
-# VITE_API_BASE_URL se pasa como build arg (Railway lo configura en la UI).
-# Dejar vacío (default) hace que el frontend use URLs relativas → nginx las proxea al backend.
+# Build context: apps/frontend/ (Railway Root Directory = apps/frontend)
+# Dockerfile path se configura en railway.frontend.toml → dockerfilePath = "Dockerfile.frontend"
 
 # Stage 1: Build
 FROM node:20-alpine AS builder
@@ -19,7 +18,6 @@ ARG VITE_META_WABA_ID=""
 ARG VITE_META_PHONE_NUMBER_ID=""
 ARG VITE_META_TEST_PHONE=""
 
-# Exponer como ENV para que Vite los lea durante el build
 ENV VITE_API_BASE_URL=$VITE_API_BASE_URL \
     VITE_APP_NAME=$VITE_APP_NAME \
     VITE_USE_MOCKS=$VITE_USE_MOCKS \
@@ -30,25 +28,24 @@ ENV VITE_API_BASE_URL=$VITE_API_BASE_URL \
     VITE_META_PHONE_NUMBER_ID=$VITE_META_PHONE_NUMBER_ID \
     VITE_META_TEST_PHONE=$VITE_META_TEST_PHONE
 
+# Context root ES apps/frontend — package.json del frontend está directamente
 COPY package*.json ./
-COPY apps/frontend/package*.json ./apps/frontend/
-
 RUN npm ci
 
-COPY apps/frontend ./apps/frontend
-
-RUN npm run build:fe
+COPY . .
+RUN npm run build
 
 # Stage 2: Runtime (nginx)
 FROM nginx:alpine
 
+# nginx.conf y docker-entrypoint.sh viven en apps/frontend/ (dentro del build context)
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 RUN chmod +x /docker-entrypoint.sh
 
-COPY --from=builder /app/apps/frontend/dist /usr/share/nginx/html
+# Vite genera dist/ relativo al WORKDIR (/app/dist)
+COPY --from=builder /app/dist /usr/share/nginx/html
 
-# Health check usa el PORT dinámico (Railway lo inyecta; nginx lo lee en entrypoint)
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
   CMD wget --quiet --tries=1 --spider "http://localhost:${PORT:-80}/index.html" || exit 1
 
