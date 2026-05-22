@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1080" viewBox="0 0 1080 1080">
+
+  <!-- Background blanco -->
+  <rect width="1080" height="1080" fill="#FFFFFF"/>
+
+  <!-- Franja cyan vertical izquierda -->
+  <rect x="0" y="0" width="14" height="1080" fill="#00C8E8"/>
+
+  <!-- TAG -->
+  <rect x="80" y="80" width="220" height="40" fill="#061428"/>
+  <text x="190" y="106" font-family="Arial Black, Arial, sans-serif" font-size="14" font-weight="900" fill="#FFFFFF" text-anchor="middle" letter-spacing="3">WHY DIGITALAXIOS</text>
+
+  <!-- Headline grande -->
+  <text x="80" y="220" font-family="Arial Black, Arial, sans-serif" font-size="76" font-weight="900" fill="#061428">No vendemos</text>
+  <text x="80" y="306" font-family="Arial Black, Arial, sans-serif" font-size="76" font-weight="900" fill="#061428">software.</text>
+  <text x="80" y="392" font-family="Arial Black, Arial, sans-serif" font-size="76" font-weight="900" fill="#061428">Vendemos</text>
+  <text x="80" y="478" font-family="Arial Black, Arial, sans-serif" font-size="76" font-weight="900" fill="#00C8E8">tiempo liberado.</text>
+
+  <!-- Línea separadora -->
+  <rect x="80" y="510" width="920" height="2" fill="#E0E8EC"/>
+
+  <!-- 4 features — cada una con número cyan grande + texto navy -->
+  <!-- Feature 1 -->
+  <text x="80" y="584" font-family="Arial Black, Arial, sans-serif" font-size="48" font-weight="900" fill="#00C8E8">01</text>
+  <text x="168" y="570" font-family="Arial Black, Arial, sans-serif" font-size="26" font-weight="900" fill="#061428">Automatización end-to-end</text>
+  <text x="168" y="598" font-family="Arial, sans-serif" font-size="20" fill="#6A8A9A">Desde el diagnóstico hasta el deploy en producción.</text>
+
+  <rect x="80" y="618" width="920" height="1" fill="#EEF2F5"/>
+
+  <!-- Feature 2 -->
+  <text x="80" y="680" font-family="Arial Black, Arial, sans-serif" font-size="48" font-weight="900" fill="#00C8E8">02</text>
+  <text x="168" y="666" font-family="Arial Black, Arial, sans-serif" font-size="26" font-weight="900" fill="#061428">IA a medida, no templates</text>
+  <text x="168" y="694" font-family="Arial, sans-serif" font-size="20" fill="#6A8A9A">Modelos entrenados con los datos de tu negocio.</text>
+
+  <rect x="80" y="714" width="920" height="1" fill="#EEF2F5"/>
+
+  <!-- Feature 3 -->
+  <text x="80" y="776" font-family="Arial Black, Arial, sans-serif" font-size="48" font-weight="900" fill="#00C8E8">03</text>
+  <text x="168" y="762" font-family="Arial Black, Arial, sans-serif" font-size="26" font-weight="900" fill="#061428">Integración con tu stack actual</text>
+  <text x="168" y="790" font-family="Arial, sans-serif" font-size="20" fill="#6A8A9A">Sin reemplazar lo que ya funciona. Sin migraciones dolorosas.</text>
+
+  <rect x="80" y="810" width="920" height="1" fill="#EEF2F5"/>
+
+  <!-- Feature 4 -->
+  <text x="80" y="872" font-family="Arial Black, Arial, sans-serif" font-size="48" font-weight="900" fill="#00C8E8">04</text>
+  <text x="168" y="858" font-family="Arial Black, Arial, sans-serif" font-size="26" font-weight="900" fill="#061428">ROI medible desde el día 1</text>
+  <text x="168" y="886" font-family="Arial, sans-serif" font-size="20" fill="#6A8A9A">Dashboards en tiempo real. Resultados, no promesas.</text>
+
+  <!-- Footer separador -->
+  <rect x="0" y="926" width="1080" height="2" fill="#00C8E8"/>
+
+  <!-- Footer bloque navy -->
+  <rect x="0" y="928" width="1080" height="152" fill="#061428"/>
+  <text x="80" y="988" font-family="Arial Black, Arial, sans-serif" font-size="32" font-weight="900" fill="#FFFFFF">Digital<tspan fill="#00C8E8">Axios</tspan></text>
+  <text x="80" y="1020" font-family="Arial, sans-serif" font-size="17" fill="#3A6A7A" letter-spacing="2">CUSTOM SOFTWARE ENGINEERING</text>
+  <text x="80" y="1056" font-family="Arial, sans-serif" font-size="18" fill="#1A3A4A">¿Tu equipo pierde horas en tareas repetitivas? <tspan fill="#00C8E8" font-weight="700">Hablemos.</tspan></text>
+
+</svg>

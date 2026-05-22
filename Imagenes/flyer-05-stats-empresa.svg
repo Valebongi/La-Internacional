@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1080" viewBox="0 0 1080 1080">
+
+  <!-- Background blanco -->
+  <rect width="1080" height="1080" fill="#FFFFFF"/>
+
+  <!-- TAG top -->
+  <rect x="80" y="80" width="180" height="40" fill="#00C8E8"/>
+  <text x="170" y="106" font-family="Arial Black, Arial, sans-serif" font-size="14" font-weight="900" fill="#061428" text-anchor="middle" letter-spacing="3">IMPACTO REAL</text>
+
+  <!-- Headline -->
+  <text x="80" y="206" font-family="Arial Black, Arial, sans-serif" font-size="72" font-weight="900" fill="#061428">Inteligencia</text>
+  <text x="80" y="286" font-family="Arial Black, Arial, sans-serif" font-size="72" font-weight="900" fill="#00C8E8">tangible.</text>
+
+  <text x="80" y="332" font-family="Arial, sans-serif" font-size="22" fill="#6A8A9A">Los números que importan cuando automatizás bien.</text>
+
+  <!-- Línea separadora full -->
+  <rect x="0" y="358" width="1080" height="6" fill="#00C8E8"/>
+
+  <!-- Grid 2x2 de stats grandes -->
+
+  <!-- Cuadrante 1 — top left — blanco -->
+  <rect x="0" y="364" width="540" height="318" fill="#FFFFFF"/>
+  <text x="270" y="500" font-family="Arial Black, Arial, sans-serif" font-size="160" font-weight="900" fill="#061428" text-anchor="middle">3x</text>
+  <text x="270" y="556" font-family="Arial, sans-serif" font-size="20" fill="#6A8A9A" text-anchor="middle" letter-spacing="2">VELOCIDAD OPERATIVA</text>
+  <text x="270" y="584" font-family="Arial, sans-serif" font-size="18" fill="#AABAC4" text-anchor="middle">promedio en los primeros 90 días</text>
+  <rect x="210" y="600" width="120" height="4" fill="#00C8E8"/>
+  <text x="270" y="660" font-family="Arial Black, Arial, sans-serif" font-size="18" fill="#00C8E8" text-anchor="middle">sin cambiar tu equipo</text>
+
+  <!-- Divisor vertical -->
+  <rect x="540" y="364" width="2" height="318" fill="#E0E8EC"/>
+
+  <!-- Cuadrante 2 — top right — navy -->
+  <rect x="542" y="364" width="538" height="318" fill="#061428"/>
+  <text x="811" y="500" font-family="Arial Black, Arial, sans-serif" font-size="160" font-weight="900" fill="#00C8E8" text-anchor="middle">70%</text>
+  <text x="811" y="556" font-family="Arial, sans-serif" font-size="20" fill="#4A8A9A" text-anchor="middle" letter-spacing="2">REDUCCIÓN DE ERRORES</text>
+  <text x="811" y="584" font-family="Arial, sans-serif" font-size="18" fill="#2A4A5A" text-anchor="middle">en procesos críticos post-automatización</text>
+  <rect x="751" y="600" width="120" height="4" fill="#00C8E8"/>
+  <text x="811" y="660" font-family="Arial Black, Arial, sans-serif" font-size="18" fill="#00C8E8" text-anchor="middle">errores humanos eliminados</text>
+
+  <!-- Divisor horizontal -->
+  <rect x="0" y="682" width="1080" height="2" fill="#E0E8EC"/>
+
+  <!-- Cuadrante 3 — bottom left — navy -->
+  <rect x="0" y="684" width="540" height="318" fill="#061428"/>
+  <text x="270" y="820" font-family="Arial Black, Arial, sans-serif" font-size="160" font-weight="900" fill="#00C8E8" text-anchor="middle">48h</text>
+  <text x="270" y="876" font-family="Arial, sans-serif" font-size="20" fill="#4A8A9A" text-anchor="middle" letter-spacing="2">DIAGNÓSTICO A PROPUESTA</text>
+  <text x="270" y="904" font-family="Arial, sans-serif" font-size="18" fill="#2A4A5A" text-anchor="middle">entendemos tu negocio rápido</text>
+  <rect x="210" y="920" width="120" height="4" fill="#00C8E8"/>
+  <text x="270" y="980" font-family="Arial Black, Arial, sans-serif" font-size="18" fill="#00C8E8" text-anchor="middle">sin meses de consultoras</text>
+
+  <!-- Divisor vertical -->
+  <rect x="540" y="684" width="2" height="318" fill="#1A3A5A"/>
+
+  <!-- Cuadrante 4 — bottom right — blanco -->
+  <rect x="542" y="684" width="538" height="318" fill="#FFFFFF"/>
+  <text x="811" y="820" font-family="Arial Black, Arial, sans-serif" font-size="160" font-weight="900" fill="#061428" text-anchor="middle">∞</text>
+  <text x="811" y="876" font-family="Arial, sans-serif" font-size="20" fill="#6A8A9A" text-anchor="middle" letter-spacing="2">ESCALABILIDAD</text>
+  <text x="811" y="904" font-family="Arial, sans-serif" font-size="18" fill="#AABAC4" text-anchor="middle">sistemas que crecen con tu empresa</text>
+  <rect x="751" y="920" width="120" height="4" fill="#00C8E8"/>
+  <text x="811" y="980" font-family="Arial Black, Arial, sans-serif" font-size="18" fill="#00C8E8" text-anchor="middle">sin reescribir nada</text>
+
+  <!-- Footer line top -->
+  <rect x="0" y="1002" width="1080" height="2" fill="#00C8E8"/>
+
+  <!-- Footer -->
+  <rect x="0" y="1004" width="1080" height="76" fill="#061428"/>
+  <text x="80" y="1052" font-family="Arial Black, Arial, sans-serif" font-size="28" font-weight="900" fill="#FFFFFF">Digital<tspan fill="#00C8E8">Axios</tspan></text>
+  <text x="540" y="1052" font-family="Arial, sans-serif" font-size="17" fill="#2A5A6A" text-anchor="middle" letter-spacing="2">CUSTOM SOFTWARE ENGINEERING</text>
+  <text x="1000" y="1052" font-family="Arial, sans-serif" font-size="16" fill="#3A6A7A" text-anchor="end">Automatización de grado empresarial.</text>
+
+</svg>

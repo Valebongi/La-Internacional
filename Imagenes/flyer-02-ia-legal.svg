@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1080" viewBox="0 0 1080 1080">
+
+  <!-- Background blanco -->
+  <rect width="1080" height="1080" fill="#FFFFFF"/>
+
+  <!-- Header sólido navy -->
+  <rect x="0" y="0" width="1080" height="400" fill="#061428"/>
+
+  <!-- TAG en header -->
+  <rect x="80" y="70" width="195" height="38" fill="#00C8E8"/>
+  <text x="178" y="95" font-family="Arial Black, Arial, sans-serif" font-size="14" font-weight="900" fill="#061428" text-anchor="middle" letter-spacing="3">SECTOR LEGAL</text>
+
+  <!-- Stat hero en header -->
+  <text x="80" y="255" font-family="Arial Black, Arial, sans-serif" font-size="190" font-weight="900" fill="#FFFFFF" letter-spacing="-6">50%</text>
+
+  <!-- Línea cyan en header -->
+  <rect x="80" y="268" width="360" height="6" fill="#00C8E8"/>
+
+  <!-- Descriptor en header -->
+  <text x="80" y="316" font-family="Arial, sans-serif" font-size="22" fill="#6AAABB" letter-spacing="1">DEL TIEMPO DE ABOGADOS EN TAREAS REPETITIVAS.</text>
+
+  <!-- Headline en zona blanca -->
+  <text x="80" y="470" font-family="Arial Black, Arial, sans-serif" font-size="56" font-weight="900" fill="#061428">IA para Firmas Legales</text>
+  <text x="80" y="535" font-family="Arial Black, Arial, sans-serif" font-size="56" font-weight="900" fill="#061428">y <tspan fill="#00C8E8">Compliance</tspan></text>
+
+  <text x="80" y="590" font-family="Arial, sans-serif" font-size="22" fill="#6A8A9A">Análisis de contratos, extracción de cláusulas con OCR+IA</text>
+  <text x="80" y="618" font-family="Arial, sans-serif" font-size="22" fill="#6A8A9A">y agentes inteligentes para consultas jurídicas internas.</text>
+
+  <!-- Tres cards de stats -->
+  <!-- Card 1 -->
+  <rect x="80" y="658" width="278" height="168" fill="#F4F9FB"/>
+  <rect x="80" y="658" width="278" height="6" fill="#00C8E8"/>
+  <text x="219" y="730" font-family="Arial Black, Arial, sans-serif" font-size="58" font-weight="900" fill="#00C8E8" text-anchor="middle">1.240+</text>
+  <text x="219" y="762" font-family="Arial, sans-serif" font-size="14" fill="#6A8A9A" text-anchor="middle" letter-spacing="1">CONTRATOS / MES</text>
+  <text x="219" y="784" font-family="Arial, sans-serif" font-size="13" fill="#AAB4BA" text-anchor="middle">documentos procesados</text>
+  <text x="219" y="808" font-family="Arial, sans-serif" font-size="13" fill="#AAB4BA" text-anchor="middle"> </text>
+
+  <!-- Card 2 -->
+  <rect x="401" y="658" width="278" height="168" fill="#F4F9FB"/>
+  <rect x="401" y="658" width="278" height="6" fill="#00C8E8"/>
+  <text x="540" y="730" font-family="Arial Black, Arial, sans-serif" font-size="58" font-weight="900" fill="#00C8E8" text-anchor="middle">95%</text>
+  <text x="540" y="762" font-family="Arial, sans-serif" font-size="14" fill="#6A8A9A" text-anchor="middle" letter-spacing="1">TIEMPO AHORRADO</text>
+  <text x="540" y="784" font-family="Arial, sans-serif" font-size="13" fill="#AAB4BA" text-anchor="middle">en revisión manual</text>
+  <text x="540" y="808" font-family="Arial, sans-serif" font-size="13" fill="#AAB4BA" text-anchor="middle"> </text>
+
+  <!-- Card 3 -->
+  <rect x="722" y="658" width="278" height="168" fill="#F4F9FB"/>
+  <rect x="722" y="658" width="278" height="6" fill="#00C8E8"/>
+  <text x="861" y="730" font-family="Arial Black, Arial, sans-serif" font-size="58" font-weight="900" fill="#00C8E8" text-anchor="middle">24/7</text>
+  <text x="861" y="762" font-family="Arial, sans-serif" font-size="14" fill="#6A8A9A" text-anchor="middle" letter-spacing="1">COMPLIANCE ACTIVO</text>
+  <text x="861" y="784" font-family="Arial, sans-serif" font-size="13" fill="#AAB4BA" text-anchor="middle">monitoreo regulatorio</text>
+  <text x="861" y="808" font-family="Arial, sans-serif" font-size="13" fill="#AAB4BA" text-anchor="middle"> </text>
+
+  <!-- Separador -->
+  <rect x="80" y="860" width="920" height="1" fill="#E0E8EC"/>
+
+  <!-- Footer -->
+  <text x="80" y="918" font-family="Arial, sans-serif" font-size="26" font-weight="300" fill="#6A8A9A">Más estrategia. <tspan font-weight="700" fill="#061428">Menos papeleo.</tspan></text>
+
+  <!-- Logo bottom -->
+  <rect x="80" y="952" width="6" height="80" fill="#00C8E8"/>
+  <text x="104" y="993" font-family="Arial Black, Arial, sans-serif" font-size="30" font-weight="900" fill="#061428">Digital<tspan fill="#00C8E8">Axios</tspan></text>
+  <text x="104" y="1022" font-family="Arial, sans-serif" font-size="16" fill="#9AB4BA" letter-spacing="2">CUSTOM SOFTWARE ENGINEERING</text>
+
+</svg>
